@@ -14,7 +14,7 @@ class ageland_banner extends Widget_Base
 
     public function get_title()
     {
-        return __('Banner', 'ageland');
+        return __('Bannerr', 'ageland');
     }
 
     public function get_categories()

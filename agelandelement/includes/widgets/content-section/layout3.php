@@ -1,37 +1,34 @@
 <?php
-    echo'<!-- support area start here  -->
-    <section class="support-area section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="support-info">
-                        <div class="section-title-two mb-0">
-                            <h2 class="title">'.$settings['title'].'</h2>
-                            <span class="section-divider"></span>
+
+                        echo '<!--get plan-->
+        <section class="get_plan_sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="plan_img">
+                            '.get_that_image($settings['image']).'
                         </div>
-                        <div class="support-content">
-                            <p>'.$settings['info'].'</p>
-                        </div>
-                        <div class="feature-list">';
-                        if ($settings['content_list3']) {
-                            foreach ($settings['content_list3'] as $list3) {
-                                echo ' <div class="single-feature">
-                                <div class="feature-icon">
-                                '.get_that_image($list3['image3']).'
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row h-100">
+                            <div class="col-md-12 align-self-center">
+                                <div class="plan_title title">
+                                    <h3>'.$settings['title'].'</h3>
+                                    <p>'.$settings['info'].'</p>
+                                    <ul>';
+if ($settings['content_list3']) {
+    foreach ($settings['content_list3'] as $list3) {
+        echo ' <li><i class="fas fa-caret-right"></i>'.$list3['title3'].'</li>';
+    }
+}
+echo'</ul>
                                 </div>
-                                <h3>'.$list3['title3'].'</h3>
-                            </div>';
-                        }
-                    }
-                        echo'</div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="support-img">
-                    '.get_that_image($settings['image']).'
-                    </div>
+                                <!--/.title-->
+                            </div>
+                        </div>
+                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- support area end here  -->';
+            <!--/.container-->
+        </section>
+        <!--get plan-->';

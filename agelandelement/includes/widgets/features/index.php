@@ -41,59 +41,58 @@ class ageland_features extends Widget_Base {
                 'label' => __('Info', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'condition' => [
-                    'layout' => 'layout3',
+                    'layout' => 'layout1',
                 ],
                 'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Amet, dui, lacus in non massa id tellus amet tincidunt. Lacus ut integer
                  blandit diam nibh pulvinar. Ultrices phasellus', 'ageland'),
             ]
         );
-        $this->add_control(
-            'query_type',
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'image',
             [
-                'label' => __('Query type', 'ageland'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'individual',
-                'options' => [
-                    'category' => __('Category', 'ageland'),
-                    'individual' => __('Individual', 'ageland'),
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
-
-        $this->add_control(
-            'cat_query',
+        $repeater->add_control(
+            'feature_title',
             [
-                'label' => __('Category', 'ageland'),
-                'type' => Controls_Manager::SELECT2,
-                'options' => ae_drop_cat('feature_category'),
-                'multiple' => true,
-                'label_block' => true,
-                'condition' => [
-                    'query_type' => 'category',
-                ],
+                'label' => __( 'Feature', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Ageland', 'ageland' ),
             ]
         );
-
-        $this->add_control(
-            'id_query',
+        $repeater->add_control(
+            'feature_info',
             [
-                'label' => __('Posts', 'ageland'),
-                'type' => Controls_Manager::SELECT2,
-                'options' => ae_drop_posts('features'),
-                'multiple' => true,
-                'label_block' => true,
-                'condition' => [
-                    'query_type' => 'individual',
-                ],
+                'label' => __('Info', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Lorem ipsum dolor sit amet,consetetur sadipcing elitr, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ageland'),
             ]
         );
         $this->add_control(
-            'posts_per_page',
+            'feature_list',
             [
-                'label' => __('Posts Per Page', 'ageland'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 3,
+                'label' => __( 'Feature List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'title' => __( 'Ageland', 'ageland' ),
+                    ],
+                    [
+                        'title' => __( 'Ageland', 'ageland' ),
+                    ],
+                    [
+                        'title' => __( 'Ageland', 'ageland' ),
+                    ],
+                ],
+                'title_field' => '{{{ feature_title }}}',
             ]
         );
         $this->add_control(
@@ -171,14 +170,22 @@ class ageland_features extends Widget_Base {
                 {{WRAPPER}} .default-blog .post-meta i',
             ]
         );
-        $this->add_control(
-            'features-area-two',
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label' => __( 'icon background', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .features-area-two .single-features .features-icon' => 'background: {{VALUE}}',
-                ],
+                'name' => 'banner-area-v3',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .measure_business_sec:before',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'banner-area-v33',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .measure_business_sec:after',
             ]
         );
         $this->end_controls_section();
@@ -188,35 +195,6 @@ class ageland_features extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-
-        $per_page = $settings['posts_per_page'];
-        $cat = $settings['cat_query'];
-        $id = $settings['id_query'];
-
-        if($settings['query_type'] == 'category'){
-            $query_args = array(
-                'post_type' => 'features',
-                'posts_per_page' => $per_page,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'feature_category',
-                        'field' => 'term_id',
-                        'terms' => $cat,
-                    ) ,
-                ) ,
-            );
-        }
-
-        if($settings['query_type'] == 'individual'){
-            $query_args = array(
-                'post_type' => 'features',
-                'posts_per_page' => $per_page,
-                'post__in' =>$id,
-                'orderby' => 'post__in'
-            );
-        }
-
-        $wp_query = new \WP_Query($query_args);
 
         include dirname(__FILE__). '/' . $settings['layout']. '.php';
     }

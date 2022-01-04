@@ -1,43 +1,135 @@
 <?php
-    echo'<!-- blog area two start here  -->
-    <section class="blog-area-two section section-bg pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-two text-center">
-                        <h2 class="title">'.$settings['title'].'</h2>
-                        <span class="section-divider"></span>
+    echo'<!--recent-blog-->
+        <section class="blog_sec home2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title text-center">
+                            <h3>Our Latest News</h3>
+                        </div>
+                        <!--/.title-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="owl-carousel blog_slider_2">
+                            <div class="single_blog_in blog_style_01">
+                                <div class="card">
+                                    <div class="images">
+                                        <img src="img/blog1.jpg" alt="#" />
+                                        <div class="dates">
+                                            <p>Sep 2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2><a href="#">We design platform for all global customers</a></h2>
+                                        <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore.
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p><img src="img/client2.jpg" alt="#" />by <a href="#">Tonmoy Khan</a>
+                                                </p>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
+                                            <li>
+                                                <a href="#"><i class="fas fa-comment-alt"></i> 30</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_blog_in blog_style_01">
+                                <div class="card">
+                                    <div class="images">
+                                        <img src="img/blog2.jpg" alt="#" />
+                                        <div class="dates">
+                                            <p>Sep 2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2><a href="#">Far far away,behind the word mountains, far from</a></h2>
+                                        <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore.
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p><img src="img/client2.jpg" alt="#" />by <a href="#">Tonmoy Khan</a>
+                                                </p>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
+                                            <li>
+                                                <a href="#"><i class="fas fa-comment-alt"></i> 30</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_blog_in blog_style_01">
+                                <div class="card">
+                                    <div class="images">
+                                        <img src="img/blog3.jpg" alt="#" />
+                                        <div class="dates">
+                                            <p>Sep 2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2><a href="#">We design platform for all global customers</a></h2>
+                                        <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore.
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p><img src="img/client2.jpg" alt="#" />by <a href="#">Tonmoy Khan</a>
+                                                </p>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
+                                            <li>
+                                                <a href="#"><i class="fas fa-comment-alt"></i> 30</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_blog_in blog_style_01">
+                                <div class="card">
+                                    <div class="images">
+                                        <img src="img/blog2.jpg" alt="#" />
+                                        <div class="dates">
+                                            <p>Sep 2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2><a href="#">Far far away,behind the word mountains, far from</a></h2>
+                                        <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore.
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p><img src="img/client2.jpg" alt="#" />by <a href="#">Tonmoy Khan</a>
+                                                </p>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
+                                            <li>
+                                                <a href="#"><i class="fas fa-comment-alt"></i> 30</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.blog_slider_owl-->
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="ag_blog_newsletter mt-5 mt-lg-0">
+                            <div class="ag_blog_newsletter_wrapper">
+                                <h4>Get Newsletter</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adip iscing elit,sed do eiosmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <form>
+                                    <input type="email" placeholder="Email Address" />
+                                    <button type="submit" class="ag_btn btn_1">Purchase</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">';
-            if ($wp_query->have_posts()) {
-                while ($wp_query->have_posts()) {
-                    $wp_query->the_post();
-                    echo '<div class="col-lg-4 col-md-6">
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="' . get_the_permalink() . '">';
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail('full');
-                            }
-                            echo '</a>
-                        </div>
-                        <div class="blog-info">
-                            <h3 class="blog-title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                            <ul class="blog-meta">
-                                <li><a href="'.get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('j')).'"><i class="far fa-calendar"></i> '.get_the_time('j F, Y').'</a></li>
-                                <li><a href="#"><i class="far fa-clock"></i> '.display_read_time().' Min To Read</a></li>
-                            </ul>
-                            <p class="blog-cotent">' . get_the_excerpt() . '</p>
-                            <a href="' . get_the_permalink() . '" class="blog-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>';
-            }
-            wp_reset_postdata();
-        }
-        echo '</div>
-        </div>
-    </section>
-    <!-- blog area two end here  -->';
+            <!--/.container-->
+        </section>
+        <!--recent-blog-->';

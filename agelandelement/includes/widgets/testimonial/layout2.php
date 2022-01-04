@@ -1,41 +1,55 @@
 <?php
-    echo'<!-- testimonial two area start here  -->
-    <section class="testimonial-two-area section ">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-two text-center">
-                        <h2 class="title">'.$settings['title'].'</h2>
-                        <span class="section-divider"></span>
+
+                    echo '<!--testimonials home 2-->
+        <section class="testimonials_home2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="title text-center">
+                            <h3>'.$settings['title'].'</h3>
+                            <p>'.$settings['info'].'</p>
+                        </div>
+                        <!--/.title-->
+                    </div>
+                    <div class="col-md-8 offset-md-2">
+                        <div class="owl-carousel" id="testimonials_home2_owl">';
+
+if ($settings['testi_list']) {
+    foreach ($settings['testi_list'] as $testi) {
+        echo '<div>
+                                <div class="single_testi_in2">
+                                    '.get_that_image($testi['thumb']).'
+                                    <h4>'.$testi['t_title'].'</h4>
+                                    <h5>'.$testi['t_subtitle'].'</h5>
+                                    <h2><i class="fas fa-quote-left"></i></h2>
+                                    <p>'.$testi['t_info'].'
+                                    </p>
+                                </div>
+                                <!--/.single_testi_in2-->
+                            </div>';
+    }
+}
+echo '</div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="testimonial-slide-two">';
+            <!--/.container-->';
 
-                    if ($settings['testi_list']) {
-                        foreach ($settings['testi_list'] as $testi) {
-                        echo '<div class="sigle-testimonial text-center">
-                            <div class="quote-iocn">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <div class="clint-image">
-                            '.get_that_image($testi['thumb']).'
-                            </div>
-                            <p>
-                            '.$settings['info'].'
-                            </p>
-                            <div class="clinmg-info">
-                                <h4><a '.get_that_link($testi['t_link']).'>'.$testi['t_title'].'</a></h4>
-                                <span>'.$testi['t_subtitle'].'</span>
-                            </div>
-                        </div>';
-                    }
-                }
-                echo '</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- testimonial two area end here  -->';
+if ($settings['icon_list']) {
+    $loop=0;
+    foreach ($settings['icon_list'] as $icon) {
+        $loop++;
+        if ($loop==1){
+            $cls='shape-three';
+        }elseif ($loop==2){
+            $cls='shape-four';
+        }elseif ($loop==3){
+            $cls='shape-five';
+        }else{
+            $cls='shape-six';
+        }
+        echo ''.get_that_image($icon['ico'],''.$cls.'').'';
+    }
+}
+echo '</section>
+        <!--testimonials home 2-->';

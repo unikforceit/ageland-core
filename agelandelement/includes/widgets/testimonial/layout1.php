@@ -1,39 +1,75 @@
 <?php
-    echo '<!-- testimonial area start here  -->
-    <section class="testimonial-area section" id="testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                         <h2 class="title">'.$settings['title'].'</h2>
-                        <p class="sub-title">'.$settings['info'].'</p>
+
+        echo'<!--testimonials- sec-->
+        <section class="testimonials_sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="testimonials_image_btn">
+                            <ul class="nav nav-tabs" role="tablist">';
+if ($settings['testi_list']) {
+    $loop=0;
+    foreach ($settings['testi_list'] as $testi) {
+        $loop++;
+        if ($loop==1){
+            $cls='one';
+            $act = 'active show';
+        }elseif ($loop==2){
+            $cls='two';
+            $act = '';
+        }elseif ($loop==3){
+            $cls='three';
+            $act = '';
+        }elseif ($loop==4){
+            $cls='four';
+            $act = '';
+        }else{
+            $act = '';
+            $cls='five';
+        }
+        echo '<li class="nav-item '.$cls.'">
+                                    <a class="nav-link '.$act.'" data-toggle="tab" href="#tabs-'.$loop.'" role="tab">'.get_that_image($testi['thumb'],'people').'</a>
+                                </li>';
+    }
+}
+echo '</ul>
+                            <!-- Tab panes -->
+                        </div>
+                    </div>
+                    <div class="col-md-5 offset-md-1">
+                        <div class="testimonials_content_tab h-100">
+                            <div class="row h-100">
+                                <div class="col-md-12 align-self-center">
+                                    <div class="tab-content">';
+
+if ($settings['testi_list']) {
+    $loop2 = 0;
+    foreach ($settings['testi_list'] as $testi) {
+        $loop2++;
+        if ($loop2 == 1){
+            $act2 = 'active show';
+        }else{
+            $act2 = '';
+        }
+        echo '<div class="tab-pane '.$act2.'" id="tabs-'.$loop2.'" role="tabpanel">
+                                            <div class="single_testi_inside">
+                                                '.get_that_image($settings['quote']).'
+                                                <p>'.$testi['t_info'].'</p>
+                                                <h4>'.$testi['t_title'].'</h4>
+                                                <h5>'.$testi['t_subtitle'].'</h5>
+                                            </div>
+                                            <!--/.single_testi_inside-->
+                                        </div>';
+    }
+}
+echo '</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.testimonials_content_tab-->
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="testimonial-slide">';
-
-        if ($settings['testi_list']) {
-            foreach ($settings['testi_list'] as $testi) {
-            echo '<div class="sigle-testimonial text-center">
-                            <div class="quote-iocn">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <div class="clint-image">
-                               '.get_that_image($testi['thumb']).'
-                            </div>
-                            <p>'.$testi['t_info'].'</p>
-                            <div class="clinmg-info">
-                                <h4><a '.get_that_link($testi['t_link']).'>'.$testi['t_title'].'</a></h4>
-                                <span>'.$testi['t_subtitle'].'</span>
-                            </div>
-                        </div>';
-                }
-            }
-            echo ' </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- testimonial area end here  -->';
+            <!--/.container-->
+        </section>
+        <!--testimonials- sec-->';

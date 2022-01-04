@@ -1,48 +1,39 @@
 <?php
-    echo'<!-- features-area-two start here  -->
-    <section class="features-area-two section-top pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-title-three mb-37 text-center ">
-                        <h2 class="title">'.$settings['title'].'</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">';
-            $loop=0;
-            if ($wp_query->have_posts()) {
-                while ($wp_query->have_posts()) {
-                    $wp_query->the_post();
-                    $loop++;
-                            if($loop==1){
-                                $f_bg='';
-                            }elseif($loop==2) {
-                                $f_bg='bg-two';
-                            }elseif($loop==3) {
-                                $f_bg='bg-three';
-                            }elseif($loop==4) {
-                                $f_bg='bg-four';
-                            }elseif($loop==5) {
-                                $f_bg='bg-five';
-                            }else {
-                                $f_bg='bg-six';
-                            }
-                    echo '<div class="col-lg-4 col-md-6">
-                    <div class="single-features text-center">
-                        <div class="features-icon '.$f_bg.'">
-                        <i class="'.ageland_feature_meta('feature_icon').'"></i>
+    echo'<!--measure business-->
+        <section class="measure_business_sec home2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="title text-center">
+                            <h3>Measure of Business</h3>
+                            <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, At vero eos et accusam et justo duo dolores.</p>
                         </div>
-                        <div class="features-info">
-                            <h3>' . get_the_title() . '</h3>
-                            <p>' . get_the_excerpt() . '</p>
-                        </div>
+                        <!--/.title-->
                     </div>
-                </div>';
-            }
-            wp_reset_postdata();
+                    <div class="w-100"></div>';
+if ($settings['feature_list']) {
+    $loop=0;
+    foreach ($settings['feature_list'] as $feature) {
+        $loop++;
+        if ($loop==1){
+            $cls='one1';
+        }elseif ($loop==2){
+            $cls='two';
+        }else {
+            $cls='three';
         }
-        echo '</div>
-        </div>
-    </section>
-    <!-- features-area-two end here  -->';
+        echo '<div class="col-md-4">
+                        <div class="business_single_in '.$cls.'" data-aos="fade-up" data-aos-duration="1000">
+                            '.get_that_image($feature['image']).'
+                            <h4>'.$feature['feature_title'].'</h4>
+                            <p>'.$feature['feature_info'].'</p>
+                        </div>
+                        <!--/.business_single_in-->
+                    </div>';
+    }
+}
+echo '</div>
+            </div>
+            <!--/.container-->
+        </section>
+        <!--measure business-->';

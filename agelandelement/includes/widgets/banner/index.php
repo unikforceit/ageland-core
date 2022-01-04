@@ -14,7 +14,7 @@ class ageland_banner extends Widget_Base
 
     public function get_title()
     {
-        return __('Bannerr', 'ageland');
+        return __('Banner', 'ageland');
     }
 
     public function get_categories()
@@ -42,14 +42,22 @@ class ageland_banner extends Widget_Base
             [
                 'label' => __('Title', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Reinvent Yourself With Oursalves By Useing Ageland', 'ageland'),
+                'default' => __('Your Own Extension', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'sub_title',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Project Manage', 'ageland'),
             ]
         );
         $this->add_control(
             'info',
             [
                 'label' => __('Info', 'ageland'),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => \Elementor\Controls_Manager::WYSIWYG,
                 'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Amet, dui, lacus in non massa id tellus amet tincidunt. Lacus ut integer
                  blandit diam nibh pulvinar. Ultrices phasellus', 'ageland'),
@@ -105,74 +113,35 @@ class ageland_banner extends Widget_Base
                 ],
             ]
         );
-        $this->add_control(
-            'top-left-image',
-            [
-                'label' => __( 'top-left-image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => ['layout2','layout3'],
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $this->add_control(
-            'top-right-image',
-            [
-                'label' => __( 'top-right-image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => ['layout2','layout3'],
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $this->add_control(
-            'bottom-left-image',
-            [
-                'label' => __( 'bottom-left-image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => ['layout2','layout3'],
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $this->add_control(
-            'bottom-right-image',
-            [
-                'label' => __( 'bottom-right-image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => 'layout2',
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
-            'icon_title',
+            't_title',
             [
-                'label' => __( 'Icon', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Ageland', 'ageland' ),
+                'label' => __( 'Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Icon', 'ageland' ),
             ]
         );
         $repeater->add_control(
-            'icon',
+            'icon1',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
+                'label' => __( 'Social Icons 1', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::ICONS,
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'value' => 'fab fa-twitter',
+                    'library' => 'brand',
+                ],
+            ]
+        );
+        $repeater->add_control(
+            'link1', [
+                'label' => __('Link 1', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
                 ],
             ]
         );
@@ -182,21 +151,25 @@ class ageland_banner extends Widget_Base
                 'label' => __( 'Icon List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
-                    'layout' => 'layout4',
+                    'layout' => ['layout2'],
                 ],
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'title' => __( 'List', 'ageland' ),
+                        't_title' => __( 'Icon', 'ageland' ),
                     ],
                     [
-                        'title' => __( 'List', 'ageland' ),
+                        't_title' => __( 'Icon', 'ageland' ),
                     ],
                     [
-                        'title' => __( 'List', 'ageland' ),
+                        't_title' => __( 'Icon', 'ageland' ),
                     ],
+                    [
+                        't_title' => __( 'Icon', 'ageland' ),
+                    ],
+
                 ],
-                'title_field' => '{{{ icon_title }}}',
+                'title_field' => '{{{ t_title }}}',
             ]
         );
         $this->add_control(
@@ -273,9 +246,27 @@ class ageland_banner extends Widget_Base
         $this->add_control(
             'social_bg',
             [
-                'label' => __('Box BG', 'ageland'),
+                'label' => __('Background', 'ageland'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'after',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'banner-area-v33',
+                'label' => __('banner-area-v33', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .hero_banner:before',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'banner-area-v333',
+                'label' => __('banner-area-v333', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .hero_banner:after',
             ]
         );
         $this->add_group_control(
@@ -284,7 +275,7 @@ class ageland_banner extends Widget_Base
                 'name' => 'banner-area-v3',
                 'label' => __('banner-area-v3', 'ageland'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .banner-area-v3',
+                'selector' => '{{WRAPPER}} .hero_banner',
             ]
         );
         $this->end_controls_section();

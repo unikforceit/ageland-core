@@ -53,19 +53,19 @@ class ageland_team extends Widget_Base {
         $this->add_control(
             'layout',
             [
-                'label' => __( 'Title Layout', 'ageland' ),
+                'label' => __( 'Layout', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
-                    'four' => [
+                    'layout1' => [
                         'title' => __( 'One', 'ageland' ),
                         'icon' => 'eicon-form-horizontal',
                     ],
-                    'five' => [
+                    'layout2' => [
                         'title' => __( 'Two', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
                 ],
-                'default' => 'four',
+                'default' => 'layout1',
                 'toggle' => true,
             ]
         );
@@ -181,9 +181,55 @@ class ageland_team extends Widget_Base {
                     [
                         't_title' => __( 'UI/UX Designer', 'ageland' ),
                     ],
+                    [
+                        't_title' => __( 'UI/UX Designer', 'ageland' ),
+                    ],
 
                 ],
                 'title_field' => '{{{ t_title }}}',
+            ]
+        );
+        $repeater2 = new \Elementor\Repeater();
+        $repeater2->add_control(
+            'image1',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $repeater2->add_control(
+            'team_icon',
+            [
+                'label' => __( 'Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Icon', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'icon_list',
+            [
+                'label' => __( 'Icon List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater2->get_controls(),
+                'default' => [
+                    [
+                        't_title' => __( 'UI/UX Designer', 'ageland' ),
+                    ],
+                    [
+                        't_title' => __( 'UI/UX Designer', 'ageland' ),
+                    ],
+                    [
+                        't_title' => __( 'UI/UX Designer', 'ageland' ),
+                    ],
+                    [
+                        't_title' => __( 'UI/UX Designer', 'ageland' ),
+                    ],
+
+                ],
+                'title_field' => '{{{ team_icon }}}',
             ]
         );
         $this->end_controls_section();
@@ -195,87 +241,13 @@ class ageland_team extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-        $this->add_control(
-            'slider_number',
-            [
-                'label' => __('Slider Number', 'ageland'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 2,
-            ]
-        );
-        $this->add_control(
-            'post_title_color',
-            [
-                'label' => __( 'Title Color', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .caption' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-        $this->add_control(
-            'post_titlea_color',
-            [
-                'label' => __( 'Title Active Color', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .overlay-box h4' => 'color: {{VALUE}}; border-color: {{VALUE}}',
-                ],
-            ]
-        );
         $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
+            Group_Control_Background::get_type(),
             [
-                'name' => 'ttih',
-                'label' => __( 'Title Typography', 'ageland' ),
-                'selector' => '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .caption',
-            ]
-        );
-        $this->add_control(
-            'hh_c',
-            [
-                'label' => __( 'Content Color', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .why-chooseus .single-item .inner-box .overlay-box p' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'ttihaa',
-                'label' => __( 'Content Typography', 'ageland' ),
-                'selector' => '{{WRAPPER}} .why-chooseus .single-item .inner-box .overlay-box p',
-            ]
-        );
-        $this->add_control(
-            'hh_caa',
-            [
-                'label' => __( 'Button Color', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .overlay-box .read-more' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'ttihaaccc',
-                'label' => __( 'Button Typography', 'ageland' ),
-                'selector' => '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .overlay-box .read-more',
-            ]
-        );
-        $this->add_control(
-            'icon_cb',
-            [
-                'label' => __( 'Overlay BG', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .overlay-box, 
-                    {{WRAPPER}} .why-chooseus .single-item .inner-box .image-box .caption' => 'background-color: {{VALUE}}',
-                ],
+                'name' => 'banner-area-v33',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .teams_second_home2',
             ]
         );
         $this->end_controls_section();
@@ -284,47 +256,15 @@ class ageland_team extends Widget_Base {
         
     protected function render(){
 
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
 
-        echo'<!-- team area start  here  -->
-        <div class="team-area section-top pb-90 ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="section-title-'.$settings['layout'].' mb-45 text-center ">
-                            <h2 class="title">'.$settings['title'].'</h2>
-                            <p class="sub-title">'.$settings['info'].'</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">';
-                if ($settings['team_list']) {
-                    foreach ($settings['team_list'] as $team) {
-                    echo '<div class="col-lg-4 col-ld-4 col-sm-6">
-                        <div class="single-team text-center">
-                            <div class="team-thumbnail">
-                                <a href="#">'.get_that_image($team['image']).'</a>
-                            </div>
-                            <div class="member-info">
-                                <h3><a href="#">'.$team['t_title'].'</a></h3>
-                                <h4>'.$team['t_desig'].'</h4>
-                                <ul class="member-social-media">
-                                    <li><a '.get_that_link($team['link1']).'>';\Elementor\Icons_Manager::render_icon( $team['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
-                                    <li><a '.get_that_link($team['link2']).'>';\Elementor\Icons_Manager::render_icon( $team['icon2'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
-                                    <li><a '.get_that_link($team['link3']).'>';\Elementor\Icons_Manager::render_icon( $team['icon3'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>';
-                }
-            }
-            echo '</div>
-            </div>
-        </div>
-        <!-- team area end  here  -->';
+        include dirname(__FILE__). '/' . $settings['layout']. '.php';
 
     }
 
+    protected function content_template() {}
+
+    public function render_plain_content( $instance = [] ) {}
 
 }
 Plugin::instance()->widgets_manager->register_widget_type( new ageland_team() );

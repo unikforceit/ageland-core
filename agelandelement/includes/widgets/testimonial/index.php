@@ -124,6 +124,49 @@ class ageland_testimonial extends Widget_Base {
                 'title_field' => '{{{ t_title }}}',
             ]
         );
+        $repeater2 = new \Elementor\Repeater();
+        $repeater2->add_control(
+            'icon_title',
+            [
+                'label' => __( 'Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Jerome Bell', 'ageland' ),
+            ]
+        );
+        $repeater2->add_control(
+            'ico',
+            [
+                'label' => __( 'Choose Icon', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->add_control(
+            'icon_list',
+            [
+                'label' => __( 'Icon List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater2->get_controls(),
+                'default' => [
+                    [
+                        'icon_title' => __( 'Icon', 'ageland' ),
+                    ],
+                    [
+                        'icon_title' => __( 'Icon', 'ageland' ),
+                    ],
+                    [
+                        'icon_title' => __( 'Icon', 'ageland' ),
+                    ],
+                    [
+                        'icon_title' => __( 'Icon', 'ageland' ),
+                    ],
+
+                ],
+                'title_field' => '{{{ icon_title }}}',
+            ]
+        );
         $this->add_control(
             'layout',
             [
@@ -162,6 +205,16 @@ class ageland_testimonial extends Widget_Base {
             [
                 'label' => __( 'General', 'ageland' ),
                 'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_control(
+            'quote',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
             ]
         );
         $this->add_control(

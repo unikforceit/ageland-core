@@ -42,14 +42,14 @@ class ageland_content_section extends Widget_Base
             [
                 'label' => __('Title', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Built The App That Everyone Will Love.', 'ageland'),
+                'default' => __('About Us', 'ageland'),
             ]
         );
         $this->add_control(
             'info',
             [
                 'label' => __('Info', 'ageland'),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => \Elementor\Controls_Manager::WYSIWYG,
                 'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Enim adipi svsciang pellentesque curabitur at tellus pharetra non. Natoque 
                 dosnec quis felis nunc, amet. Integer venenatis at velit malesuada vestibulum tempor vitae. Eu sed proin eget
@@ -61,7 +61,7 @@ class ageland_content_section extends Widget_Base
             [
                 'label' => __('Button', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Learn More', 'ageland'),
+                'default' => __('Read More', 'ageland'),
             ]
         );
         $this->add_control(
@@ -86,6 +86,16 @@ class ageland_content_section extends Widget_Base
                 ],
             ]
         );
+        $this->add_control(
+            'image1',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
             'title3',
@@ -100,6 +110,9 @@ class ageland_content_section extends Widget_Base
             [
                 'label' => __( 'Choose Image', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'layout' => ['layout3','layout6'],
+                ],
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
@@ -108,7 +121,7 @@ class ageland_content_section extends Widget_Base
         $this->add_control(
             'content_list3',
             [
-                'label' => __( 'Icon List', 'ageland' ),
+                'label' => __( 'Content List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
                     'layout' => ['layout3','layout6'],
@@ -175,18 +188,28 @@ class ageland_content_section extends Widget_Base
         $repeater2->add_control(
             'title5',
             [
-                'label' => __('Title', 'ageland'),
+                'label' => __('Icon', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Cloud Service', 'ageland'),
+                'default' => __('Icon', 'ageland'),
+            ]
+        );
+        $repeater2->add_control(
+            'iconnn',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
             ]
         );
         $this->add_control(
-            'content_list5',
+            'icon_list',
             [
-                'label' => __( 'content List', 'ageland' ),
+                'label' => __( 'icon List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
-                    'layout' => ['layout5','layout7','layout8'],
+                    'layout' => ['layout2'],
                 ],
                 'fields' => $repeater2->get_controls(),
                 'default' => [
@@ -251,7 +274,7 @@ class ageland_content_section extends Widget_Base
         $this->add_control(
             'social_bg',
             [
-                'label' => __('Box BG', 'ageland'),
+                'label' => __('Background', 'ageland'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'after',
             ]
@@ -263,9 +286,21 @@ class ageland_content_section extends Widget_Base
                 'label' => __('Icon Image', 'ageland'),
                 'types' => ['classic', 'gradient'],
                 'condition' => [
-                    'layout' => 'layout4',
+                    'layout' => 'layout1',
                 ],
-                'selector' => '{{WRAPPER}} .fantastic-area .fantastic-image:before',
+                'selector' => '{{WRAPPER}} .about_us_sec:after',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay444',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout3',
+                ],
+                'selector' => '{{WRAPPER}} .get_plan_sec:after',
             ]
         );
         $this->add_group_control(
@@ -277,7 +312,7 @@ class ageland_content_section extends Widget_Base
                 'condition' => [
                     'layout' => 'layout4',
                 ],
-                'selector' => '{{WRAPPER}} .fantastic-area .fantastic-image:after',
+                'selector' => '{{WRAPPER}} .interested_pro.home2:after',
             ]
         );
         $this->end_controls_section();

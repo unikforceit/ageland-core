@@ -32,7 +32,7 @@ class ageland_blog extends Widget_Base {
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Read The Latest News Here', 'ageland' ),
+                'default' => __( 'Our Latest News', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -40,8 +40,23 @@ class ageland_blog extends Widget_Base {
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'ageland' ),
+                'default' => __( 'Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, At vero eos et accusam et justo duo dolores.', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'news_title',
+            [
+                'label' => __( 'Newsletter Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Get Newsletter', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'news_info',
+            [
+                'label' => __( 'Newsletter Info', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Lorem ipsum dolor sit amet, consectetur adip iscing elit,sed do eiosmod tempor incididunt ut labore et dolore magna aliqua.', 'ageland' ),
             ]
         );
         $this->add_control(

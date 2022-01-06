@@ -1,35 +1,54 @@
 <?php
-    echo'<!-- testimonial-three-area atart here  -->
-    <section class="testimonial-three-area section section-bg-two">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-title-three mb-37 text-center ">
-                        <h2 class="title">'.$settings['title'].'</h2>
+    echo'<!-- testimonial section -->
+        <section class="testimonial_section overflow-hidden testimonial_bg_img grdient_overlay section_padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="swiper-container pb-0 client_slider_thumbs">
+                            <div class="swiper-wrapper">';
+
+if ($settings['testi_list']) {
+    $loop=0;
+    foreach ($settings['testi_list'] as $testi) {
+        $loop++;
+        if ($loop==1){
+            $active='swiper-slide-thumb-active';
+        }else {
+            $active='';
+        }
+        echo ' <div class="swiper-slide '.$active.'">
+                                    <div class="client_slider_thumb">
+                                        '.get_that_image($testi['thumb']).'
+                                    </div>
+                                </div>';
+    }
+}
+echo '</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 pl-lg-80">
+                        <div class="swiper-container client_slider_content">
+                            <div class="swiper-wrapper">';
+
+if ($settings['testi_list']) {
+    foreach ($settings['testi_list'] as $testi) {
+        echo '<div class="swiper-slide">
+                                    <div class="client_slider_content_wrapper">
+                                        '.get_that_image($settings['quote'],'testimonial_quote_img').'
+                                        <p class="client_speech">
+                                            '.$testi['t_info'].'
+                                        </p>
+                                        <h4 class="client_name">'.$testi['t_title'].'</h4>
+                                        <p class="client_position">'.$testi['t_subtitle'].'</p>
+                                    </div>
+                                </div>';
+    }
+}
+echo '</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-list-three testimonial-three-active">';
-
-            if ($settings['testi_list']) {
-                foreach ($settings['testi_list'] as $testi) {
-                echo '<div class="single-testimonial">
-                    <div class="testimonial-content">
-                        <p>“'.$settings['info'].'</p>
-                    </div>
-                    <div class="clint-info">
-                        <div class="media">
-                        '.get_that_image($testi['thumb'],'clint-img mr-4').'
-                            <div class="media-body align-self-center">
-                              <h4 class="clint-name "><a '.get_that_link($testi['t_link']).'>'.$testi['t_title'].'</a></h4>
-                              <span>'.$testi['t_subtitle'].'</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>';
-            }
-        }
-        echo '</div>
-        </div>
-    </section>
-    <!-- testimonial-three-area end here  -->';
+            <img src="img/testmonial_map.png" alt="#" class="testimonial_shape">
+        </section>
+        <!-- testimonial section end -->';

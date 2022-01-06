@@ -1,42 +1,70 @@
 <?php
-    echo'<!-- blog area three start here  -->
-    <section class="blog-area-three section pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="section-title-three mb-37 text-center ">
-                        <h2 class="title">'.$settings['title'].'</h2>
+echo'<!--recent-blog-->
+        <section class="blog_sec home2 blog_section padding_bottom overflow-hidden">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="ag_section_title mb_55 text-center">
+                            <h2 class="title pb-0">'.$settings['title'].'</h2>
+                            <p class="description">'.$settings['info'].'</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="owl-carousel blog_slider_2">';
+if ($wp_query->have_posts()) {
+    while ($wp_query->have_posts()) {
+        $wp_query->the_post();
+        echo '<div class="single_blog_in blog_style_01">
+                                <div class="card">
+                                    <div class="images">
+                                        <a href="' . get_the_permalink() . '">';
+        if (has_post_thumbnail()) {
+            the_post_thumbnail('full');
+        }
+        echo '</a>
+                                        <div class="dates">
+                                            <p><a href="' . get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('j')) . '"> ' . get_the_time('F, Y') . '</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>
+                                        <p>' . get_the_excerpt() . '
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p>'.get_avatar( get_the_author_meta('ID')).' by <a href="'.get_author_posts_url(get_the_author_meta('ID')).'">'.get_the_author().'</a></p>
+                                                </p>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
+                                            <li>
+                                                <a href="#"><i class="fas fa-comment-alt"></i>'.get_comments_number().' </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>';
+    }
+    wp_reset_postdata();
+}
+echo ' </div>
+                        <!--/.blog_slider_owl-->
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="ag_blog_newsletter mt-5 mt-lg-0">
+                            <div class="ag_blog_newsletter_wrapper">
+                                <h4>'.$settings['news_title'].'</h4>
+                                <p>'.$settings['news_info'].'</p>
+                                <form>
+                                    <input type="email" placeholder="Email Address" />
+                                    <button type="submit" class="ag_btn btn_1">Purchase</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">';
-            if ($wp_query->have_posts()) {
-                while ($wp_query->have_posts()) {
-                    $wp_query->the_post();
-                    echo '<div class="col-lg-4 col-md-6">
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="' . get_the_permalink() . '">';
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail('full');
-                            }
-                            echo '</a>
-                        </div>
-                        <div class="blog-info">
-                            <h3 class="blog-title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                            <ul class="blog-meta">
-                                <li><a href="'.get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('j')).'"><i class="far fa-calendar"></i> '.get_the_time('j F, Y').'</a></li>
-                                <li><a href="#"><i class="far fa-clock"></i>'.display_read_time().' Min To Read</a></li>
-                            </ul>
-                            <p class="blog-cotent">' . get_the_excerpt() . '</p>
-                            <a href="' . get_the_permalink() . ' " class="blog-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>';
-            }
-            wp_reset_postdata();
-        }
-        echo '</div>
-        </div>
-    </section>
-    <!-- blog area three end here  -->';
+            <!--/.container-->
+        </section>
+        <!--recent-blog-->';

@@ -1,30 +1,16 @@
 <?php
-    echo'<!-- about three area start here  -->
-    <section class="about-area-three section ">';
-        $loop=0;
-        if ($settings['content_list3']) {
-            foreach ($settings['content_list3'] as $list) {
-                $loop++;
-                echo  get_that_image($list['image3'], 'ellipse'.$loop);
-            }
-        }
-        echo'<div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="about-img text-center">
-                    '.get_that_image($settings['image']).'
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="about-info">
-                        <div class="section-title-four ">
-                            <h2 class="title">'.$settings['title'].'</h2>
+    echo'<!--cta section here-->
+        <section class="cta_section cta_bg section_padding grdient_overlay">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="ag_cta_section_wrapper text-center">
+                            <h2 class="title text-white">'.$settings['title'].'</h2>
+                            <p class="description text-white">'.$settings['info'].'</p>
+                            <a '.get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
                         </div>
-                        <p>'.$settings['info'].'</p>
-                        <a class="primary-btn-four" '.get_that_link($settings['link']).'>'.$settings['button'].'</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- about three area start here  -->';
+        </section>
+        <!--cta section end-->';

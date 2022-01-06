@@ -172,6 +172,49 @@ class ageland_banner extends Widget_Base
                 'title_field' => '{{{ t_title }}}',
             ]
         );
+        $repeater2 = new \Elementor\Repeater();
+        $repeater2->add_control(
+            'shape_title',
+            [
+                'label' => __( 'Shape Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Shape Icon', 'ageland' ),
+            ]
+        );
+        $repeater2->add_control(
+            'shape_image',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->add_control(
+            'shape_list',
+            [
+                'label' => __( 'Shape List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'condition' => [
+                    'layout' => ['layout3'],
+                ],
+                'fields' => $repeater2->get_controls(),
+                'default' => [
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+
+                ],
+                'title_field' => '{{{ shape_title }}}',
+            ]
+        );
         $this->add_control(
             'layout',
             [
@@ -257,6 +300,9 @@ class ageland_banner extends Widget_Base
                 'name' => 'banner-area-v33',
                 'label' => __('banner-area-v33', 'ageland'),
                 'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => ['layout1'],
+                ],
                 'selector' => '{{WRAPPER}} .hero_banner:before',
             ]
         );
@@ -266,6 +312,9 @@ class ageland_banner extends Widget_Base
                 'name' => 'banner-area-v333',
                 'label' => __('banner-area-v333', 'ageland'),
                 'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => ['layout1'],
+                ],
                 'selector' => '{{WRAPPER}} .hero_banner:after',
             ]
         );
@@ -275,7 +324,22 @@ class ageland_banner extends Widget_Base
                 'name' => 'banner-area-v3',
                 'label' => __('banner-area-v3', 'ageland'),
                 'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => ['layout1','layout2'],
+                ],
                 'selector' => '{{WRAPPER}} .hero_banner',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'banner-area-v32',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => ['layout3'],
+                ],
+                'selector' => '{{WRAPPER}} .ag_banner_part.banner_bg_img',
             ]
         );
         $this->end_controls_section();

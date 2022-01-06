@@ -1,29 +1,23 @@
 <?php
-    echo'<!-- highlights-product area start here  -->
-    <section class="highlights-product-area section section-bg-two ">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="highlights-img text-center">
-                    '.get_that_image($settings['image']).'
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="highlights-product-info">
-                        <div class="section-title-three mb-37">
-                            <h2 class="title">'.$settings['title'].'</h2>
+    echo'<!-- about section -->
+        <section class="about_section about_bg padding_bottom">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-5 col-md-6 order-2 order-md-1">
+                        <div class="ag_about_text_box">
+                            <h2 class="title"> '.$settings['title'].'</h2>
+                            <p class="description">'.$settings['info'].'</p>
+                            <a '.get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
+                            <h4 class="sub_title"><span>Try Us </span> for better services.</h4>
+                            <p class="description">We’ve a huge number of team members and all member’s are highly skilled & experienced.</p>
                         </div>
-                        <ul class="highlights-features">';
-                        if ($settings['content_list5']) {
-                            foreach ($settings['content_list5'] as $list5) {
-                                echo ' <li>'.$list5['title5'].'</li>';
-                            }
-                        }
-                            echo'</ul>
-                        <a class="primary-btn-three" '.get_that_link($settings['link']).'>'.$settings['button'].'</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 order-1 order-md-2">
+                        <div class="ag_img_box mb-5 mt-md-0">
+                            '.get_that_image($settings['image'], 'img-fluid').'
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- highlights-product area end here  -->';
+        </section>
+        <!-- about section end -->';

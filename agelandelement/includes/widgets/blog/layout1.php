@@ -6,7 +6,7 @@ echo '<!--recent-blog-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title text-center">
-                            <h3>Our Latest News</h3>
+                            <h3>'.$settings['title'].'</h3>
                         </div>
                         <!--/.title-->
                     </div>

@@ -99,7 +99,51 @@
 
     };
 
-    var Agelandtesti = function ($scope, $) {
+    var Agelandblog2 = function ($scope, $) {
+
+        $scope.find('.blog_sec').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            var owls = $(".blog_slider_2");
+            owls.owlCarousel({
+                autoplay: false,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                items: 3,
+                loop: true,
+                center: false,
+                margin: 30,
+                stagePadding: 0,
+                dots: true,
+                nav: false,
+                merge: false,
+                mergeFit: true,
+                autoWidth: false,
+                animateOut: 'fadeOutRight',
+                animateIn: 'fadeInLeft',
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    580: {
+                        items: 1,
+                    },
+                    768: {
+                        items: 1,
+                    },
+                    992: {
+                        items: 2,
+                        loop: true
+                    }
+                },
+            });
+        // Js End
+        });
+
+    };
+    var Agelandtesti2 = function ($scope, $) {
 
         $scope.find('.testimonials_home2').each(function () {
             var settings = $(this).data('ageland');
@@ -128,6 +172,31 @@
         });
 
     };
+    var Agelandtesti3 = function ($scope, $) {
+
+        $scope.find('.testimonial_bg_img').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            var galleryThumbs = new Swiper('.client_slider_thumbs', {
+                spaceBetween: 10,
+                slidesPerView: 5,
+                loopedSlides: 5, //looped slides should be the same
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+            });
+            var galleryTop = new Swiper('.client_slider_content', {
+                spaceBetween: 10,
+                loop: true,
+                loopedSlides: 5, //looped slides should be the same
+                thumbs: {
+                    swiper: galleryThumbs,
+                },
+            });
+        // Js End
+        });
+
+    };
 
 
 
@@ -137,7 +206,9 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/global', AgelandGlobal);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog);
-            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
 
         }
         else {
@@ -145,7 +216,9 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/global', AgelandGlobal);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog);
-            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
         }
     });
 console.log('addon js loaded');

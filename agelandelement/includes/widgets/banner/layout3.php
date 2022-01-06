@@ -1,27 +1,40 @@
 <?php
-    echo'<!-- hero banner area start here  -->
-    <section class="banner-area-v3">
-        '.get_that_image($settings['top-left-image'], 'tangle-one').'
-        '.get_that_image($settings['top-right-image'], 'tangle-two').'
-        '.get_that_image($settings['bottom-left-image'], 'tangle-three').'
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="banner-info">
-                        <h2>'.$settings['title'].'</h2>
-                        <p>'.$settings['info'].'</p>
-                        <ul class="banner-btn-list">
-                            <li><a class="primary-btn-three" '.get_that_link($settings['link1']).'>'.$settings['button1'].'</a></li>
-                            <li><a class="primary-btn-three active" '.get_that_link($settings['link2']).'>'.$settings['button2'].'</a></li>
-                        </ul>
+    echo'<!--hero section-->
+        <section class="ag_banner_part banner_bg_img mouse_move_animation">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="ag_banner_content_inner">
+                            <h5 class="sub_title">'.$settings['sub_title'].'</h5>
+                            <h2 class="banner_title">'.$settings['title'].'</h2>
+                            <p class="description">'.$settings['info'].'</p>
+                            <div class="btn_list">
+                                <a '.get_that_link($settings['link1']).' class="ag_btn btn_1">'.$settings['button1'].'</a>
+                                <a '.get_that_link($hero['link2']).' class="video_popup_btn">
+                                    <span class="fa fa-play"></span> '.$settings['button2'].'
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="banner-image">
-                    '.get_that_image($settings['image']).'
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- hero banner area end here  -->';
+            </div>';
+if ($settings['shape_list']) {
+    $loop=0;
+    foreach ($settings['shape_list'] as $shape) {
+        $loop++;
+        if ($loop==1){
+            $cls='one';
+        }elseif ($loop==2){
+            $cls='two';
+        }elseif ($loop==3){
+            $cls='three';
+        }else {
+            $cls='four';
+        }
+        echo '<div class="banner_parallax_img_'.$loop.' wow slideInnew" data-wow-delay=".3s">
+                <div class="layer layer2 shape-'.$cls.'" data-depth="-0.10">'.get_that_image($shape['shape_image']).'</div>
+            </div>';
+    }
+}
+echo '</section>
+        <!--hero section-->';

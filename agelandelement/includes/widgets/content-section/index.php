@@ -57,6 +57,28 @@ class ageland_content_section extends Widget_Base
             ]
         );
         $this->add_control(
+            'sub_title',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout' => ['layout5'],
+                ],
+                'default' => __('<span>Try Us </span> for better services.', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'sub_info',
+            [
+                'label' => __('Sub Info', 'ageland'),
+                'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'condition' => [
+                    'layout' => ['layout5'],
+                ],
+                'default' => __('We’ve a huge number of team members and all member’s are highly skilled & experienced.', 'ageland'),
+            ]
+        );
+        $this->add_control(
             'button',
             [
                 'label' => __('Button', 'ageland'),
@@ -313,6 +335,30 @@ class ageland_content_section extends Widget_Base
                     'layout' => 'layout4',
                 ],
                 'selector' => '{{WRAPPER}} .interested_pro.home2:after',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay442',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout5',
+                ],
+                'selector' => '{{WRAPPER}} .about_section.about_bg',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay4422',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout6',
+                ],
+                'selector' => '{{WRAPPER}} .cta_section.cta_bg',
             ]
         );
         $this->end_controls_section();

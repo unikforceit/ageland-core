@@ -197,6 +197,25 @@
         });
 
     };
+    var Agelandfaq = function ($scope, $) {
+
+        $scope.find('.faq_section').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            // (Optional) Active an item if it has the class "is-active"
+            $(".dl_accordion > .dl_accordion_item.is-active").children(".dl_accordion_panel").slideDown();
+
+            $(".dl_accordion > .dl_accordion_item").on('click', function() {
+                // Cancel the siblings
+                $(this).siblings(".dl_accordion_item").removeClass("is-active").children(".dl_accordion_panel").slideUp();
+                // Toggle the item
+                $(this).toggleClass("is-active").children(".dl_accordion_panel").slideToggle("ease-out");
+            });
+        // Js End
+        });
+
+    };
 
 
 
@@ -209,6 +228,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
 
         }
         else {
@@ -219,6 +239,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
         }
     });
 console.log('addon js loaded');

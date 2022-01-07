@@ -38,7 +38,7 @@ class ageland_faq extends Widget_Base {
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Got A Question?', 'ageland' ),
+                'default' => __( 'Need anything ask check <span>Asked Question</span>', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -69,7 +69,7 @@ class ageland_faq extends Widget_Base {
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
+                'default' => __( 'Why Naive Agency is Best For You?', 'ageland' ),
             ]
         );
         $repeater->add_control(
@@ -77,11 +77,8 @@ class ageland_faq extends Widget_Base {
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor tempus sit id commu
-                 tincidunt. Tempor etiam at in nisl ac tortor, ut vitae fermentum. Nibh eget blandit suscipit
-                  ornare donec eget semper orci. Malesuada tortor neque, posuere egtnhet viverra auctor ac
-                   egestas tellus. Turpis venenatis, viverra nisi aliquet diam 
-                odio condimentum. In vel consectetur auctor interdum pulvinar tortor. Duis turpis in sit', 'ageland' ),
+                'default' => __( 'Choose your training and register for free. If you are a
+                                                <br> freelancer, the courses are entirely taken care of, you have <br> nothing to pay and no money to advance.', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -92,16 +89,16 @@ class ageland_faq extends Widget_Base {
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
+                        'f_title' => __( 'How Naive Agency Help Your Business ?', 'ageland' ),
                     ],
                     [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
+                        'f_title' => __( 'How Naive Agency Help Your Business ?', 'ageland' ),
                     ],
                     [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
+                        'f_title' => __( 'Register for a course for free', 'ageland' ),
                     ],
                     [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
+                        'f_title' => __( 'How I Register For Naive Agency Support?', 'ageland' ),
                     ],
 
                 ],

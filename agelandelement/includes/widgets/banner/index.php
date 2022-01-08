@@ -113,6 +113,19 @@ class ageland_banner extends Widget_Base
                 ],
             ]
         );
+        $this->add_control(
+            'image4',
+            [
+                'label' => __( 'Shape', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'layout' => ['layout4'],
+                ],
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
             't_title',
@@ -134,7 +147,7 @@ class ageland_banner extends Widget_Base
             ]
         );
         $repeater->add_control(
-            'link1', [
+            'link11', [
                 'label' => __('Link 1', 'ageland'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
@@ -197,7 +210,7 @@ class ageland_banner extends Widget_Base
                 'label' => __( 'Shape List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
-                    'layout' => ['layout3'],
+                    'layout' => ['layout3','layout4'],
                 ],
                 'fields' => $repeater2->get_controls(),
                 'default' => [
@@ -340,6 +353,18 @@ class ageland_banner extends Widget_Base
                     'layout' => ['layout3'],
                 ],
                 'selector' => '{{WRAPPER}} .ag_banner_part.banner_bg_img',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'banner-area-v323',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => ['layout4'],
+                ],
+                'selector' => '{{WRAPPER}} .ag_banner_part.banner_bg_img_shape',
             ]
         );
         $this->end_controls_section();

@@ -1,6 +1,6 @@
 <?php
     echo'<!-- testimonial section -->
-        <section class="testimonial_section overflow-hidden testimonial_bg_img grdient_overlay section_padding">
+        <section class="testimonial_section overflow-hidden testimonial_bg_img_02 section_padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
@@ -16,7 +16,7 @@ if ($settings['testi_list']) {
         }else {
             $active='';
         }
-        echo ' <div class="swiper-slide '.$active.'">
+        echo '<div class="swiper-slide">
                                     <div class="client_slider_thumb">
                                         '.get_that_image($testi['thumb']).'
                                     </div>
@@ -33,7 +33,7 @@ echo '</div>
 if ($settings['testi_list']) {
     foreach ($settings['testi_list'] as $testi) {
         echo '<div class="swiper-slide">
-                                    <div class="client_slider_content_wrapper">
+                                    <div class="client_slider_content_wrapper testimonial_slide_style_02">
                                         '.get_that_image($settings['quote'],'testimonial_quote_img').'
                                         <p class="client_speech">
                                             '.$testi['t_info'].'
@@ -49,6 +49,6 @@ echo '</div>
                     </div>
                 </div>
             </div>
-            '.get_that_image($settings['map_thum'],'testimonial_shape').'
+            '.get_that_image($settings['map_thum'],'testimonial_shape img-fluid').'
         </section>
         <!-- testimonial section end -->';

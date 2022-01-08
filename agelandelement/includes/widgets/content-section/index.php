@@ -57,6 +57,56 @@ class ageland_content_section extends Widget_Base
             ]
         );
         $this->add_control(
+            'title2',
+            [
+                'label' => __('Title 2', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout' => 'layout9',
+                ],
+                'default' => __('About Us', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'info2',
+            [
+                'label' => __('Info 2', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout' => 'layout9',
+                ],
+                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Enim adipi svsciang pellentesque curabitur at tellus pharetra non. Natoque 
+                dosnec quis felis nunc, amet. Integer venenatis at velit malesuada vestibulum tempor vitae. Eu sed proin eget
+                 aliquet varius in quis. Volutpat turpis quis quis posues re.', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'title3',
+            [
+                'label' => __('Title 3', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout' => 'layout9',
+                ],
+                'default' => __('About Us', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'info3',
+            [
+                'label' => __('Info 3', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout' => 'layout9',
+                ],
+                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Enim adipi svsciang pellentesque curabitur at tellus pharetra non. Natoque 
+                dosnec quis felis nunc, amet. Integer venenatis at velit malesuada vestibulum tempor vitae. Eu sed proin eget
+                 aliquet varius in quis. Volutpat turpis quis quis posues re.', 'ageland'),
+            ]
+        );
+        $this->add_control(
             'sub_title',
             [
                 'label' => __('Sub Title', 'ageland'),
@@ -201,6 +251,10 @@ class ageland_content_section extends Widget_Base
                         'title' => __( 'Eight', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
+                    'layout9' => [
+                        'title' => __( 'Nine', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
                 ],
                 'default' => 'layout1',
                 'toggle' => true,
@@ -231,7 +285,7 @@ class ageland_content_section extends Widget_Base
                 'label' => __( 'icon List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
-                    'layout' => ['layout2'],
+                    'layout' => ['layout2','layout7'],
                 ],
                 'fields' => $repeater2->get_controls(),
                 'default' => [
@@ -359,6 +413,42 @@ class ageland_content_section extends Widget_Base
                     'layout' => 'layout6',
                 ],
                 'selector' => '{{WRAPPER}} .cta_section.cta_bg',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay44224',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout7',
+                ],
+                'selector' => '{{WRAPPER}} .about_section.about_bg_02',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay442242',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout8',
+                ],
+                'selector' => '{{WRAPPER}} .cta_section_style_02.cta_bg',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'con_lay4422424',
+                'label' => __('Icon Image', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'condition' => [
+                    'layout' => 'layout9',
+                ],
+                'selector' => '{{WRAPPER}} .about_us_sec:after',
             ]
         );
         $this->end_controls_section();

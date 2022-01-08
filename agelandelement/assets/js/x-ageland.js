@@ -46,6 +46,25 @@
         });
 
     };
+    var Agelandvideo1 = function ($scope, $) {
+
+        $scope.find('.ag_banner_part').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            //popup gallery
+            var video_popup_btn = $('.video_popup_btn');
+            if (video_popup_btn.length) {
+                video_popup_btn.magnificPopup({
+                    type: 'iframe',
+                    removalDelay: 160,
+                    preloader: false,
+                });
+            }
+        // Js End
+        });
+
+    };
 
     var Agelandblog = function ($scope, $) {
 
@@ -224,6 +243,7 @@
             console.log('Elementor editor mod loaded');
             elementorFrontend.hooks.addAction('frontend/element_ready/global', AgelandGlobal);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo1);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
@@ -235,6 +255,7 @@
             console.log('Elementor frontend mod loaded');
             elementorFrontend.hooks.addAction('frontend/element_ready/global', AgelandGlobal);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo1);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-blog.default', Agelandblog2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);

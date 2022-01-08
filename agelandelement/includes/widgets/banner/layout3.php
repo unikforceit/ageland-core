@@ -10,7 +10,7 @@
                             <p class="description">'.$settings['info'].'</p>
                             <div class="btn_list">
                                 <a '.get_that_link($settings['link1']).' class="ag_btn btn_1">'.$settings['button1'].'</a>
-                                <a '.get_that_link($hero['link2']).' class="video_popup_btn">
+                                <a '.get_that_link($settings['link2']).' class="video_popup_btn">
                                     <span class="fa fa-play"></span> '.$settings['button2'].'
                                 </a>
                             </div>

@@ -8,8 +8,8 @@
                             <h2 class="title"> '.$settings['title'].'</h2>
                             <p class="description">'.$settings['info'].'</p>
                             <a '.get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
-                            <h4 class="sub_title"><span>Try Us </span> for better services.</h4>
-                            <p class="description">We’ve a huge number of team members and all member’s are highly skilled & experienced.</p>
+                            <h4 class="sub_title">'.$settings['sub_title'].'</h4>
+                            <p class="description">'.$settings['sub_info'].'</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 order-1 order-md-2">

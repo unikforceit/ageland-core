@@ -26,9 +26,9 @@ if ($settings['icon_list']) {
         }else {
             $cls='four';
         }
-        echo '<li><a '.get_that_link($icon['link1']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
-<li><a '.get_that_link($icon['link1']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
-<li><a '.get_that_link($icon['link1']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>';
+        echo '<li><a '.get_that_link($icon['link11']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
+<li><a '.get_that_link($icon['link11']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
+<li><a '.get_that_link($icon['link11']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>';
     }
 }
 echo '</div>

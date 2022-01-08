@@ -50,6 +50,19 @@ class ageland_testimonial extends Widget_Base {
                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'ageland' ),
             ]
         );
+        $this->add_control(
+            'map_thum',
+            [
+                'label' => __( 'Background Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'layout' => ['layout3','layout4'],
+                ],
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
             't_title',

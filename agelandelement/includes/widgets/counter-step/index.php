@@ -307,4 +307,4 @@ class ageland_counter_step extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_counter_step() );
+Plugin::instance()->widgets_manager->register( new ageland_counter_step() );

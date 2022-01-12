@@ -471,5 +471,5 @@ class ageland_content_section extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type(new ageland_content_section());
+Plugin::instance()->widgets_manager->register(new ageland_content_section());
 ?>

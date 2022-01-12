@@ -205,5 +205,5 @@ class ageland_features extends Widget_Base {
    public function render_plain_content( $instance = [] ) {}
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_features() );
+Plugin::instance()->widgets_manager->register( new ageland_features() );
 ?>

@@ -247,4 +247,4 @@ class ageland_process extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_process() );
+Plugin::instance()->widgets_manager->register( new ageland_process() );

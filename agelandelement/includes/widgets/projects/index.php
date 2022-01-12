@@ -38,15 +38,75 @@ class ageland_project extends Widget_Base {
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Compleate <span class="color-two">Projects</span> By Our Team', 'ageland' ),
+                'default' => __( 'Case Studies', 'ageland' ),
             ]
         );
         $this->add_control(
-            'stitle',
+            'info',
             [
-                'label' => __( 'Sub Title', 'ageland' ),
+                'label' => __( 'Description', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet,, lacus  non massa id amet tincidunt. Lacus ut integer blandit diam.', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'feature_title',
+            [
+                'label' => __( 'Case Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Featured In Design', 'ageland' ),
+            ]
+        );
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'feature_title',
+            [
+                'label' => __( 'Feature', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Adobe illustator', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'feature_list',
+            [
+                'label' => __( 'Feature List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'title' => __( 'Adobe illustator', 'ageland' ),
+                    ],
+                    [
+                        'title' => __( 'Valid HTML5 / CSS3', 'ageland' ),
+                    ],
+                    [
+                        'title' => __( 'CSS3 Animations', 'ageland' ),
+                    ],
+                    [
+                        'title' => __( 'W3C Validate Code', 'ageland' ),
+                    ],
+                ],
+                'title_field' => '{{{ feature_title }}}',
+            ]
+        );
+        $this->add_control(
+            'button',
+            [
+                'label' => __( 'Button Icon', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Get Started', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'link', [
+                'label' => __('Link', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
             ]
         );
         $this->add_control(
@@ -76,13 +136,22 @@ class ageland_project extends Widget_Base {
             ]
         );
         $this->add_control(
-            'bgs',
+            'layout',
             [
-                'label' => __( 'Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                'label' => __( 'Layout', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'layout1' => [
+                        'title' => __( 'One', 'ageland' ),
+                        'icon' => 'eicon-form-horizontal',
+                    ],
+                    'layout2' => [
+                        'title' => __( 'Two', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
                 ],
+                'default' => 'layout1',
+                'toggle' => true,
             ]
         );
         $this->end_controls_section();
@@ -203,60 +272,10 @@ class ageland_project extends Widget_Base {
                 )
             ));
             $categories = get_terms($tax_args);
-            echo ' <!-- portfolio area start here  -->
-        <section class="portfolio-area section-top pb-90 " data-background="'.$settings['bgs']['url'].'">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="section-title-four mb-45 text-center ">
-                             <h2 class="title">'.$settings['title'].'</h2>
-                            <p class="sub-title">'.$settings['stitle'].'</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="filtering-menu-area">
-                            <ul class="filtering-button">
-                                <li class="active" data-filter="*">All Work</li>';
-                                foreach ($categories as $category) {
-                                    echo '<li data-filter=".' . $category->slug . '">' . $category->name . '</li>';
-                                }
-                            echo '</ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row grid fix">';
-                if ($the_query->have_posts()) {
-                    while ($the_query->have_posts()) {
-                        $the_query->the_post();
-                        $project_id = get_the_ID();
-                        $post_categories = get_the_terms( $project_id, 'project_cat' );
-                        foreach ($post_categories as $cats){
-                            $cat[] = $cats->slug;
-                        }
-                        $filter = implode(' ', $cat);
-                            echo '<div class="grid-item col-lg-4 col-md-6 '.$filter.'">
-                        <div class="single-portfolio">
-                            <a href="#" class="single-image">
-                                ' . get_the_post_thumbnail() . '
-                            </a>
-                            <div class="portfolio-content">
-                                <h3><a href="#">' . get_the_title() . '</a></h3>
-                                <p>' . get_the_excerpt() . '</p>
-                                <a class="explore-btn" href="#">Explore <i class="fas fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div>
-                    </div>';
-                    }
-                    wp_reset_postdata();
-                }
-                echo '</div>
-            </div>
-        </section>
-        <!-- portfolio area end here  -->';
+
+        include dirname(__FILE__). '/' . $settings['layout']. '.php';
     }
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_project() );
+Plugin::instance()->widgets_manager->register( new ageland_project() );

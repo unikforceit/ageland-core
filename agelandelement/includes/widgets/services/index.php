@@ -46,20 +46,20 @@ class ageland_services extends Widget_Base {
             ]
         );
         $this->add_control(
-            'query_type',
+            'query_type1',
             [
                 'label' => __('Query type', 'ageland'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'category',
+                'default' => 'category1',
                 'options' => [
-                    'category' => __('Category', 'ageland'),
-                    'individual' => __('Individual', 'ageland'),
+                    'category1' => __('Category', 'ageland'),
+                    'individual1' => __('Individual', 'ageland'),
                 ],
             ]
         );
 
         $this->add_control(
-            'cat_query',
+            'cat_query1',
             [
                 'label' => __('Category', 'ageland'),
                 'type' => Controls_Manager::SELECT2,
@@ -67,13 +67,13 @@ class ageland_services extends Widget_Base {
                 'multiple' => true,
                 'label_block' => true,
                 'condition' => [
-                    'query_type' => 'category',
+                    'query_type1' => 'category1',
                 ],
             ]
         );
 
         $this->add_control(
-            'id_query',
+            'id_query1',
             [
                 'label' => __('Posts', 'ageland'),
                 'type' => Controls_Manager::SELECT2,
@@ -81,17 +81,16 @@ class ageland_services extends Widget_Base {
                 'multiple' => true,
                 'label_block' => true,
                 'condition' => [
-                    'query_type' => 'individual',
+                    'query_type1' => 'individual1',
                 ],
             ]
         );
-
         $this->add_control(
-            'posts_per_page',
+            'posts_per_page1',
             [
                 'label' => __('Posts Per Page', 'ageland'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => 6,
+                'default' => 2,
             ]
         );
         $this->add_control(
@@ -134,7 +133,63 @@ class ageland_services extends Widget_Base {
             ]
         );
         $this->end_controls_section();
+        $this->start_controls_section(
+            'content_section2',
+            [
+                'label' => __( 'Services 2', 'ageland' ),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
 
+        $this->add_control(
+            'query_type',
+            [
+                'label' => __('Query type', 'ageland'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'category',
+                'options' => [
+                    'category' => __('Category', 'ageland'),
+                    'individual' => __('Individual', 'ageland'),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cat_query',
+            [
+                'label' => __('Category', 'ageland'),
+                'type' => Controls_Manager::SELECT2,
+                'options' => ae_drop_cat('service_category'),
+                'multiple' => true,
+                'label_block' => true,
+                'condition' => [
+                    'query_type' => 'category',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'id_query',
+            [
+                'label' => __('Posts', 'ageland'),
+                'type' => Controls_Manager::SELECT2,
+                'options' => ae_drop_posts('services'),
+                'multiple' => true,
+                'label_block' => true,
+                'condition' => [
+                    'query_type' => 'individual',
+                ],
+            ]
+        );
+        $this->add_control(
+            'posts_per_page',
+            [
+                'label' => __('Posts Per Page', 'ageland'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 2,
+            ]
+        );
+        $this->end_controls_section();
         $this->start_controls_section(
             'content_sty',
             [
@@ -316,6 +371,36 @@ class ageland_services extends Widget_Base {
 
         $wp_query = new \WP_Query($query_args);
 
+        $per_page1 = $settings['posts_per_page1'];
+        $cat1 = $settings['cat_query1'];
+        $id1 = $settings['id_query1'];
+
+
+        if($settings['query_type1'] == 'category1'){
+            $query_args1 = array(
+                'post_type' => 'services',
+                'posts_per_page' => $per_page1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'service_category',
+                        'field' => 'term_id',
+                        'terms' => $cat1,
+                    ) ,
+                ) ,
+            );
+        }
+
+        if($settings['query_type1'] == 'individual1'){
+            $query_args1 = array(
+                'post_type' => 'services',
+                'posts_per_page' => $per_page1,
+                'post__in' =>$id1,
+                'orderby' => 'post__in'
+            );
+        }
+
+        $wp_query1 = new \WP_Query($query_args1);
+
         include dirname(__FILE__). '/' . $settings['layout']. '.php';
     }
 
@@ -325,5 +410,5 @@ class ageland_services extends Widget_Base {
    public function render_plain_content( $instance = [] ) {}
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_services() );
+Plugin::instance()->widgets_manager->register( new ageland_services() );
 ?>

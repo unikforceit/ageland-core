@@ -245,5 +245,5 @@ class ageland_blog extends Widget_Base {
    public function render_plain_content( $instance = [] ) {}
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_blog() );
+Plugin::instance()->widgets_manager->register( new ageland_blog() );
 ?>

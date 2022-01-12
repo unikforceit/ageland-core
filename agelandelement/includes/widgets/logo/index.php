@@ -461,4 +461,4 @@ class Widget_Ageland_logo extends Widget_Base {
 	 */
 	protected function content_template() {	}
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Ageland_logo() );
+Plugin::instance()->widgets_manager->register( new Widget_Ageland_logo() );

@@ -387,5 +387,5 @@ class ageland_banner extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type(new ageland_banner());
+Plugin::instance()->widgets_manager->register(new ageland_banner());
 ?>

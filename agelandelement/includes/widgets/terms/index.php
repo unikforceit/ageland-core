@@ -246,4 +246,4 @@ class ageland_terms extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_terms() );
+Plugin::instance()->widgets_manager->register( new ageland_terms() );

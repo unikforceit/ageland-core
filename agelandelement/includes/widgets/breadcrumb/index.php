@@ -209,4 +209,4 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
 	 */
 	protected function content_template() {	}
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Ageland_breadcrumb() );
+Plugin::instance()->widgets_manager->register( new Widget_Ageland_breadcrumb() );

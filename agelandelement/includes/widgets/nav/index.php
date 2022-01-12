@@ -361,4 +361,4 @@ class ageland_nav_builder extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type(new ageland_nav_builder());
+Plugin::instance()->widgets_manager->register(new ageland_nav_builder());

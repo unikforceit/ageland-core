@@ -211,4 +211,4 @@ class ageland_sidebar extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_sidebar() );
+Plugin::instance()->widgets_manager->register( new ageland_sidebar() );

@@ -235,6 +235,56 @@
         });
 
     };
+    var Agelandcase = function ($scope, $) {
+
+        $scope.find('.case_studies_sec').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            // (Optional) Active an item if it has the class "is-active"
+            var owls = $("#case-slider-owl");
+            owls.owlCarousel({
+
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                items: 1,
+                loop: true,
+                center: false,
+                margin: 15,
+                stagePadding: 0,
+                dots: true,
+                nav: false,
+
+
+                merge: false,
+                mergeFit: true,
+                autoWidth: false,
+                animateOut: 'fadeOutRight',
+                animateIn: 'fadeInLeft',
+            });
+        // Js End
+        });
+
+    };
+    var Agelandworkgrid = function ($scope, $) {
+
+        $scope.find('.latest_work_sec').each(function () {
+            var settings = $(this).data('ageland');
+
+        // Js Start
+            // init Isotope
+            var $grid = $('.grid').isotope({
+                itemSelector: '.grid-item',
+                percentPosition: true,
+                masonry: {
+                    columnWidth: '.grid-sizer'
+                }
+            });
+        // Js End
+        });
+
+    };
 
 
 
@@ -249,6 +299,8 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
 
         }
         else {
@@ -261,6 +313,8 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-testimonial.default', Agelandtesti3);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
         }
     });
 console.log('addon js loaded');

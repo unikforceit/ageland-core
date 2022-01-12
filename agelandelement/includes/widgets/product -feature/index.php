@@ -280,4 +280,4 @@ class ageland_product_feature extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_product_feature() );
+Plugin::instance()->widgets_manager->register( new ageland_product_feature() );

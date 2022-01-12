@@ -224,4 +224,4 @@ class ageland_call_to_action extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_call_to_action() );
+Plugin::instance()->widgets_manager->register( new ageland_call_to_action() );

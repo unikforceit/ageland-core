@@ -237,4 +237,4 @@ class ageland_chooseus extends Widget_Base {
 
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new ageland_chooseus() );
+Plugin::instance()->widgets_manager->register( new ageland_chooseus() );

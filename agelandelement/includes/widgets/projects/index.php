@@ -71,6 +71,9 @@ class ageland_project extends Widget_Base {
             [
                 'label' => __( 'Feature List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
+                'condition' => [
+                    'layout' => ['layout1'],
+                ],
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
@@ -147,6 +150,18 @@ class ageland_project extends Widget_Base {
                     ],
                     'layout2' => [
                         'title' => __( 'Two', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout3' => [
+                        'title' => __( 'Three', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout4' => [
+                        'title' => __( 'Four', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout5' => [
+                        'title' => __( 'Five', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
                 ],

@@ -94,6 +94,62 @@ class ageland_services extends Widget_Base {
             ]
         );
         $this->add_control(
+            'image',
+            [
+                'label' => __( 'Shap Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'layout' => 'layout3',
+                ],
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'shape_title',
+            [
+                'label' => __( 'Shape Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Shape Icon', 'ageland' ),
+            ]
+        );
+        $repeater->add_control(
+            'shape_image',
+            [
+                'label' => __( 'Choose Image', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->add_control(
+            'shape_list',
+            [
+                'label' => __( 'Shape List', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'condition' => [
+                    'layout' => ['layout3'],
+                ],
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+                    [
+                        'shape_title' => __( 'Shape', 'ageland' ),
+                    ],
+
+                ],
+                'title_field' => '{{{ shape_title }}}',
+            ]
+        );
+        $this->add_control(
             'button',
             [
                 'label' => __( 'Button Icon', 'ageland' ),
@@ -125,6 +181,18 @@ class ageland_services extends Widget_Base {
                     ],
                     'layout2' => [
                         'title' => __( 'Two', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout3' => [
+                        'title' => __( 'Three', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout4' => [
+                        'title' => __( 'Four', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout5' => [
+                        'title' => __( 'Five', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
                 ],
@@ -340,6 +408,14 @@ class ageland_services extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
+
+        $tax_args = array(
+            'taxonomy' => 'product_cat',
+            'number' => $settings['show_cat'],
+            'include' => $settings['cat_query'],
+            'hide_empty' => false,
+        );
+        $categories = get_terms($tax_args);
 
         $per_page = $settings['posts_per_page'];
         $cat = $settings['cat_query'];

@@ -3,17 +3,17 @@ namespace Elementor;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class ageland_nav_builder extends Widget_Base
+class ageland_header_builder extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'nav-builder';
+        return 'header-builder';
     }
 
     public function get_title()
     {
-        return __('Nav Menu Builder', 'ageland');
+        return __('Header Builder', 'ageland');
     }
 
     public function get_icon()
@@ -324,41 +324,78 @@ class ageland_nav_builder extends Widget_Base
 
         ?>
         <section class="ageland-builder-nav">
-            <!-- header area start here  -->
-            <header class="header-v5 header-md-none">
-                <nav class="main-menu">
-                    <?php
-                    wp_nav_menu(array(
-                            'menu' => $main_menu,
-                            'items_wrap' => '<ul>%3$s</ul>',
-                        )
-                    );
-                    ?>
-                </nav>
-            </header>
-            <!-- header area end here  -->
-            <!-- mobile menu are start here  -->
-            <div class="mobile-menu-area">
-                <div class="menu-bar">
-                    <span class="fas fa-bars"></span>
+            <!-- header part -->
+            <header class="header_part classic_header dark_color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-xl justify-content-between align-items-center">
+                                <div class="pu_logo_area">
+                                    <?php ageland_logo(); ?>
+                                    <?php ageland_logo('navbar-brand sticky_logo'); ?>
+                                </div>
+                                <div class="main_nav_wrapper d-flex justify-content-end">
+                                    <div class="main_nav collapse navbar-collapse justify-content-end"
+                                         id="navbarNavDropdown">
+                                        <?php
+                                        echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
+                                            wp_nav_menu( array(
+                                                    'container' => false,
+                                                    'echo' => false,
+                                                    'menu' => $main_menu,
+                                                    'menu_id' => 'main-menu',
+                                                    'fallback_cb'=> 'ageland_no_main_nav',
+                                                    'items_wrap' => '<ul class="navbar-nav">%3$s</ul>',
+                                                )
+                                            ));
+                                        ?>
+                                    </div>
+                                    <div class="header_right_btn">
+                                        <a href="#" class="ag_btn btn_1 d-none d-sm-block">Sing In</a>
+                                        <div class="pu_collaps_menu_icon offcanvus_menu_trigger navbar-toggler collapsed mr-0">
+                                            <div class="burger_icon">
+                                                <span class="burger_icon_top"></span>
+                                                <span class="burger_icon_bottom"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-                <div class="mobile-menu">
-                    <nav>
-                        <?php
-                        wp_nav_menu(array(
-                                'menu' => $mobile_menu,
-                                'items_wrap' => '<ul>%3$s</ul>',
-                            )
-                        );
-                        ?>
-                    </nav>
+            </header>
+            <!-- header part end -->
+            <div class="off_canvus_menu">
+                <div class="off_canvus_menu_iner">
+                    <div class="off_canvus_menu_iner_logo">
+                        <?php ageland_logo('off_canvus_logo'); ?>
+                        <div class="popup-close-button close_icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="off_canvus_menu_iner_content">
+                        <nav class="navbar">
+                            <?php
+                            echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
+                                wp_nav_menu( array(
+                                        'container' => false,
+                                        'echo' => false,
+                                        'menu' => $mobile_menu,
+                                        'menu_id' => 'm-main-menu',
+                                        'fallback_cb'=> 'ageland_no_main_nav',
+                                        'items_wrap' => '<ul class="navbar-nav">%3$s</ul>',
+                                    )
+                                ));
+                            ?>
+                        </nav>
+                    </div>
                 </div>
             </div>
-            <div class="menu-overlay"></div>
-            <!-- mobile menu are end here  -->
+            <div class="offcanvas_overlay"></div>
         </section>
     <?php }
 
 }
 
-Plugin::instance()->widgets_manager->register(new ageland_nav_builder());
+Plugin::instance()->widgets_manager->register(new ageland_header_builder());

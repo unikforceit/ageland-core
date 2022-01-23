@@ -1,13 +1,3 @@
-/*Global*/
-.ageland-builder-nav {
-  display: flex;
-}
-.ageland-builder-nav .mobile-menu-area .menu-bar {
-    margin: 0;
-}
-.ageland-builder-nav .header-v5 {
-    padding: 0;
-}
 .ageland-text-gradient .elementor-heading-title {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -81,3 +81,66 @@
         </div>
     </section>
     <!-- price-table-area  end here  -->';
+    echo '<!--pricing plane-->
+        <section class="pricing_plan_sec">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-5">
+                        <div class="pricing_title title">
+                            <h5>'.$settings['stitle'].'</h5>
+                            <h3>'.$settings['subtitle'].'</h3>
+                            <p>'.$settings['sinfo'].'</p>
+                            <div class="toggle-container cf">
+                                <div class="switch-toggles">
+                                    <div class="monthly">Monthly</div>
+                                    <!-- active -->
+                                    <div class="yearly">Yearly</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/,.pricing_title-->
+                    </div>
+                    <div class="col-md-4 offset-md-3">
+                        <div id="price_tables">
+                            <div class="monthly cf active">
+                                <div class="price-table highlighted">
+                                    <div class="table-inner text-center">
+                                        <h5>Standard</h5>
+                                        <h3 class="price">$90.99</h3>
+                                        <p class="phrase">Per Month</p>
+                                        <ul class="feature-list">
+                                            <li>50GB Bandwidth</li>
+                                            <li>Business & Finance Analysing</li>
+                                            <li>24 hour support</li>
+                                            <li>Customer Management</li>
+                                        </ul>
+                                        <a href="" class="btn btn-blue">Purchase</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /monthly-p -->
+
+                            <div class="yearly cf">
+                                <div class="price-table highlighted">
+                                    <div class="table-inner text-center">
+                                        <h5>Professional</h5>
+                                        <h3 class="price">$120.99</h3>
+                                        <p class="phrase">Per Year</p>
+                                        <ul class="feature-list">
+                                            <li>150GB Bandwidth</li>
+                                            <li>Business & Finance Analysing</li>
+                                            <li>24 hour support</li>
+                                            <li>Customer Management</li>
+                                        </ul>
+                                        <a href="" class="btn btn-blue">Purchase</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /yearly-p -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.container-->
+        </section>
+        <!--pricing plane-->';

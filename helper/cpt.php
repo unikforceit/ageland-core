@@ -10,8 +10,6 @@
             add_action('init', array(&$this, 'services_taxonomy'), 0);
             add_action('init', array(&$this, 'create_project_cpt'));
             add_action('init', array(&$this, 'project_taxonomy'), 0);
-            add_action('init', array(&$this, 'create_features_cpt'));
-            add_action('init', array(&$this, 'features_taxonomy'), 0);
 
         }
 	  // Builder Post Type
@@ -142,7 +140,7 @@
                 'labels' => $labels,
                 'public' => true,
                 'menu_position' => 5,
-                'menu_icon' => 'dashicons-megaphone',
+                'menu_icon' => 'dashicons-archive',
                 'taxonomies' => array('project_cat'),
                 'supports' => array('title', 'editor', 'thumbnail', 'excerpt','elementor'),
                 'has_archive' => true,
@@ -172,60 +170,6 @@
                 'rewrite' => array('slug' => 'project_cat'),
             );
             register_taxonomy('project_cat', 'project', $args);
-        }
-
-       // Doctor Post Type
-        function create_features_cpt() {
-            $labels = array(
-                'name' => __('Features', 'ageland'),
-                'singular_name' => __('Feature', 'ageland'),
-                'add_new' => __('Add feature', 'ageland'),
-                'add_new_item' => __('Add feature', 'ageland'),
-                'edit_item' => __('Edit feature', 'ageland'),
-                'new_item' => __('New feature', 'ageland'),
-                'all_items' => __('All feature', 'ageland'),
-                'view_item' => __('View feature', 'ageland'),
-                'search_items' => __('Search feature', 'ageland'),
-                'not_found' => __('No feature found', 'ageland'),
-                'not_found_in_trash' => __('No feature found in the trash', 'ageland'),
-                'parent_item_colon' => '',
-                'supports' => array('post-formats'),
-                'menu_name' => __('Features', 'ageland')
-            );
-            $args = array(
-                'labels' => $labels,
-                'public' => true,
-                'menu_position' => 6,
-                'menu_icon' => 'dashicons-plus-alt',
-                'taxonomies' => array('feature_category'),
-                'supports' => array('title', 'editor', 'thumbnail', 'excerpt','elementor'),
-                'has_archive' => true,
-            );
-            register_post_type('features', $args);
-        }
-
-        function Features_taxonomy() {
-            $labels = array(
-                'name' => __('Category', 'ageland'),
-                'singular_name' => __('Category', 'ageland'),
-                'search_items' => __('Search categories', 'ageland'),
-                'all_items' => __('Categories', 'ageland'),
-                'parent_item' => __('Parent category', 'ageland'),
-                'parent_item_colon' => __('Parent category:', 'ageland'),
-                'edit_item' => __('Edit category', 'ageland'),
-                'update_item' => __('Update category', 'ageland'),
-                'add_new_item' => __('Add category', 'ageland'),
-                'new_item_name' => __('New category', 'ageland'),
-                'menu_name' => __('Category', 'ageland'),
-            );
-            $args = array(
-                'labels' => $labels,
-                'hierarchical' => true,
-                'show_ui' => true,
-                'show_admin_column' => true,
-                'rewrite' => array('slug' => 'feature_category'),
-            );
-            register_taxonomy('feature_category', 'features', $args);
         }
 					
 	}  

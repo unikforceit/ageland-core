@@ -50,12 +50,19 @@ class ageland_pricing_table extends Widget_Base
             ]
         );
         $this->add_control(
+            'subtitle',
+            [
+                'label' => __( 'Sub Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Not any hidden charge, Choose Your pricing plan', 'ageland' ),
+            ]
+        );
+        $this->add_control(
             'sinfo',
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'ageland' ),
+                'default' => __( 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.', 'ageland' ),
             ]
         );
         $this->add_control(

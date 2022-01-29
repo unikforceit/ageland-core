@@ -153,12 +153,14 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
 
         if (is_home() && get_option('page_for_posts') ) {
             $img = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_for_posts')),'full');
-            $url = isset($img[0]) ? $img[0] : '';
+            $url = !empty($img[0]) ? $img[0] : '';
         } else {
-            if ( $settings['custom_breadcrumb_upload']['id'] ) {
+            if ( !empty($settings['custom_breadcrumb_upload']['url']) ) {
                 $url = $settings['custom_breadcrumb_upload']['url'];
-            } else {
+            } elseif (!empty(get_the_post_thumbnail_url())) {
                 $url = get_the_post_thumbnail_url();
+            }else{
+                $url = get_template_directory_uri().'/assets/img/banner.jpg';
             }
         }
         $arg = [
@@ -180,21 +182,21 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
             $title = get_the_title();
         }
         ?>
-        <!-- breadcrumb ara start here  -->
-        <section class="breadcrumb-area"
-                 data-background="<?php echo esc_url($url); ?>">
+        <!--broadcramp-->
+        <header class="inner_broadcramp" data-bg-img="<?php echo esc_url($url); ?>">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="breadcrumb-wrap text-center">
-                            <h2 class="page-title"><?php echo esc_html($title); ?></h2>
+                    <div class="col-md-12">
+                        <div class="broadcramp_inside_hdr">
+                            <h4><?php echo esc_html($title); ?></h4>
                             <?php ageland_unit_breadcumb(); ?>
                         </div>
+                        <!--/.broadcramp_inside_hdr-->
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- breadcrumb ara end here  -->
+            <!--/.container-->
+        </header>
         <?php
 
 	}

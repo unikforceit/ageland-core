@@ -25,9 +25,9 @@ if ($wp_query1->have_posts()) {
         $wp_query1->the_post();
         echo '<div class="single_service_in bg1" data-aos="flip-down" data-aos-duration="1000">
                                     <div class="icon">
-                                        <img src="img/icon/service1.png" alt="#" />
-                                        <img src="img/icon/service1bg.png" class="show" alt="#" />
-                                        <img src="img/icon/service3bg_hv.png" class="hide" alt="#" />
+                                        '.get_the_post_thumbnail().'
+                                         '.get_that_image($settings['shape22'], 'show').'
+                                        '.get_that_image($settings['shape33'], 'hide').'
                                     </div>
                                     <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>
                                     <p>' . get_the_excerpt() . '</p>
@@ -43,9 +43,9 @@ if ($wp_query->have_posts()) {
         $wp_query->the_post();
         echo '<div class="single_service_in bg3" data-aos="flip-down" data-aos-duration="2000">
                                     <div class="icon">
-                                        <img src="img/icon/service3.png" alt="#" />
-                                        <img src="img/icon/service3bg.png" class="show" alt="#" />
-                                        <img src="img/icon/service3bg_hv.png" class="hide" alt="#" />
+                                       '.get_the_post_thumbnail().'
+                                         '.get_that_image($settings['shape2'], 'show').'
+                                        '.get_that_image($settings['shape3'], 'hide').'
                                     </div>
                                     <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>
                                     <p>' . get_the_excerpt() . '</p>
@@ -60,11 +60,11 @@ echo '</div>
                 </div>
             </div>
             <!--/.container-->
-            <img src="img/shape/img1.png" alt="#" class="shape-one" />
-            <img src="img/shape/img2.png" alt="#" class="shape-two" />
-            <img src="img/shape/img3.png" alt="#" class="shape-three" />
-            <img src="img/shape/img4.png" alt="#" class="shape-four" />
-            <img src="img/shape/img5.png" alt="#" class="shape-five" />
-            <img src="img/shape/img6.png" alt="#" class="shape-six" />
+            '.get_that_image($settings['mshape1'], 'shape-one').'
+            '.get_that_image($settings['mshape2'], 'shape-two').'
+            '.get_that_image($settings['mshape3'], 'shape-three').'
+            '.get_that_image($settings['mshape4'], 'shape-four').'
+            '.get_that_image($settings['mshape5'], 'shape-five').'
+            '.get_that_image($settings['mshape6'], 'shape-six').'
         </section>
         <!--service provide-->';

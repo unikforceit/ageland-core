@@ -261,6 +261,24 @@ class ageland_project extends Widget_Base {
                 ],
             ]
         );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'before',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .case_studies_sec:before',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'after',
+                'label' => __('banner-area-v3', 'ageland'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .case_studies_sec:after',
+            ]
+        );
         $this->end_controls_section();
 
     }

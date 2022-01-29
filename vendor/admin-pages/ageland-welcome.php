@@ -50,21 +50,21 @@ if ( is_multisite() ) {
    
     <div class="ageland-section nav-tab-active" id="welcome">
         <p class="about-description">
-            <?php printf( __( 'Before you get started, please be sure to always check out documentation Which Included In the theme folder or from <a href="https://support.matethemes.com/support" target="_blank">Website</a>. We outline all kinds of good information and provide you with all the details you need to use ageland.', 'ageland')); ?>
+            <?php printf( __( 'Before you get started, please be sure to always check out documentation Which Included In the theme folder or from <a href="https://support.unikforce.com/support" target="_blank">Website</a>. We outline all kinds of good information and provide you with all the details you need to use ageland.', 'ageland')); ?>
         </p>
         <p class="about-description">
-            <?php printf( __( 'If you are unable to find your answer in our documentation, please contact us via  <a href="https://support.matethemes.com/support" target="_blank">submit a ticket</a> with your purchase code, site CPanel, and admin login info.', 'ageland'), 'mailto:support@matethemes.com'); ?>
+            <?php printf( __( 'If you are unable to find your answer in our documentation, please contact us via  <a href="https://support.unikforce.com/support" target="_blank">submit a ticket</a> with your purchase code, site CPanel, and admin login info.', 'ageland'), 'mailto:support@unikforce.com'); ?>
         </p>
         <p class="about-description">
-            <?php printf( __( 'We are very happy to help you and you will get the reply from us  faster than you expected.', 'ageland'), 'https://support.matethemes.com/support'); ?>
+            <?php printf( __( 'We are very happy to help you and you will get the reply from us  faster than you expected.', 'ageland'), 'https://support.unikforce.com/support'); ?>
         </p>
         
         <p class="about-description">
-            <?php printf( __( 'Note: Please Install All Required Plugins Before Install Demo !', 'ageland'), 'https://wp.matethemes.com/ageland/demo'); ?>
+            <?php printf( __( 'Note: Please Install All Required Plugins Before Install Demo !', 'ageland'), 'https://wp.unikforce.com/ageland/demo'); ?>
         </p>
     </div>
     <div class="ageland-thanks">
-        <p class="description">Thank you for using <strong>ageland</strong> theme! Powered by <a href="https://matethemes.com" target="_blank">Mate_Themes</a></p>
+        <p class="description">Thank you for using <strong>ageland</strong> theme! Powered by <a href="https://unikforce.com" target="_blank">UnikForce</a></p>
     </div>
     
     

@@ -126,6 +126,7 @@ class ageland_banner extends Widget_Base
                 ],
             ]
         );
+        // Start repeater
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
             't_title',
@@ -256,6 +257,7 @@ class ageland_banner extends Widget_Base
             ]
         );
         $this->end_controls_section();
+
         $this->start_controls_section(
             'section_style',
             [

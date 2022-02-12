@@ -6,7 +6,7 @@ echo '<!--recent-blog-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title text-center">
-                            <h3>'.$settings['title'].'</h3>
+                            <h3>' . $settings['title'] . '</h3>
                         </div>
                         <!--/.title-->
                     </div>
@@ -21,10 +21,10 @@ if ($wp_query->have_posts()) {
                                     <div class="card">
                                         <div class="images">
                                             <a href="' . get_the_permalink() . '">';
-                                            if (has_post_thumbnail()) {
-                                                the_post_thumbnail('full');
-                                            }
-                                            echo '</a>
+        if (has_post_thumbnail()) {
+            the_post_thumbnail('full');
+        }
+        echo '</a>
                                             <div class="dates">
                                                 <p><a href="' . get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('j')) . '"> ' . get_the_time('F, Y') . '</a></p>
                                             </div>
@@ -35,11 +35,11 @@ if ($wp_query->have_posts()) {
                                             </p>
                                             <ul>
                                                 <li>
-                                                    <p>'.get_avatar( get_the_author_meta('ID')).' by <a href="'.get_author_posts_url(get_the_author_meta('ID')).'">'.get_the_author().'</a></p>
+                                                    <p>' . get_avatar(get_the_author_meta('ID')) . ' by <a href="' . get_author_posts_url(get_the_author_meta('ID')) . '">' . get_the_author() . '</a></p>
                                                 </li>
                                                 <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
                                                 <li>
-                                                    <a href="#"><i class="fas fa-comment-alt"></i>'.get_comments_number().' </a>
+                                                    <a href="#"><i class="fas fa-comment-alt"></i>' . get_comments_number() . ' </a>
                                                 </li>
                                             </ul>
                                         </div>

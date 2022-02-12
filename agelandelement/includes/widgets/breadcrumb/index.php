@@ -153,7 +153,7 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
 
         if (is_home() && get_option('page_for_posts') ) {
             $img = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_for_posts')),'full');
-            $url = !empty($img[0]) ? $img[0] : '';
+            $url = !empty($img[0]) ? $img[0] : get_template_directory_uri().'/assets/img/banner.jpg';
         } else {
             if ( !empty($settings['custom_breadcrumb_upload']['url']) ) {
                 $url = $settings['custom_breadcrumb_upload']['url'];
@@ -175,7 +175,7 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
         ];
 
         if (is_home() && get_option('page_for_posts')  ) {
-            $title = 'Blog';
+            $title = 'Blog List';
         } elseif (is_front_page()){
             $title = 'Front Page';
         }else {

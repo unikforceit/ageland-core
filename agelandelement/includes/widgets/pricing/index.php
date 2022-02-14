@@ -33,7 +33,6 @@ class ageland_pricing_table extends Widget_Base
     protected function _register_controls()
     {
 
-
         $this->start_controls_section(
             'pm',
             [
@@ -46,14 +45,20 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Choose Pricing', 'ageland' ),
+                'default' => __( 'Pricing', 'ageland' ),
+                'condition' => [
+                    'layout'=>['layout2', 'layout1'],
+                ],
             ]
         );
         $this->add_control(
-            'subtitle',
+            'ssubtitle',
             [
                 'label' => __( 'Sub Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'condition' => [
+                    'layout'=>['layout2', 'layout1'],
+                ],
                 'default' => __( 'Not any hidden charge, Choose Your pricing plan', 'ageland' ),
             ]
         );
@@ -62,17 +67,10 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'bgs',
-            [
-                'label' => __( 'Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                'condition' => [
+                    'layout'=>['layout2', 'layout1'],
                 ],
+                'default' => __( 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -100,67 +98,136 @@ class ageland_pricing_table extends Widget_Base
             ]
         );
         $this->end_controls_section();
+
         $this->start_controls_section(
-            'pma',
+            'mpma',
             [
                 'label' => __('Monthly', 'ageland'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        $repeater = new Repeater();
-        $repeater->add_control(
-            'title',
+        $this->add_control(
+            'mlabel',
+            [
+                'label' => __('Label', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Monthly', 'ageland'),
+                'condition' => [
+                    'layout'=>['layout1', 'layout2'],
+                ],
+            ]
+        );
+        $this->add_control(
+            'mtitle',
             [
                 'label' => __('Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Startup', 'ageland'),
+                'default' => __('Standard', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
             ]
         );
-        $repeater->add_control(
-            'active',
-            [
-                'label' => __( 'Active This Table', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __( 'Active', 'ageland' ),
-                'label_off' => __( 'Inactive', 'ageland' ),
-                'return_value' => 'active',
-                'default' => 'inactive',
-            ]
-        );
-
-        $repeater->add_control(
-            'sub',
-            [
-                'label' => __('Sub Title', 'ageland'),
-                'type' => Controls_Manager::TEXT,
-                'default' => __('Lorem ipsum dolor sit amet, confsectur justo. Massa augue neque proin adipisng.', 'ageland'),
-            ]
-        );
-        $repeater->add_control(
-            'price',
+        $this->add_control(
+            'mprice',
             [
                 'label' => __('Price', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('$29 <sub>/month</sub>', 'ageland'),
+                'default' => __('$90.99', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
             ]
         );
-        $repeater->add_control(
-            'features',
+        $this->add_control(
+            'msub',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('per month', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'mfeatures',
+            [
+                'label' => __('Features', 'ageland'),
+                'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'mbutton',
+            [
+                'label' => __('Button', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => __('Purchase', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'mlink', [
+                'label' => __('Link', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $repeater1 = new \Elementor\Repeater();
+        $repeater1->add_control(
+            'rmtitle',
+            [
+                'label' => __('Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Standard', 'ageland'),
+            ]
+        );
+        $repeater1->add_control(
+            'rmprice',
+            [
+                'label' => __('Price', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('$90.99', 'ageland'),
+            ]
+        );
+        $repeater1->add_control(
+            'rmsub',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('per month', 'ageland'),
+            ]
+        );
+        $repeater1->add_control(
+            'rmfeatures',
             [
                 'label' => __('Features', 'ageland'),
                 'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
             ]
         );
-        $repeater->add_control(
-            'button',
+        $repeater1->add_control(
+            'rmbutton',
             [
                 'label' => __('Button', 'ageland'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __('Start Free Trial', 'ageland'),
+                'default' => __('Purchase', 'ageland'),
             ]
         );
-        $repeater->add_control(
-            'link', [
+        $repeater1->add_control(
+            'rmlink', [
                 'label' => __('Link', 'ageland'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
@@ -172,90 +239,160 @@ class ageland_pricing_table extends Widget_Base
             ]
         );
         $this->add_control(
-            'price_list',
+            'mlist',
             [
-                'label' => __('Pricing Table', 'ageland'),
-                'type' => Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
+                'label' => __( 'Monthly list', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater1->get_controls(),
+                'condition' => [
+                    'layout'=> ['layout2', 'layout3'],
+                ],
                 'default' => [
                     [
-                        'title' => 'Startup',
+                        'rmtitle' => __( 'Professional', 'ageland' ),
                     ],
                     [
-                        'title' => 'Promotional',
+                        'rmtitle' => __( 'Professional', 'ageland' ),
                     ],
                     [
-                        'title' => 'Enterprise',
+                        'rmtitle' => __( 'Professional', 'ageland' ),
                     ],
 
                 ],
-                'title_field' => '{{{ title }}}',
+                'title_field' => '{{{ rmtitle }}}',
             ]
         );
         $this->end_controls_section();
+
         $this->start_controls_section(
-            'y_pma',
+            'ypma',
             [
                 'label' => __('Yearly', 'ageland'),
-                'condition' => [
-                    'layout' => ['layout1', 'layout2'],
-                ],
                 'tab' => Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'layout'=>['layout2', 'layout1'],
+                ],
             ]
         );
-        $repeater2 = new Repeater();
-        $repeater2->add_control(
-            'y_title',
+        $this->add_control(
+            'ylabel',
+            [
+                'label' => __('Label', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Yearly', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'ytitle',
             [
                 'label' => __('Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Startup', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
             ]
         );
-        $repeater2->add_control(
-            'y_active',
-            [
-                'label' => __( 'Active This Table', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __( 'Active', 'ageland' ),
-                'label_off' => __( 'Inactive', 'ageland' ),
-                'return_value' => 'active',
-                'default' => 'inactive',
-            ]
-        );
-        $repeater2->add_control(
-            'y_sub',
-            [
-                'label' => __('Sub Title', 'ageland'),
-                'type' => Controls_Manager::TEXT,
-                'default' => __('Lorem ipsum dolor sit amet, confsectur justo. Massa augue neque proin adipisng.', 'ageland'),
-            ]
-        );
-        $repeater2->add_control(
-            'y_price',
+        $this->add_control(
+            'yprice',
             [
                 'label' => __('Price', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('$29 <sub>/month</sub>', 'ageland'),
+                'default' => __('$90.99', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'ysub',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('per month', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'yfeatures',
+            [
+                'label' => __('Features', 'ageland'),
+                'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'ybutton',
+            [
+                'label' => __('Button', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => __('Purchase', 'ageland'),
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $this->add_control(
+            'ylink', [
+                'label' => __('Link', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+                'condition' => [
+                    'layout'=>'layout1',
+                ],
+            ]
+        );
+        $repeater2 = new \Elementor\Repeater();
+        $repeater2->add_control(
+            'rytitle',
+            [
+                'label' => __('Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Standard', 'ageland'),
             ]
         );
         $repeater2->add_control(
-            'y_features',
+            'ryprice',
+            [
+                'label' => __('Price', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('$90.99', 'ageland'),
+            ]
+        );
+        $repeater2->add_control(
+            'rysub',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('per month', 'ageland'),
+            ]
+        );
+        $repeater2->add_control(
+            'ryfeatures',
             [
                 'label' => __('Features', 'ageland'),
                 'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
             ]
         );
         $repeater2->add_control(
-            'y_button',
+            'rybutton',
             [
                 'label' => __('Button', 'ageland'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __('Start Free Trial', 'ageland'),
+                'default' => __('Purchase', 'ageland'),
             ]
         );
         $repeater2->add_control(
-            'y_link', [
+            'rylink', [
                 'label' => __('Link', 'ageland'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
@@ -267,32 +404,58 @@ class ageland_pricing_table extends Widget_Base
             ]
         );
         $this->add_control(
-            'y_price_list',
+            'ylist',
             [
-                'label' => __('Pricing Table', 'ageland'),
-                'type' => Controls_Manager::REPEATER,
+                'label' => __( 'Yearly list', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater2->get_controls(),
+                'condition' => [
+                    'layout'=>'layout2',
+                ],
                 'default' => [
                     [
-                        'y_title' => 'Startup',
+                        'rytitle' => __( 'Professional', 'ageland' ),
                     ],
                     [
-                        'y_title' => 'Promotional',
+                        'rytitle' => __( 'Professional', 'ageland' ),
                     ],
                     [
-                        'y_title' => 'Enterprise',
+                        'rytitle' => __( 'Professional', 'ageland' ),
                     ],
 
                 ],
-                'title_field' => '{{{ y_title }}}',
+                'title_field' => '{{{ rytitle }}}',
             ]
         );
         $this->end_controls_section();
+
         $this->start_controls_section(
             'section_style',
             [
                 'label' => __('Style', 'ageland'),
                 'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $repeater3 = new Repeater();
+        $repeater3->add_control(
+            'shapel', [
+                'label' => __('Shape', 'ageland'),
+                'type' => Controls_Manager::MEDIA,
+                'show_external' => true,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->add_control(
+            'shapelist',
+            [
+                'label' => __( 'Shape list', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater3->get_controls(),
+                'condition' => [
+                    'layout'=>'layout3',
+                ],
             ]
         );
         $this->add_group_control(

@@ -1,44 +1,78 @@
 <?php
-    echo'<!-- pricing three ara start here  -->
-    <div class="pricing-area-three section-top  pb-90" data-background="'.$settings['bgs']['url'].'">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="section-title-four mb-45 text-center ">
-                        <h2 class="title">'.$settings['stitle'].'</h2>
-                        <p class="sub-title">'.$settings['sinfo'].'</p>
+    echo'<!--pricing plane-->
+        <section class="pricing_plan_sec home2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="row h-100">
+                            <div class="col-md-12 align-self-center">
+                                <div class="pricing_title title">
+                                    <h5>' . $settings['stitle'] . '</h5>
+                                    <h3>' . $settings['ssubtitle'] . '</h3>
+                                    <p>' . $settings['sinfo'] . '</p>
+                                    <div class="toggle-container cf">
+                                        <div class="switch-toggles">
+                                            <div class="monthly">' . $settings['mlabel'] . '</div>
+                                            <!-- active -->
+                                            <div class="yearly">' . $settings['ylabel'] . '</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/,.pricing_title-->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 offset-md-2">
+                        <div id="price_tables">
+                            <div class="monthly hide active">
+                                <div class="swiper-container price">
+                                    <div class="swiper-wrapper">';
+                                    if ($settings['mlist']) {
+                                        foreach ($settings['mlist'] as $monthly){
+                                        echo '<div class="swiper-slide">
+                                            <div class="table-inner-slider text-center">
+                                                <h5>' . $monthly['rmtitle'] . '</h5>
+                                                <h3 class="price">' . $monthly['rmprice'] . '</h3>
+                                                <p class="phrase">' . $monthly['rmsub'] . '</p>
+                                                <ul class="feature-list">';
+                                        ageland_list_control($monthly['rmfeatures'], '');
+                                        echo '</ul>
+                                                <a ' . get_that_link($monthly['rmlink']) . ' class="btn btn-blue">' . $monthly['rmbutton'] . '</a>
+                                            </div>
+                                        </div>';}
+                                    }
+                                    echo '</div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                            <div class="yearly hide">
+                                <div class="swiper-container price">
+                                    <div class="swiper-wrapper">';
+                                    if ($settings['ylist']) {
+                                        foreach ($settings['ylist'] as $yearly){
+                                            echo '<div class="swiper-slide">
+                                        <div class="table-inner-slider text-center">
+                                            <h5>' . $yearly['rytitle'] . '</h5>
+                                            <h3 class="price">' . $yearly['ryprice'] . '</h3>
+                                            <p class="phrase">' . $yearly['rysub'] . '</p>
+                                            <ul class="feature-list">';
+                                        ageland_list_control($yearly['ryfeatures'], '');
+                                        echo '</ul>
+                                                <a ' . get_that_link($yearly['rylink']) . ' class="btn btn-blue">' . $yearly['rybutton'] . '</a>
+                                            </div>
+                                        </div>';}
+                                    }
+                                    echo '</div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">';
-             $loop=0;
-            if ($settings['price_list']) {
-                foreach ($settings['price_list'] as $monthly) {
-                    $loop++;
-                        if($loop==2){
-                            $a_bg='active';
-                        }else{
-                            $a_bg='';
-                        }
-                    echo '<div class="col-lg-4 col-md-6">
-                    <div class="single-price-table '.$a_bg.'">
-                        <div class="price-table-header">
-                            <h3>' . $monthly['title'] . '</h3>
-                            <h2>' . $monthly['price'] . '</h2>
-                        </div>
-                        <div class="price-table-body">
-                            <ul class="package-feature">';
-                            ageland_list_control($monthly['features'], '');
-                          echo '</ul>
-                        </div>
-                        <div class="price-table-footer">
-                            <a class="primary-btn-four-solid" ' . get_that_link($monthly['link']) . '>' . $monthly['button'] . '</a>
-                        </div>
-                    </div>
-                </div>';
-            }
-        }
-        echo '</div>
-        </div>
-    </div>
-    <!-- pricing three ara end here  -->';
+            <!--/.container-->
+        </section>
+        <!--pricing plane-->';

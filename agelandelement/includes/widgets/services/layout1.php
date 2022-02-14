@@ -21,9 +21,16 @@ echo '<!--service provide-->
                         <div class="row">
                             <div class="col-md-6 mrtop-1">';
 if ($wp_query1->have_posts()) {
+    $index1 = 0;
     while ($wp_query1->have_posts()) {
+        $index1++;
+        if ($index1 == 1){
+            $cls1 = 'bg1';
+        }else{
+            $cls1 = 'bg2';
+        }
         $wp_query1->the_post();
-        echo '<div class="single_service_in bg1" data-aos="flip-down" data-aos-duration="1000">
+        echo '<div class="single_service_in '.$cls1.'" data-aos="flip-down" data-aos-duration="1000">
                                     <div class="icon">
                                         ' . get_the_post_thumbnail() . '
                                          ' . get_that_image($settings['shape22'], 'show') . '
@@ -39,9 +46,16 @@ if ($wp_query1->have_posts()) {
 echo '</div>
                             <div class="col-md-6">';
 if ($wp_query->have_posts()) {
+    $index2 = 0;
     while ($wp_query->have_posts()) {
+        $index2++;
+        if ($index2 == 1){
+            $cls2 = 'bg3';
+        }else{
+            $cls2 = 'bg4';
+        }
         $wp_query->the_post();
-        echo '<div class="single_service_in bg3" data-aos="flip-down" data-aos-duration="2000">
+        echo '<div class="single_service_in '.$cls2.'" data-aos="flip-down" data-aos-duration="2000">
                                     <div class="icon">
                                        ' . get_the_post_thumbnail() . '
                                          ' . get_that_image($settings['shape2'], 'show') . '

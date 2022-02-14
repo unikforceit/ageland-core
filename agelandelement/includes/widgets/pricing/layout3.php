@@ -1,87 +1,44 @@
 <?php
-    echo '<!-- pricing two ara start here  -->
-        <div class="pricing-area-two section section-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title-two text-center">
-                            <h2 class="title">'.$settings['stitle'].'</h2>
-                            <span class="section-divider"></span>
+echo '<!--pricing plane-->
+<section class="pricing_plan pricing_plan_shape_style_02 pricing_plan_bg_img overflow-hidden section_padding">
+    <div class="container">
+        <div class="row">';
+            if ($settings['mlist']) {
+                foreach ($settings['mlist'] as $monthly){
+                    echo '<div class="col-lg-4 col-sm-6">
+                        <div class="ag_pricing_plan_wrapper">
+                            <h5 class="plan_category">' . $monthly['rmtitle'] . '</h5>
+                            <h2 class="price">' . $monthly['rmprice'] . '</h2>
+                            <p class="phrase">' . $monthly['rmsub'] . '</p>
+                            <ul class="feature-list">';
+                    ageland_list_control($monthly['rmfeatures'], '');
+                    echo '</ul>
+                            <a ' . get_that_link($monthly['rmlink']) . ' class="ag_btn btn_2">' . $monthly['rmbutton'] . '</a>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                      <div class="price-table-nav nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">';
-                    $index = 0;
-                    if ($settings['price_list']) {
+                </div>';}
+        }
+echo '</div>
+    </div>';
+    if ($settings['shapelist']){
+        $index = 0;
+        foreach ($settings['shapelist'] as $shape){
+            $index++;
+            if ($index == 1){
+                $class = 'shape_img_01 shape-one';
+            }elseif ($index == 2){
+                $class = 'shape_img_02 shape-two';
+            }elseif ($index == 3){
+                $class = 'shape_img_03 shape-three';
+            }elseif ($index == 4){
+                $class = 'shape_img_04 shape-four';
+            }elseif ($index == 5){
+                $class = 'shape_img_06 shape-four';
+            }else{
+                $class = 'shape_img_06 shape-four';
+            }
+            echo get_that_image($shape['shapel'], $class);
+        }
+    }
 
-                        foreach ($settings['price_list'] as $monthly) {
-                            $index++;
-                            if ($index == 1){
-                                $active = 'active';
-                                $arial = 'true';
-                            }else{
-                                $active = '';
-                                $arial = 'false';
-                            }
-                            echo '<a class="nav-link d-flex align-items-center justify-content-between '.$active.'" id="v-pills-'.$monthly['_id'].'-tab" data-toggle="pill" href="#v-pills-'.$monthly['_id'].'" role="tab" aria-controls="v-pills-'.$monthly['_id'].'" aria-selected="'.$arial.'">
-                            <div class="plan-name">
-                                <div class="media">
-                                   <div class="check-icon align-self-center mr-3">
-                                    <i class="fas fa-check"></i>
-                                   </div>
-                                    <div class="media-body">
-                                      <h4 class="mt-0"> ' . $monthly['title'] . '</h4>
-                                      <span>' . $monthly['sub'] . '</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="amount">
-                                <h2>' . $monthly['price'] . '</h2>
-                            </div>
-                        </a>';
-
-                            }
-                        }
-                        echo '</div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="tab-content" id="v-pills-tabContent">';
-                    $index2 = 0;
-                    if ($settings['price_list']) {
-
-                        foreach ($settings['price_list'] as $monthly) {
-                            $index2++;
-                            if ($index2 == 1){
-                                $active2 = 'show active';
-                            }else{
-                                $active2 = '';
-                            }
-
-                    echo '<div class="tab-pane fade '.$active2.'" id="v-pills-'.$monthly['_id'].'" role="tabpanel" aria-labelledby="v-pills-'.$monthly['_id'].'-tab">
-                           <div class="price-info-box">
-                               <div class="price-top">
-                                   <h2>' . $monthly['title'] . '</h2>
-                                   <span>' . $monthly['sub'] . '</span>
-                                   <div class="check-icon">
-                                        <i class="fas fa-check"></i>
-                                   </div>
-                               </div>
-                               <div class="price-body">
-                                   <ul>';
-                                       ageland_list_control($monthly['features'], '');
-                                    echo '</ul>
-                                   <a class="primary-btn-two" ' . get_that_link($monthly['link']) . '>' . $monthly['button'] . '</a>
-                               </div>
-                           </div>
-                        </div>';
-
-                            }
-                        }
-                        echo '</div>
-                    </div>
-                  </div>
-            </div>
-        </div>
-        <!-- pricing two ara end here  -->';
+echo '</section>
+<!--pricing plane-->';

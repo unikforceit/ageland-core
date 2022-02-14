@@ -1,14 +1,14 @@
 (function ($) {
-"use strict";
+    "use strict";
 
     var AgelandGlobal = function ($scope, $) {
 
         // Js Start
-            $('[data-background]').each(function() {
-                $(this).css('background-image', 'url('+ $(this).attr('data-background') + ')');
-            });
+        $('[data-background]').each(function () {
+            $(this).css('background-image', 'url(' + $(this).attr('data-background') + ')');
+        });
 
-            AOS.init();
+        AOS.init();
 
         // Js End
 
@@ -20,17 +20,16 @@
         $scope.find('.hero_banner').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var $videoSrc;
-            $('.video-btn').on('click', function() {
+            $('.video-btn').on('click', function () {
                 $videoSrc = $(this).data("src");
             });
             console.log($videoSrc);
 
 
-
             // when the modal is opened autoplay it
-            $('#myModal').on('shown.bs.modal', function(e) {
+            $('#myModal').on('shown.bs.modal', function (e) {
 
                 // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
                 $("#video").attr('src', $videoSrc + "?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;autoplay=1");
@@ -38,11 +37,11 @@
 
 
             // stop playing the youtube video when I close the modal
-            $('#myModal').on('hide.bs.modal', function(e) {
+            $('#myModal').on('hide.bs.modal', function (e) {
                 // a poor man's stop video
                 $("#video").attr('src', $videoSrc);
             })
-        // Js End
+            // Js End
         });
 
     };
@@ -51,7 +50,7 @@
         $scope.find('.ag_banner_part').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             //popup gallery
             var video_popup_btn = $('.video_popup_btn');
             if (video_popup_btn.length) {
@@ -61,7 +60,7 @@
                     preloader: false,
                 });
             }
-        // Js End
+            // Js End
         });
 
     };
@@ -71,7 +70,7 @@
         $scope.find('.blog_sec').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var owls = $("#blog_slider_owl");
             owls.owlCarousel({
 
@@ -113,7 +112,7 @@
                     }
                 },
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -123,7 +122,7 @@
         $scope.find('.blog_sec').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var owls = $(".blog_slider_2");
             owls.owlCarousel({
                 autoplay: false,
@@ -158,7 +157,7 @@
                     }
                 },
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -167,7 +166,7 @@
         $scope.find('.testimonials_home2').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var owls = $("#testimonials_home2_owl");
             owls.owlCarousel({
 
@@ -187,7 +186,7 @@
                 mergeFit: true,
                 autoWidth: false,
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -196,7 +195,7 @@
         $scope.find('.testimonial_bg_img').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var galleryThumbs = new Swiper('.client_slider_thumbs', {
                 spaceBetween: 10,
                 slidesPerView: 5,
@@ -212,7 +211,7 @@
                     swiper: galleryThumbs,
                 },
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -221,17 +220,17 @@
         $scope.find('.faq_section').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             // (Optional) Active an item if it has the class "is-active"
             $(".dl_accordion > .dl_accordion_item.is-active").children(".dl_accordion_panel").slideDown();
 
-            $(".dl_accordion > .dl_accordion_item").on('click', function() {
+            $(".dl_accordion > .dl_accordion_item").on('click', function () {
                 // Cancel the siblings
                 $(this).siblings(".dl_accordion_item").removeClass("is-active").children(".dl_accordion_panel").slideUp();
                 // Toggle the item
                 $(this).toggleClass("is-active").children(".dl_accordion_panel").slideToggle("ease-out");
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -240,7 +239,7 @@
         $scope.find('.case_studies_sec').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             // (Optional) Active an item if it has the class "is-active"
             var owls = $("#case-slider-owl");
             owls.owlCarousel({
@@ -263,7 +262,7 @@
                 animateOut: 'fadeOutRight',
                 animateIn: 'fadeInLeft',
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -272,7 +271,7 @@
         $scope.find('.latest_work_sec').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             // init Isotope
             var $grid = $('.grid').isotope({
                 itemSelector: '.grid-item',
@@ -281,7 +280,7 @@
                     columnWidth: '.grid-sizer'
                 }
             });
-        // Js End
+            // Js End
         });
 
     };
@@ -290,7 +289,7 @@
         $scope.find('.case_studies_section').each(function () {
             var settings = $(this).data('ageland');
 
-        // Js Start
+            // Js Start
             var owls = $(".blog_slider_3");
             owls.owlCarousel({
                 autoplay: false,
@@ -325,11 +324,72 @@
                     }
                 },
             });
-        // Js End
+            // Js End
         });
 
     };
+    var Pricingtable = function ($scope, $) {
 
+        $scope.find('.pricing_plan_sec').each(function () {
+            var settings = $(this).data('ageland');
+
+            // Js Starts
+            var monthly_price_table = $('#price_tables').find('.monthly');
+            var yearly_price_table = $('#price_tables').find('.yearly');
+
+
+            $('.switch-toggles').find('.monthly').addClass('active');
+            $('#price_tables').find('.monthly').addClass('active');
+
+            $('.switch-toggles').find('.monthly').on('click', function () {
+                $(this).addClass('active');
+                $(this).closest('.switch-toggles').removeClass('active');
+                $(this).siblings().removeClass('active');
+                monthly_price_table.addClass('active');
+                yearly_price_table.removeClass('active');
+            });
+
+            $('.switch-toggles').find('.yearly').on('click', function () {
+                $(this).addClass('active');
+                $(this).closest('.switch-toggles').addClass('active');
+                $(this).siblings().removeClass('active');
+                yearly_price_table.addClass('active');
+                monthly_price_table.removeClass('active');
+            });
+
+            // Js End
+        });
+
+    };
+    var Pricingtable2 = function ($scope, $) {
+
+        $scope.find('.pricing_plan_sec.home2').each(function () {
+            var settings = $(this).data('ageland');
+
+            // Js Starts
+            var swiper = new Swiper('.swiper-container.price', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                speed: 1000,
+                effect: 'coverflow',
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 100,
+                    depth: 180,
+                    modifier: 2,
+                    slideShadows: false,
+                }
+            });
+            // Js End
+        });
+
+    };
 
 
     $(window).on('elementor/frontend/init', function () {
@@ -345,10 +405,11 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase5);
+            elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable);
+            elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
 
-        }
-        else {
+        } else {
             console.log('Elementor frontend mod loaded');
             elementorFrontend.hooks.addAction('frontend/element_ready/global', AgelandGlobal);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-banner.default', Agelandvideo);
@@ -360,8 +421,10 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-faq.default', Agelandfaq);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase5);
+            elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable);
+            elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable2);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
         }
     });
-console.log('addon js loaded');
+    console.log('addon js loaded');
 })(jQuery);

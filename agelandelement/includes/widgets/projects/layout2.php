@@ -14,15 +14,21 @@
                     <div class="w-100"></div>
                     <div class="latest_work_grid">';
 if ($the_query->have_posts()) {
+    $loop =0;
     while ($the_query->have_posts()) {
+        $loop++;
         $the_query->the_post();
-        $project_id = get_the_ID();
-        $post_categories = get_the_terms($project_id, 'project_cat');
-        foreach ($post_categories as $cats) {
-            $cat[] = $cats->name;
+        if($loop == 1){
+            $size  = [570,478];
+        }elseif($loop == 2){
+            $size  = [570,350];
+        }elseif($loop == 3){
+            $size  = [246,311];
+        }elseif($loop == 4){
+            $size  = [270,342];
+        }else{
+            $size  = [570,478];
         }
-        $filter = implode(', ', $cat);
-        $size  = [100,100];
         echo '<div class="grid-item">
                             <div class="grid-item-content">
                                 <div class="item-inner">
@@ -30,7 +36,7 @@ if ($the_query->have_posts()) {
                                     <div class="overlay">
                                         <div class="view-list">
                                             <h4><a href="' . get_the_post_thumbnail_url() . '" data-lity>' . get_the_title() . '</a></h4>
-                                            <p>'.$filter.'</p>
+                                            <p>'.ageland_project_cat().'</p>
                                         </div>
                                     </div>
                                 </div>

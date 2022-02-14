@@ -861,6 +861,15 @@ function get_wp_image($source){
 
 }
 
+function ageland_project_cat(){
+    $project_id = get_the_ID();
+    $post_categories = get_the_terms($project_id, 'project_cat');
+    foreach ($post_categories as $cats) {
+        $cat[] = $cats->name;
+    }
+    return implode(', ', $cat);
+}
+
 function king_buildermeta_to_string($items) {
     if (!is_array($items) || empty($items)){
         return;

@@ -1,5 +1,5 @@
 <?php
-echo'<!--tab section -->
+?><!--tab section -->
         <section class="services_section padding_top">
             <div class="container">
                 <div class="row justify-content-center">
@@ -13,128 +13,70 @@ echo'<!--tab section -->
                     <div class="col-md-12">
                         <div class="ag_tab_section_wrapper">
                             <ul class="nav nav-tabs" role="tablist">
+                                <?php if ($wp_query->have_posts()) {
+                                $index = 0;
+                                while ($wp_query->have_posts()) {
+                                $index++;
+                                if ($index == 1){
+                                    $act = 'active';
+                                    $select = 'true';
+                                }else{
+                                    $act = '';
+                                    $select = 'false';
+                                }
+                                $wp_query->the_post();?>
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="ag_tab_01" data-toggle="tab" href="#ag_tab_01_content" role="tab" aria-controls="ag_tab_01_content" aria-selected="true">
+                                    <a class="nav-link <?php echo esc_attr($act);?>" id="ag_tab_<?php echo get_the_ID();?>" data-toggle="tab" href="#ag_tab_<?php echo get_the_ID();?>_content" role="tab" aria-controls="ag_tab_<?php echo get_the_ID();?>_content" aria-selected="<?php echo esc_attr($select);?>">
                                         <div class="nav_tab_wrapper">
                                             <div class="nav_tab_icon_wrapper">
-                                                <img src="img/icon/digital.svg" alt="#">
+                                                <?php
+                                                $meta = ageland_service_meta('service_icon');
+                                                echo wp_get_attachment_image($meta['id']);
+                                                ?>
                                             </div>
-                                            <img src="img/icon/services_icon_shape_01.png" alt="#" class="services_icon_shape">
+                                            <?php echo get_that_image($settings['mshape1'], 'services_icon_shape');?>
                                         </div>
-                                        <h4 class="nav_title">Real Data Analytics</h4>
+                                        <h4 class="nav_title"><?php the_title();?></h4>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="ag_tab_02" data-toggle="tab" href="#ag_tab_02_content" role="tab" aria-controls="ag_tab_02_content" aria-selected="false">
-                                        <div class="nav_tab_wrapper">
-                                            <div class="nav_tab_icon_wrapper">
-                                                <img src="img/icon/ui.svg" alt="#">
-                                            </div>
-                                            <img src="img/icon/services_icon_shape_01.png" alt="#" class="services_icon_shape">
-                                        </div>
-                                        <h4 class="nav_title">Software Design</h4>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link e_commerce" id="ag_tab_03" data-toggle="tab" href="#ag_tab_03_content" role="tab" aria-controls="ag_tab_03_content" aria-selected="false">
-                                        <div class="nav_tab_wrapper">
-                                            <div class="nav_tab_icon_wrapper">
-                                                <img src="img/icon/customer-support.svg" alt="#">
-                                            </div>
-                                            <img src="img/icon/service2bg.png" alt="#" class="services_icon_shape">
-                                        </div>
-                                        <h4 class="nav_title">E-commerce Website</h4>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link ux_ui_tab" id="ag_tab_04" data-toggle="tab" href="#ag_tab_04_content" role="tab" aria-controls="contact" aria-selected="false">
-                                        <div class="nav_tab_wrapper">
-                                            <div class="nav_tab_icon_wrapper">
-                                                <img src="img/icon/software.svg" alt="#">
-                                            </div>
-                                            <img src="img/icon/service4bg.png" alt="#" class="services_icon_shape">
-                                        </div>
-                                        <h4 class="nav_title">UI/UX Design </h4>
-                                    </a>
-                                </li>
+                                <?php    }
+                                    wp_reset_postdata();
+                                }?>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="ag_tab_01_content" role="tabpanel" aria-labelledby="ag_tab_01">
+                                <?php if ($wp_query->have_posts()) {
+                                $index2 = 0;
+                                while ($wp_query->have_posts()) {
+                                $index2++;
+                                if ($index2 == 1){
+                                    $act2 = 'show active';
+                                }else{
+                                    $act2 = '';
+                                }
+                                $wp_query->the_post();?>
+                                <div class="tab-pane fade <?php echo esc_attr($act2);?>" id="ag_tab_<?php echo get_the_ID();?>_content" role="tabpanel" aria-labelledby="ag_tab_<?php echo get_the_ID();?>">
                                     <div class="row align-items-center">
                                         <div class="col-lg-5">
                                             <div class="tab_content_thumb">
-                                                <img src="img/tab_content.png" alt="#" class="img-fluid">
+                                                <?php the_post_thumbnail('full');?>
                                             </div>
                                         </div>
                                         <div class="col-lg-7">
                                             <div class="tab_content_wrapper">
-                                                <h4 class="title">Real Data Analytics</h4>
-                                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.
-                                                </p>
-                                                <p class="desc">Lorem ipsum dolor sit amet,Stet clita kasd gubergren, Stet clita kasd gubergren Lorem ipsum dolor sit amet</p>
-                                                <a href="#" class="ag_btn btn_1">Read More</a>
+                                                <h4 class="title"><?php the_title();?></h4>
+                                                <p class="desc"><?php the_content();?></p>
+                                                <a href="<?php the_permalink();?>" class="ag_btn btn_1">Read More</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="ag_tab_02_content" role="tabpanel" aria-labelledby="ag_tab_02">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-5">
-                                            <div class="tab_content_thumb">
-                                                <img src="img/tab_content.png" alt="#" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="tab_content_wrapper">
-                                                <h4 class="title">Real Data Analytics</h4>
-                                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.
-                                                </p>
-                                                <p class="desc">Lorem ipsum dolor sit amet,Stet clita kasd gubergren, Stet clita kasd gubergren Lorem ipsum dolor sit amet</p>
-                                                <a href="#" class="ag_btn btn_1">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="ag_tab_03_content" role="tabpanel" aria-labelledby="ag_tab_03">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-5">
-                                            <div class="tab_content_thumb">
-                                                <img src="img/tab_content.png" alt="#" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="tab_content_wrapper">
-                                                <h4 class="title">Real Data Analytics</h4>
-                                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.
-                                                </p>
-                                                <p class="desc">Lorem ipsum dolor sit amet,Stet clita kasd gubergren, Stet clita kasd gubergren Lorem ipsum dolor sit amet</p>
-                                                <a href="#" class="ag_btn btn_1">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="ag_tab_04_content" role="tabpanel" aria-labelledby="ag_tab_04">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-5">
-                                            <div class="tab_content_thumb">
-                                                <img src="img/tab_content.png" alt="#" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="tab_content_wrapper">
-                                                <h4 class="title">Real Data Analytics</h4>
-                                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.
-                                                </p>
-                                                <p class="desc">Lorem ipsum dolor sit amet,Stet clita kasd gubergren, Stet clita kasd gubergren Lorem ipsum dolor sit amet</p>
-                                                <a href="#" class="ag_btn btn_1">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php    }
+                                    wp_reset_postdata();
+                                }?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--tab section end -->';
+        <!--tab section end -->

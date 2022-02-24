@@ -19,7 +19,7 @@ CSF::createSection( $prefix_page_opts, array(
   'fields' => array(
       array(
           'id'    => 'service_icon',
-          'type'  => 'icon',
+          'type'  => 'media',
           'title' => 'Service Icon',
       ),
   )

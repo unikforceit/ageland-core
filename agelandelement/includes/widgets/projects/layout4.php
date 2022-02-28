@@ -7,7 +7,7 @@
                     <div class="col-lg-7">
                         <div class="ag_section_title mb_55">
                             <h2 class="title"> <span>Case </span>Studies</h2>
-                            <p class="description">Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, At vero eos et accusam et justo duo dolores.</p>
+                            <p class="description">'.$settings['info'].'</p>
                         </div>
                     </div>
                 </div>

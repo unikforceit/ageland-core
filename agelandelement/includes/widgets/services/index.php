@@ -90,7 +90,7 @@ class ageland_services extends Widget_Base {
             [
                 'label' => __('Posts Per Page', 'ageland'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => 2,
+                'default' => 3,
             ]
         );
         $this->add_control(

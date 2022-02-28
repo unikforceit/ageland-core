@@ -390,6 +390,44 @@
         });
 
     };
+    var porjectSwiper4 = function ($scope, $) {
+
+        $scope.find('.case_studies_section').each(function () {
+            var settings = $(this).data('ageland');
+
+            // Js Starts
+            var productSwiper = new Swiper('.swiper_case_studies_wrapper', {
+                /*grabCursor: true,*/
+                observer: true,
+                slidesPerView: 3,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    991: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                },
+                spaceBetween: 30,
+                scrollbarHide: false,
+                updateOnImagesReady: true
+            })
+            // Js End
+        });
+
+    };
 
 
     $(window).on('elementor/frontend/init', function () {
@@ -407,6 +445,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase5);
             elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable);
             elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', porjectSwiper4);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
 
         } else {
@@ -423,6 +462,7 @@
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandcase5);
             elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable);
             elementorFrontend.hooks.addAction('frontend/element_ready/pricing-table.default', Pricingtable2);
+            elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', porjectSwiper4);
             elementorFrontend.hooks.addAction('frontend/element_ready/ageland-project.default', Agelandworkgrid);
         }
     });

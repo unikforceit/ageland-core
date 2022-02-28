@@ -1,6 +1,185 @@
-/*!
- * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
- * @copyright 2016 PixelCog, Inc.
- * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
- */
-!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:'url("'+this.imageSrc+'")',backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:'url("'+this.imageSrc+'")',backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);
+$(function() {
+    ParallaxScroll.init();
+});
+
+var ParallaxScroll = {
+    /* PUBLIC VARIABLES */
+    showLogs: false,
+    round: 1000,
+
+    /* PUBLIC FUNCTIONS */
+    init: function() {
+        this._log("init");
+        if (this._inited) {
+            this._log("Already Inited");
+            this._inited = true;
+            return;
+        }
+        this._requestAnimationFrame = (function(){
+          return  window.requestAnimationFrame       || 
+                  window.webkitRequestAnimationFrame || 
+                  window.mozRequestAnimationFrame    || 
+                  window.oRequestAnimationFrame      || 
+                  window.msRequestAnimationFrame     || 
+                  function(/* function */ callback, /* DOMElement */ element){
+                      window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
+        this._onScroll(true);
+    },
+
+    /* PRIVATE VARIABLES */
+    _inited: false,
+    _properties: ['x', 'y', 'z', 'rotateX', 'rotateY', 'rotateZ', 'scaleX', 'scaleY', 'scaleZ', 'scale'],
+    _requestAnimationFrame:null,
+
+    /* PRIVATE FUNCTIONS */
+    _log: function(message) {
+        if (this.showLogs) console.log("Parallax Scroll / " + message);
+    },
+    _onScroll: function(noSmooth) {
+        var scroll = $(document).scrollTop();
+        var windowHeight = $(window).height();
+        this._log("onScroll " + scroll);
+        $("[data-parallax]").each($.proxy(function(index, el) {
+            var $el = $(el);
+            var properties = [];
+            var applyProperties = false;
+            var style = $el.data("style");
+            if (style == undefined) {
+                style = $el.attr("style") || "";
+                $el.data("style", style);
+            }
+            var datas = [$el.data("parallax")];
+            var iData;
+            for(iData = 2; ; iData++) {
+                if($el.data("parallax"+iData)) {
+                    datas.push($el.data("parallax-"+iData));
+                }
+                else {
+                    break;
+                }
+            }
+            var datasLength = datas.length;
+            for(iData = 0; iData < datasLength; iData ++) {
+                var data = datas[iData];
+                var scrollFrom = data["from-scroll"];
+                if (scrollFrom == undefined) scrollFrom = Math.max(0, $(el).offset().top - windowHeight);
+                scrollFrom = scrollFrom | 0;
+                var scrollDistance = data["distance"];
+                var scrollTo = data["to-scroll"];
+                if (scrollDistance == undefined && scrollTo == undefined) scrollDistance = windowHeight;
+                scrollDistance = Math.max(scrollDistance | 0, 1);
+                var easing = data["easing"];
+                var easingReturn = data["easing-return"];
+                if (easing == undefined || !$.easing|| !$.easing[easing]) easing = null;
+                if (easingReturn == undefined || !$.easing|| !$.easing[easingReturn]) easingReturn = easing;
+                if (easing) {
+                    var totalTime = data["duration"];
+                    if (totalTime == undefined) totalTime = scrollDistance;
+                    totalTime = Math.max(totalTime | 0, 1);
+                    var totalTimeReturn = data["duration-return"];
+                    if (totalTimeReturn == undefined) totalTimeReturn = totalTime;
+                    scrollDistance = 1;
+                    var currentTime = $el.data("current-time");
+                    if(currentTime == undefined) currentTime = 0;
+                }
+                if (scrollTo == undefined) scrollTo = scrollFrom + scrollDistance;
+                scrollTo = scrollTo | 0;
+                var smoothness = data["smoothness"];
+                if (smoothness == undefined) smoothness = 30;
+                smoothness = smoothness | 0;
+                if (noSmooth || smoothness == 0) smoothness = 1;
+                smoothness = smoothness | 0;
+                var scrollCurrent = scroll;
+                scrollCurrent = Math.max(scrollCurrent, scrollFrom);
+                scrollCurrent = Math.min(scrollCurrent, scrollTo);
+                if(easing) {
+                    if($el.data("sens") == undefined) $el.data("sens", "back");
+                    if(scrollCurrent>scrollFrom) {
+                        if($el.data("sens") == "back") {
+                            currentTime = 1;
+                            $el.data("sens", "go");
+                        }
+                        else {
+                            currentTime++;
+                        }
+                    }
+                    if(scrollCurrent<scrollTo) {
+                        if($el.data("sens") == "go") {
+                            currentTime = 1;
+                            $el.data("sens", "back");
+                        }
+                        else {
+                            currentTime++;
+                        }
+                    }
+                    if(noSmooth) currentTime = totalTime;
+                    $el.data("current-time", currentTime);
+                }
+                this._properties.map($.proxy(function(prop) {
+                    var defaultProp = 0;
+                    var to = data[prop];
+                    if (to == undefined) return;
+                    if(prop=="scale" || prop=="scaleX" || prop=="scaleY" || prop=="scaleZ" ) {
+                        defaultProp = 1;
+                    }
+                    else {
+                        to = to | 0;
+                    }
+                    var prev = $el.data("_" + prop);
+                    if (prev == undefined) prev = defaultProp;
+                    var next = ((to-defaultProp) * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom))) + defaultProp;
+                    var val = prev + (next - prev) / smoothness;
+                    if(easing && currentTime>0 && currentTime<=totalTime) {
+                        var from = defaultProp;
+                        if($el.data("sens") == "back") {
+                            from = to;
+                            to = -to;
+                            easing = easingReturn;
+                            totalTime = totalTimeReturn;
+                        }
+                        val = $.easing[easing](null, currentTime, from, to, totalTime);
+                    }
+                    val = Math.ceil(val * this.round) / this.round;
+                    if(val==prev&&next==to) val = to;
+                    if(!properties[prop]) properties[prop] = 0;
+                    properties[prop] += val;
+                    if (prev != properties[prop]) {
+                        $el.data("_" + prop, properties[prop]);
+                        applyProperties = true;
+                    }
+                }, this));
+            }
+            if (applyProperties) {
+                if (properties["z"] != undefined) {
+                    var perspective = data["perspective"];
+                    if (perspective == undefined) perspective = 800;
+                    var $parent = $el.parent();
+                    if(!$parent.data("style")) $parent.data("style", $parent.attr("style") || "");
+                    $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+ $parent.data("style"));
+                }
+                if(properties["scaleX"] == undefined) properties["scaleX"] = 1;
+                if(properties["scaleY"] == undefined) properties["scaleY"] = 1;
+                if(properties["scaleZ"] == undefined) properties["scaleZ"] = 1;
+                if (properties["scale"] != undefined) {
+                    properties["scaleX"] *= properties["scale"];
+                    properties["scaleY"] *= properties["scale"];
+                    properties["scaleZ"] *= properties["scale"];
+                }
+                var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px)";
+                var rotate3d = "rotateX(" + (properties["rotateX"] ? properties["rotateX"] : 0) + "deg) rotateY(" + (properties["rotateY"] ? properties["rotateY"] : 0) + "deg) rotateZ(" + (properties["rotateZ"] ? properties["rotateZ"] : 0) + "deg)";
+                var scale3d = "scaleX(" + properties["scaleX"] + ") scaleY(" + properties["scaleY"] + ") scaleZ(" + properties["scaleZ"] + ")";
+                var cssTransform = translate3d + " " + rotate3d + " " + scale3d + ";";
+                this._log(cssTransform);
+                $el.attr("style", "transform:" + cssTransform + " -webkit-transform:" + cssTransform + " " + style);
+            }
+        }, this));
+        if(window.requestAnimationFrame) {
+            window.requestAnimationFrame($.proxy(this._onScroll, this, false));
+        }
+        else {
+            this._requestAnimationFrame($.proxy(this._onScroll, this, false));
+        }
+    }
+};

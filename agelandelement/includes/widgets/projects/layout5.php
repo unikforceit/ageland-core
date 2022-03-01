@@ -25,7 +25,7 @@ if ($the_query->have_posts()) {
         echo '<a href="#" class="case_studies_wrapper">
                                 ' . get_the_post_thumbnail() . '
                                 <div class="case_studies_content">
-                                    <h2 class="title"><a href="'.get_the_permalink().'">' . get_the_title() . '</a></h2>
+                                    <h2 class="title">' . get_the_title() . '</h2>
                                     <div class="portfolio_meta_list">
                                         <p>'.$filter.'</p>
                                     </div>

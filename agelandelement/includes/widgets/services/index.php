@@ -185,6 +185,10 @@ class ageland_services extends Widget_Base {
                         'title' => __( 'Five', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
+                    'layout6' => [
+                        'title' => __( 'Six', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
                 ],
                 'default' => 'layout1',
                 'toggle' => true,

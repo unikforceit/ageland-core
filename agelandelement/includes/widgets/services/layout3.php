@@ -18,9 +18,11 @@ if ($wp_query1->have_posts()) {
         echo '<div class="col-lg-4 col-sm-6">
                         <div class="ag_icon_box_inner icon_box_style_02">
                             <div class="services_icon">
-                                <div class="services_icon_inner">
-                                    ' . get_the_post_thumbnail() . '
-                                </div>
+                                <div class="services_icon_inner">';
+                                    $meta = ageland_service_meta('service_icon');
+                                    $met = isset($meta['id']) ? $meta['id'] : '';
+                                    echo wp_get_attachment_image($met);
+                                echo '</div>
                                 '.get_that_image($settings['image'],'services_icon_shape').'
                             </div>
                             <h4 class="title"><a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>

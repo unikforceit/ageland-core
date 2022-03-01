@@ -31,9 +31,11 @@ if ($wp_query1->have_posts()) {
         }
         $wp_query1->the_post();
         echo '<div class="single_service_in '.$cls1.'" data-aos="flip-down" data-aos-duration="1000">
-                                    <div class="icon">
-                                        ' . get_the_post_thumbnail() . '
-                                         ' . get_that_image($settings['shape22'], 'show') . '
+                                    <div class="icon">';
+                                        $meta = ageland_service_meta('service_icon');
+                                        $met = isset($meta['id']) ? $meta['id'] : '';
+                                        echo wp_get_attachment_image($met);
+                                         echo '' . get_that_image($settings['shape22'], 'show') . '
                                         ' . get_that_image($settings['shape33'], 'hide') . '
                                     </div>
                                     <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>
@@ -56,9 +58,11 @@ if ($wp_query->have_posts()) {
         }
         $wp_query->the_post();
         echo '<div class="single_service_in '.$cls2.'" data-aos="flip-down" data-aos-duration="2000">
-                                    <div class="icon">
-                                       ' . get_the_post_thumbnail() . '
-                                         ' . get_that_image($settings['shape2'], 'show') . '
+                                    <div class="icon">';
+                                        $meta = ageland_service_meta('service_icon');
+                                        $met = isset($meta['id']) ? $meta['id'] : '';
+                                        echo wp_get_attachment_image($met);
+                                        echo '' . get_that_image($settings['shape2'], 'show') . '
                                         ' . get_that_image($settings['shape3'], 'hide') . '
                                     </div>
                                     <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>

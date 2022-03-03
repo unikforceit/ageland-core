@@ -178,6 +178,8 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
             $title = 'Blog List';
         } elseif (is_front_page()){
             $title = 'Front Page';
+        }elseif (is_404()){
+            $title = 'Error Page';
         }else {
             $title = get_the_title();
         }

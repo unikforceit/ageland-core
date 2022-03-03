@@ -2,14 +2,44 @@
 function ae_import_files() {
     return array(
         array(
-            'import_file_name'           => 'Ageland',
+            'import_file_name'           => 'Home 01',
             //'categories'                 => array( 'App Landing' ),
             'import_file_url'            => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/data.xml',
             'import_widget_file_url'     => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/widget.wie',
             'import_customizer_file_url' => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/options.dat',
-            'import_preview_image_url'   => trailingslashit( get_template_directory_uri() ).   'screenshot.jpg',
+            'import_preview_image_url'   => trailingslashit( get_template_directory_uri() ).   'screenshot.png',
             'import_notice'              => __( 'All are set with one click demo import', 'ageland' ),
-            'preview_url'                => 'http://unikforce.xyz/ageland',
+            'preview_url'                => 'http://wppro.unikforce.com/ageland',
+        ),
+        array(
+            'import_file_name'           => 'Home 02',
+            //'categories'                 => array( 'App Landing' ),
+            'import_file_url'            => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/data.xml',
+            'import_widget_file_url'     => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/widget.wie',
+            'import_customizer_file_url' => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/options.dat',
+            'import_preview_image_url'   => trailingslashit( AGELAND_DEMO_FILES ).'home-2/2.png',
+            'import_notice'              => __( 'All are set with one click demo import', 'ageland' ),
+            'preview_url'                => 'https://wppro.unikforce.com/ageland/home-2/',
+        ),
+        array(
+            'import_file_name'           => 'Home 03',
+            //'categories'                 => array( 'App Landing' ),
+            'import_file_url'            => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/data.xml',
+            'import_widget_file_url'     => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/widget.wie',
+            'import_customizer_file_url' => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/options.dat',
+            'import_preview_image_url'   => trailingslashit( AGELAND_DEMO_FILES ).'home-3/3.png',
+            'import_notice'              => __( 'All are set with one click demo import', 'ageland' ),
+            'preview_url'                => 'https://wppro.unikforce.com/ageland/home-3/',
+        ),
+        array(
+            'import_file_name'           => 'Home 04',
+            //'categories'                 => array( 'App Landing' ),
+            'import_file_url'            => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/data.xml',
+            'import_widget_file_url'     => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/widget.wie',
+            'import_customizer_file_url' => trailingslashit( AGELAND_DEMO_FILES ) . 'home-1/options.dat',
+            'import_notice'              => __( 'All are set with one click demo import', 'ageland' ),
+            'import_preview_image_url'   => trailingslashit( AGELAND_DEMO_FILES ).'home-4/4.png',
+            'preview_url'                => 'https://wppro.unikforce.com/ageland/home-4/',
         ),
     );
 }
@@ -40,8 +70,15 @@ function ae_after_import_setup($selected_import) {
     );
 
     // Assign front page and posts page (blog page).
-
-    $front_page_id = get_page_by_title( 'Home 1' );
+    if ($selected_import['import_file_name'] === 'Home 02') {
+        $front_page_id = get_page_by_title('Home 2');
+    }elseif ($selected_import['import_file_name'] === 'Home 03') {
+        $front_page_id = get_page_by_title('Home 3');
+    }elseif ($selected_import['import_file_name'] === 'Home 04') {
+        $front_page_id = get_page_by_title('Home 4');
+    }else {
+        $front_page_id = get_page_by_title('Home 1');
+    }
 
     $blog_page_id  = get_page_by_title( 'Blog' );
 

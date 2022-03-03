@@ -46,9 +46,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => __( 'Pricing', 'ageland' ),
-                'condition' => [
-                    'layout'=>['layout2', 'layout1'],
-                ],
             ]
         );
         $this->add_control(
@@ -56,9 +53,6 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __( 'Sub Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'condition' => [
-                    'layout'=>['layout2', 'layout1'],
-                ],
                 'default' => __( 'Not any hidden charge, Choose Your pricing plan', 'ageland' ),
             ]
         );
@@ -67,9 +61,6 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'condition' => [
-                    'layout'=>['layout2', 'layout1'],
-                ],
                 'default' => __( 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.', 'ageland' ),
             ]
         );
@@ -89,6 +80,10 @@ class ageland_pricing_table extends Widget_Base
                     ],
                     'layout3' => [
                         'title' => __( 'Three', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                    'layout4' => [
+                        'title' => __( 'Four', 'ageland' ),
                         'icon' => 'eicon-post-slider',
                     ],
 
@@ -112,9 +107,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Label', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Monthly', 'ageland'),
-                'condition' => [
-                    'layout'=>['layout1', 'layout2'],
-                ],
             ]
         );
         $this->add_control(
@@ -123,9 +115,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Standard', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -134,9 +123,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Price', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('$90.99', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -145,9 +131,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Sub Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('per month', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -155,9 +138,6 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __('Features', 'ageland'),
                 'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -166,9 +146,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Button', 'ageland'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => __('Purchase', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -180,9 +157,6 @@ class ageland_pricing_table extends Widget_Base
                     'url' => '#',
                     'is_external' => true,
                     'nofollow' => true,
-                ],
-                'condition' => [
-                    'layout'=>'layout1',
                 ],
             ]
         );
@@ -244,9 +218,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __( 'Monthly list', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater1->get_controls(),
-                'condition' => [
-                    'layout'=> ['layout2', 'layout3'],
-                ],
                 'default' => [
                     [
                         'rmtitle' => __( 'Professional', 'ageland' ),
@@ -288,9 +259,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Startup', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -299,9 +267,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Price', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('$90.99', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -310,9 +275,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Sub Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('per month', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -320,9 +282,6 @@ class ageland_pricing_table extends Widget_Base
             [
                 'label' => __('Features', 'ageland'),
                 'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -331,9 +290,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __('Button', 'ageland'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => __('Purchase', 'ageland'),
-                'condition' => [
-                    'layout'=>'layout1',
-                ],
             ]
         );
         $this->add_control(
@@ -345,9 +301,6 @@ class ageland_pricing_table extends Widget_Base
                     'url' => '#',
                     'is_external' => true,
                     'nofollow' => true,
-                ],
-                'condition' => [
-                    'layout'=>'layout1',
                 ],
             ]
         );
@@ -409,9 +362,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __( 'Yearly list', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater2->get_controls(),
-                'condition' => [
-                    'layout'=>'layout2',
-                ],
                 'default' => [
                     [
                         'rytitle' => __( 'Professional', 'ageland' ),
@@ -453,9 +403,6 @@ class ageland_pricing_table extends Widget_Base
                 'label' => __( 'Shape list', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater3->get_controls(),
-                'condition' => [
-                    'layout'=>'layout3',
-                ],
             ]
         );
         $this->add_group_control(

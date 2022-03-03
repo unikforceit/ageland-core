@@ -47,8 +47,8 @@
                             $cates = implode(', ', $cate);
                             ?>
                             <div class="swiper-slide <?php echo esc_attr($filter);?>">
-                                <a href="#" class="case_studies_wrapper">
-                                    <?php the_post_thumbnail(['class' => 'case_studies_thumb']);?>
+                                <a href="<?php the_permalink();?>" class="case_studies_wrapper">
+                                    <?php the_post_thumbnail('full', ['class' => 'case_studies_thumb']);?>
                                     <div class="case_studies_content">
                                         <h2 class="title"><?php the_title();?></h2>
                                         <div class="portfolio_meta_list">

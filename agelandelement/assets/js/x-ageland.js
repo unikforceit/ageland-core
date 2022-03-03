@@ -25,7 +25,7 @@
             $('.video-btn').on('click', function () {
                 $videoSrc = $(this).data("src");
             });
-            console.log($videoSrc);
+            //console.log($videoSrc);
 
 
             // when the modal is opened autoplay it
@@ -330,7 +330,7 @@
     };
     var Pricingtable = function ($scope, $) {
 
-        $scope.find('.pricing_plan_sec').each(function () {
+        $scope.find('.pricing_plan_sec, .pricing_plan').each(function () {
             var settings = $(this).data('ageland');
 
             // Js Starts

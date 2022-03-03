@@ -146,7 +146,6 @@ class ageland_plugins_hooks {
                 'format' => '?paged=%#%',
                 'current' => max( 1, get_query_var('paged') ),
                 'total' => $wp_query->max_num_pages,
-                'prev_next' => false,
                 'type'  => 'array',
                 'prev_next'   => TRUE,
                 'prev_text' => '<i class="fas fa-angle-double-left"></i>',

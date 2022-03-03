@@ -1,10 +1,8 @@
-# Copyright (C) 2020 Codestar
+# Copyright (C) 2021 Codestar
 # This file is distributed under the same license as the Codestar Framework package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Codestar Framework 2.1.7.x\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/codestar-"
-"framework\n"
+"Project-Id-Version: Codestar Framework 2.2.1\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
@@ -101,7 +99,7 @@ msgstr "Por favor, introduce %s o más caracteres"
 
 #: classes/setup.class.php:531
 msgid "Searching..."
-msgstr "Busageland..."
+msgstr "Buscando..."
 
 #: classes/setup.class.php:532
 msgid "No results found."

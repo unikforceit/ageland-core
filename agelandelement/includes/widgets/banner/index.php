@@ -64,6 +64,16 @@ class ageland_banner extends Widget_Base
             ]
         );
         $this->add_control(
+            'info2',
+            [
+                'label' => __('Info 2', 'ageland'),
+                'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Amet, dui, lacus in non massa id tellus amet tincidunt. Lacus ut integer
+                 blandit diam nibh pulvinar. Ultrices phasellus', 'ageland'),
+            ]
+        );
+        $this->add_control(
             'button1',
             [
                 'label' => __('Button 1', 'ageland'),

@@ -58,7 +58,7 @@ echo ' </div>
                                 <p>'.$settings['news_info'].'</p>
                                 <form>
                                     <input type="email" placeholder="Email Address" />
-                                    <button type="submit" class="ag_btn btn_1">Purchase</button>
+                                    <button type="submit" class="ag_btn btn_1">Subscribe</button>
                                 </form>
                             </div>
                         </div>

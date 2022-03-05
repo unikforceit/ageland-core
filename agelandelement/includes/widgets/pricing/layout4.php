@@ -30,7 +30,7 @@ echo '<!--pricing plane-->
                                         <li>24 hour support</li>
                                         <li>Customer Management</li>
                                     </ul>
-                                    <a href="#" class="ag_btn btn_2">Purchase</a>
+                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">Purchase</a>
                                 </div>
                             </div>
                             <div class="yearly cf">
@@ -44,7 +44,7 @@ echo '<!--pricing plane-->
                                         <li>24 hour support</li>
                                         <li>Customer Management</li>
                                     </ul>
-                                    <a href="#" class="ag_btn btn_2">Purchase</a>
+                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">Purchase</a>
                                 </div>
                             </div>
                         </div>

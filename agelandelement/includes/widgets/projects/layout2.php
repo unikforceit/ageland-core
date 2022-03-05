@@ -35,7 +35,7 @@ if ($the_query->have_posts()) {
                                     ' . get_the_post_thumbnail('', $size) . '
                                     <div class="overlay">
                                         <div class="view-list">
-                                            <h4><a href="' . get_the_post_thumbnail_url() . '" data-lity>' . get_the_title() . '</a></h4>
+                                            <h4><a href="' . get_the_post_thumbnail_url() . '">' . get_the_title() . '</a></h4>
                                             <p>'.ageland_project_cat().'</p>
                                         </div>
                                     </div>

@@ -42,7 +42,7 @@ if ($settings['feature_list']) {
     }
 }
 echo '</ul>
-                            <a '.get_that_link($settings['link']).' class="btn">'.$settings['button'].'</a>
+                            <a '.get_that_link($settings['link']).' class="btn theme_btn">'.$settings['button'].'</a>
                         </div>
                     </div>
                 </div>

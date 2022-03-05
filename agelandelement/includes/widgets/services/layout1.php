@@ -10,7 +10,7 @@ echo '<!--service provide-->
                                 <div class="service_title title">
                                     <h3>' . $settings['title'] . '</h3>
                                     <p>' . $settings['info'] . '</p>
-                                    <a ' . get_that_link($settings['link']) . ' class="btn">' . $settings['button'] . '</a>
+                                    <a ' . get_that_link($settings['link']) . ' class="btn theme_btn">' . $settings['button'] . '</a>
                                 </div>
                                 <!--/.title-->
                             </div>

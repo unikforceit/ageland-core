@@ -351,7 +351,7 @@ class ageland_header_builder extends Widget_Base
                                         ?>
                                     </div>
                                     <div class="header_right_btn">
-                                        <a href="#" class="ag_btn btn_1 d-none d-sm-block">Sing In</a>
+                                        <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_1 d-none d-sm-block">Hire Us</a>
                                         <div class="pu_collaps_menu_icon offcanvus_menu_trigger navbar-toggler collapsed mr-0">
                                             <div class="burger_icon">
                                                 <span class="burger_icon_top"></span>

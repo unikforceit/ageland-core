@@ -8,8 +8,8 @@ echo '<!--hero section-->
                         <div class="hero_inside_text">
                             <h4>'.$settings['sub_title'].'</h4>
                             <h1>'.$settings['title'].'</h1>
-                            <h5>'.$settings['info'].'
-                            </h5>
+                            <h5>'.$settings['info'].'</h5>
+                            <p>'.$settings['info2'].'</p>
                             <div class="hero-btn">
                                 <a '.get_that_link($settings['link1']).' class="btn">'.$settings['button1'].'</a>
                                 <button class="btn-play video-btn" data-toggle="modal" data-src="'.$settings['link2']['url'].'" data-target="#myModal">

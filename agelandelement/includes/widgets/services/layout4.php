@@ -1,6 +1,6 @@
 <?php
 ?><!--tab section -->
-        <section class="services_section padding_top">
+        <section class="services_section">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7">

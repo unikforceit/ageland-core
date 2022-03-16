@@ -30,7 +30,7 @@ if ($wp_query->have_posts()) {
                                     </div>
                                     <div class="card-body">
                                         <h2><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>
-                                        <p>' . get_the_excerpt() . '
+                                        <p>' . wp_trim_words(get_the_excerpt(),10) . '
                                         </p>
                                         <ul>
                                             <li>

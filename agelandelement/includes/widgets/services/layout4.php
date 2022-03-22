@@ -5,7 +5,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="ag_section_title mb_55 text-center">
-                            <h2 class="title">Start Your Journey with Naive Agency Providing <span>Services</span></h2>
+                            <h2 class="title"><?php wp_kses_post('Start Your Journey with Naive Agency Providing <span>Services</span>')?></h2>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                             <div class="tab_content_wrapper">
                                                 <h4 class="title"><?php the_title();?></h4>
                                                 <p class="desc"><?php the_excerpt();?></p>
-                                                <a href="<?php the_permalink();?>" class="ag_btn btn_1">Read More</a>
+                                                <a href="<?php the_permalink();?>" class="ag_btn btn_1"><?php echo esc_html('Read More')?></a>
                                             </div>
                                         </div>
                                     </div>

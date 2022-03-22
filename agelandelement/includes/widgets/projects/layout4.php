@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="container">
-                    <div class="swiper_case_filter">
+                    <div class="swiper_case_filter d-none">
                     <?php
                     $index = 0;
                     foreach ($categories as $cats) {

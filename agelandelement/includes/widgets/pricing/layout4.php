@@ -5,14 +5,13 @@ echo '<!--pricing plane-->
                 <div class="row justify-content-xl-between">
                     <div class="col-xl-5 col-md-6">
                         <div class="ag_pricing_contect_wrapper mt-5">
-                            <h2 class="title">Not any hidden charge, Choose Your <span>pricing plan</span></h2>
-                            <p class="description">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
-                            </p>
+                            <h2 class="title">'.wp_kses_post('Not any hidden charge, Choose Your <span>pricing plan</span>').'</h2>
+                            <p class="description">'.esc_html('Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.').'</p>
                             <div class="toggle-container cf">
                                 <div class="switch-toggles">
-                                    <div class="monthly">Monthly</div>
+                                    <div class="monthly">'.esc_html('Monthly').'</div>
                                     <!-- active -->
-                                    <div class="yearly">Yearly</div>
+                                    <div class="yearly">'.esc_html('Yearly').'</div>
                                 </div>
                             </div>
                         </div>
@@ -21,30 +20,30 @@ echo '<!--pricing plane-->
                         <div id="price_tables">
                             <div class="monthly cf active">
                                 <div class="ag_pricing_plan_wrapper">
-                                    <h5 class="plan_category">Standard</h5>
-                                    <h2 class="price">$9.99</h2>
-                                    <p class="phrase">Per Month</p>
+                                    <h5 class="plan_category">'.esc_html('Standard').'</h5>
+                                    <h2 class="price">'.esc_html('$9.99').'</h2>
+                                    <p class="phrase">'.esc_html('Per Month').'</p>
                                     <ul class="feature_list">
-                                        <li>50GB Bandwidth</li>
-                                        <li>Business & Finance Analysing</li>
-                                        <li>24 hour support</li>
-                                        <li>Customer Management</li>
+                                        <li>'.esc_html('50GB Bandwidth').'</li>
+                                        <li>'.esc_html('Business & Finance Analysing').'</li>
+                                        <li>'.esc_html('24 hour support').'</li>
+                                        <li>'.esc_html('Customer Management').'</li>
                                     </ul>
-                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">Purchase</a>
+                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">'.esc_html('Purchase').'</a>
                                 </div>
                             </div>
                             <div class="yearly cf">
                                 <div class="ag_pricing_plan_wrapper">
-                                    <h5 class="plan_category">Professional</h5>
-                                    <h2 class="price">$90.99</h2>
-                                    <p class="phrase">Per Year</p>
+                                    <h5 class="plan_category">'.esc_html('Professional').'</h5>
+                                    <h2 class="price">'.esc_html('$90.99').'</h2>
+                                    <p class="phrase">'.esc_html('Per Year').'</p>
                                     <ul class="feature_list">
-                                        <li>50GB Bandwidth</li>
-                                        <li>Business & Finance Analysing</li>
-                                        <li>24 hour support</li>
-                                        <li>Customer Management</li>
+                                        <li>'.esc_html('50GB Bandwidth').'</li>
+                                        <li>'.esc_html('Business & Finance Analysing').'</li>
+                                        <li>'.esc_html('24 hour support').'</li>
+                                        <li>'.esc_html('Customer Management').'</li>
                                     </ul>
-                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">Purchase</a>
+                                    <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_2">'.esc_html('Purchase').'</a>
                                 </div>
                             </div>
                         </div>

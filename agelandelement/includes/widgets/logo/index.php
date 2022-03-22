@@ -442,8 +442,6 @@ class Widget_Ageland_logo extends Widget_Base {
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'ageland' ); ?>" rel="home">
                     <?php
                         echo $url;
-
-
                     ?>
             </a>
         </div>

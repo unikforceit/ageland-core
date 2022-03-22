@@ -146,9 +146,9 @@ class Widget_Ageland_error extends Widget_Base {
         <!-- error page area start here  -->
         <section class="error-page">
             <div class="error-page-wrap">
-                <h2 class="error-code">404</h2>
-                <p class="error-text">We are sorry, the page you've requeted id not available.</p>
-                <a href="<?php echo esc_url(home_url('/'))?>" class="back-home-btn">back to the home page</a>
+                <h2 class="error-code"><?php echo esc_html('404')?></h2>
+                <p class="error-text"><?php echo esc_html('We are sorry, the page you have requeted id not available.')?></p>
+                <a href="<?php echo esc_url(home_url('/'))?>" class="back-home-btn"><?php echo esc_html('back to the home page')?></a>
             </div>
         </section>
         <!-- error page area end here  -->

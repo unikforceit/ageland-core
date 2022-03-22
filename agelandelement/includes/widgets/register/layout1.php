@@ -19,10 +19,10 @@ echo '<!-- register-area start here  -->
                         <div class="register-form-area shadow">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                  <a class="nav-link active" id="sign-up-tab" data-toggle="tab" href="#sign-up" role="tab" aria-controls="sign-up" aria-selected="true">Sign Up</a>
+                                  <a class="nav-link active" id="sign-up-tab" data-toggle="tab" href="#sign-up" role="tab" aria-controls="sign-up" aria-selected="true">'.esc_html('Sign Up').'</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                  <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="false">Sign In</a>
+                                  <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="false">'.esc_html('Sign In').'</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -65,7 +65,7 @@ echo '<!-- register-area start here  -->
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <button type="submit" class="submit-btn">Sign Up</button>
+                                                        <button type="submit" class="submit-btn">'.esc_html('Sign Up').'</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -94,10 +94,10 @@ echo '<!-- register-area start here  -->
                                                          </div>
                                                      </div>
                                                      <div class="col-lg-12">
-                                                        <a class="forget-password" href="#">Forgot Password</a>
+                                                        <a class="forget-password" href="#">'.esc_html('Forgot Password').'</a>
                                                      </div>
                                                      <div class="col-lg-12">
-                                                         <button type="submit" class="submit-btn">Sign in</button>
+                                                         <button type="submit" class="submit-btn">'.esc_html('Sign in').'</button>
                                                      </div>
                                                  </div>
                                              </form>

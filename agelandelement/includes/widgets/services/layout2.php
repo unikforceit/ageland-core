@@ -67,7 +67,7 @@
                                         <div class="tabs-content-in">
                                             <h3><?php the_title();?></h3>
                                             <p><?php the_excerpt();?></p>
-                                            <a href="<?php the_permalink();?>" class="btn">Learn More</a>
+                                            <a href="<?php the_permalink();?>" class="btn"><?php echo esc_html('Learn More')?></a>
                                         </div>
                                     </div>
                                 </div>

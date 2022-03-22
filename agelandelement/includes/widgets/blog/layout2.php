@@ -57,9 +57,8 @@ echo ' </div>
                                 <h4>'.$settings['news_title'].'</h4>
                                 <p>'.$settings['news_info'].'</p>
                                 <form>
-                                    <input type="email" placeholder="Email Address" />';?>
-                                    <button type="submit" class="ag_btn btn_1"><?php echo esc_html('Subscribe')?></button>
-                                    <?php echo'
+                                    <input type="email" placeholder="Email Address" />
+                                    <button type="submit" class="ag_btn btn_1">'.esc_html('Subscribe').'</button>
                                 </form>
                             </div>
                         </div>

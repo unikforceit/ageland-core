@@ -214,7 +214,7 @@ class ageland_woo_grid extends Widget_Base {
                                 <div class="product-info">
                                     <h3 class="product-name"><a href="#">' . $product['ptitle'] . '</a></h3>
                                     <h2 class="poduct-price">'.$product['price'].'</h2>
-                                    <a class="primary-btn-three active" href="#">Order Now</a>
+                                    <a class="primary-btn-three active" href="#">'.esc_html('Order Now').'</a>
                                 </div>
                             </div>
                         </div>';

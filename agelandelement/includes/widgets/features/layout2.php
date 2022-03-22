@@ -5,8 +5,8 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="title text-center">
-                            <h3>Measure of Business</h3>
-                            <p>Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, At vero eos et accusam et justo duo dolores.</p>
+                            <h3>'.esc_html('Measure of Business').'</h3>
+                            <p>'.esc_html('Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, At vero eos et accusam et justo duo dolores.').'</p>
                         </div>
                         <!--/.title-->
                     </div>

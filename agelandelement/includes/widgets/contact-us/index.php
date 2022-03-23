@@ -23,7 +23,7 @@ class ageland_contactus extends Widget_Base {
         return ['agelandelement-addons'];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'content_section',

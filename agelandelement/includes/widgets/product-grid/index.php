@@ -24,7 +24,7 @@ class ageland_woo_grid extends Widget_Base {
         return ['agelandelement-addons'];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'product_feature_section',

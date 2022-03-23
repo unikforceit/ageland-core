@@ -35,7 +35,6 @@ if ($wp_query->have_posts()) {
                                         <ul>
                                             <li>
                                                 <p>'.get_avatar( get_the_author_meta('ID')).' by <a href="'.get_author_posts_url(get_the_author_meta('ID')).'">'.get_the_author().'</a></p>
-                                                </p>
                                             </li>
                                             <li><a href="#"><i class="fas fa-bell"></i> 15</a></li>
                                             <li>

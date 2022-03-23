@@ -12,7 +12,7 @@
                             <div class="hero-btn">
                                 <a '.get_that_link($settings['link1']).' class="btn">'.$settings['button1'].'</a>
                             </div>
-                            <div class="banner-social-circle">';
+                            <ul class="banner-social-circle ext">';
 if ($settings['icon_list']) {
     $loop=0;
     foreach ($settings['icon_list'] as $icon) {
@@ -31,7 +31,7 @@ if ($settings['icon_list']) {
 <li><a '.get_that_link($icon['link11']).' class="'.$cls.'">';\Elementor\Icons_Manager::render_icon( $icon['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>';
     }
 }
-echo '</div>
+echo '</ul>
                         </div>
                         <!--/.hero_inside_text-->
                     </div>

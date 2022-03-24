@@ -6,7 +6,7 @@
                     <div class="col-md-7 offset-md-5">
                         <div class="about_content">
                             <h3>'.$settings['title'].'</h3>
-                            <p>'.$settings['info'].'</p>
+                            <div>'.$settings['info'].'</div>
                         </div>
                         <!--/.about_content-->
                     </div>

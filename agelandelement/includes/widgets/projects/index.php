@@ -299,7 +299,7 @@ class ageland_project extends Widget_Base {
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'project_cat',
-                        'field' => 'term_id',
+                        'field' => 'slug',
                         'terms' => $settings['cat_query'],
                     )
                 )

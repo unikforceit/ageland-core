@@ -524,7 +524,7 @@ class ageland_services extends Widget_Base {
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'service_category',
-                        'field' => 'term_id',
+                        'field' => 'slug',
                         'terms' => $cat,
                     ) ,
                 ) ,
@@ -554,7 +554,7 @@ class ageland_services extends Widget_Base {
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'service_category',
-                        'field' => 'term_id',
+                        'field' => 'slug',
                         'terms' => $cat1,
                     ) ,
                 ) ,

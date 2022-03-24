@@ -65,7 +65,7 @@
                                         <div class="col-lg-7">
                                             <div class="tab_content_wrapper">
                                                 <h4 class="title"><?php the_title();?></h4>
-                                                <p class="desc"><?php get_the_excerpt();?></p>
+                                                <p class="desc"><?php echo get_the_excerpt();?></p>
                                                 <a href="<?php the_permalink();?>" class="ag_btn btn_1"><?php echo esc_html('Read More')?></a>
                                             </div>
                                         </div>

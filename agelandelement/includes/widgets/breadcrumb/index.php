@@ -183,11 +183,11 @@ class Widget_Ageland_breadcrumb extends Widget_Base {
         }elseif (is_post_type_archive('services')){
             $title = 'Projects';
         }elseif (is_singular('post')){
-            $title = 'Blog Details';
+            $title = get_the_title();
         }elseif (is_singular('project')){
-            $title = 'Project Details';
+            $title = get_the_title();
         }elseif (is_singular('services')){
-            $title = 'Services Details';
+            $title = get_the_title();
         }elseif (is_404()){
             $title = 'Error Page';
         }else {

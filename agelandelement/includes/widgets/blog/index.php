@@ -219,7 +219,7 @@ class ageland_blog extends Widget_Base {
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'category',
-                        'field' => 'term_id',
+                        'field' => 'slug',
                         'terms' => $cat,
                     ) ,
                 ) ,

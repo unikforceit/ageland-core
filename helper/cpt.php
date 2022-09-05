@@ -171,6 +171,60 @@
             );
             register_taxonomy('project_cat', 'project', $args);
         }
+
+        // Team Post type
+        function create_team_cpt() {
+            $labels = array(
+                'name' => __('Team', 'ageland'),
+                'singular_name' => __('Team', 'ageland'),
+                'add_new' => __('Add Team', 'ageland'),
+                'add_new_item' => __('Add Team', 'ageland'),
+                'edit_item' => __('Edit Team', 'ageland'),
+                'new_item' => __('New Team', 'ageland'),
+                'all_items' => __('All Team', 'ageland'),
+                'view_item' => __('View Team', 'ageland'),
+                'search_items' => __('Search Team', 'ageland'),
+                'not_found' => __('No Team found', 'ageland'),
+                'not_found_in_trash' => __('No portfolio found in the trash', 'ageland'),
+                'parent_item_colon' => '',
+                'supports' => array('post-formats'),
+                'menu_name' => __('Teams', 'ageland')
+            );
+            $args = array(
+                'labels' => $labels,
+                'public' => true,
+                'menu_position' => 5,
+                'menu_icon' => 'dashicons-archive',
+                'taxonomies' => array('Team_cat'),
+                'supports' => array('title', 'editor', 'thumbnail', 'excerpt','elementor'),
+                'has_archive' => true,
+            );
+            register_post_type('Team', $args);
+        }
+
+        function team_taxonomy() {
+            $labels = array(
+                'name' => __('Team', 'ageland'),
+                'singular_name' => __('Team', 'ageland'),
+                'search_items' => __('Search Teams', 'ageland'),
+                'all_items' => __('Teams', 'ageland'),
+                'parent_item' => __('Parent Team', 'ageland'),
+                'parent_item_colon' => __('Parent Team:', 'ageland'),
+                'edit_item' => __('Edit Team', 'ageland'),
+                'update_item' => __('Update Team', 'ageland'),
+                'add_new_item' => __('Add Team', 'ageland'),
+                'new_item_name' => __('New Team', 'ageland'),
+                'menu_name' => __('Team', 'ageland'),
+            );
+            $args = array(
+                'labels' => $labels,
+                'hierarchical' => true,
+                'show_ui' => true,
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'team_cat'),
+            );
+            register_taxonomy('team_cat', 'team', $args);
+        }
 					
 	}  
 

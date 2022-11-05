@@ -33,123 +33,7 @@ class ageland_faq extends Widget_Base {
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
-        $this->add_control(
-            'title',
-            [
-                'label' => __( 'Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Need anything ask check <span>Asked Question</span>', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'info',
-            [
-                'label' => __( 'Info', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'image',
-            [
-                'label' => __( 'Choose Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => 'layout1',
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $repeater = new \Elementor\Repeater();
-        $repeater->add_control(
-            'f_title',
-            [
-                'label' => __( 'Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Why Naive Agency is Best For You?', 'ageland' ),
-            ]
-        );
-        $repeater->add_control(
-            'f_info',
-            [
-                'label' => __( 'Info', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Choose your training and register for free. If you are a
-                                                <br> freelancer, the courses are entirely taken care of, you have <br> nothing to pay and no money to advance.', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'faq_list',
-            [
-                'label' => __( 'Faq List One', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'default' => [
-                    [
-                        'f_title' => __( 'How Naive Agency Help Your Business ?', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'How Naive Agency Help Your Business ?', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'Register for a course for free', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'How I Register For Naive Agency Support?', 'ageland' ),
-                    ],
 
-                ],
-                'title_field' => '{{{ f_title }}}',
-            ]
-        );
-        $repeater2 = new \Elementor\Repeater();
-        $repeater2->add_control(
-            'f_title2',
-            [
-                'label' => __( 'Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
-            ]
-        );
-        $repeater2->add_control(
-            'f_info2',
-            [
-                'label' => __( 'Info', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor tempus sit id commu
-                 tincidunt. Tempor etiam at in nisl ac tortor, ut vitae fermentum. Nibh eget blandit suscipit
-                  ornare donec eget semper orci. Malesuada tortor neque, posuere egtnhet viverra auctor ac
-                   egestas tellus. Turpis venenatis, viverra nisi aliquet diam 
-                odio condimentum. In vel consectetur auctor interdum pulvinar tortor. Duis turpis in sit', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'faq_list2',
-            [
-                'label' => __( 'Faq List Two', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater2->get_controls(),
-                'default' => [
-                    [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
-                    ],
-                    [
-                        'f_title' => __( 'How Can I Integrate Avocode To My Current Tool Stack?', 'ageland' ),
-                    ],
-
-                ],
-                'title_field' => '{{{ f_title2 }}}',
-            ]
-        );
         $this->add_control(
             'layout',
             [
@@ -157,7 +41,7 @@ class ageland_faq extends Widget_Base {
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'layout1' => [
-                        'title' => __( 'Layout 1', 'ageland' ),
+                        'title' => __( 'FAQ Main', 'ageland' ),
                         'icon' => 'eicon-form-horizontal',
                     ],
                     'layout2' => [
@@ -173,6 +57,47 @@ class ageland_faq extends Widget_Base {
                 'toggle' => true,
             ]
         );
+
+//        FAQ repeater
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'f_title',
+            [
+                'label' => __( 'Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'How do I create a Ageland account?', 'ageland' ),
+            ]
+        );
+        $repeater->add_control(
+            'f_info',
+            [
+                'label' => __( 'Info', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.", 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'faq_list',
+            [
+                'label' => __( 'Faq List One', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'f_title' => __( 'How do I create a Ageland account?', 'ageland' ),
+                    ],
+                    [
+                        'f_title' => __( 'How many team members can I add?', 'ageland' ),
+                    ],
+                    [
+                        'f_title' => __( 'Is there a limit on free transactions?', 'ageland' ),
+                    ],
+
+                ],
+                'title_field' => '{{{ f_title }}}',
+            ]
+        );
+
         $this->end_controls_section();
         
         $this->start_controls_section(
@@ -272,9 +197,18 @@ class ageland_faq extends Widget_Base {
     protected function render(){
 
         $settings = $this->get_settings();
+        $uniq_id = uniqid('accordion');
+        $uniq_item = uniqid();
         include dirname(__FILE__). '/' . $settings['layout']. '.php';
     }
 
+    protected function content_template()
+    {
+    }
+
+    public function render_plain_content($instance = [])
+    {
+    }
 
 }
 Plugin::instance()->widgets_manager->register( new ageland_faq() );

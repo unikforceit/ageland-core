@@ -28,7 +28,7 @@ if ($wp_query->have_posts()) {
                             </div>
                             <h3><a href="'.get_the_permalink().'">' . get_the_title() . '</a></h3>
                             <p>' . get_the_excerpt() . '</p>
-                            <a class="explore-btn" '.get_that_link($settings['link']).'>'.$settings['button'].' <i class="fas fa-long-arrow-alt-right"></i></a>
+                            <a class="explore-btn" '.ageland_get_that_link($settings['link']).'>'.$settings['button'].' <i class="fas fa-long-arrow-alt-right"></i></a>
                         </div>
                     </div>';
     }

@@ -33,12 +33,51 @@ class ageland_chooseus extends Widget_Base {
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+
+        $this->add_control(
+            'layout',
+            [
+                'label' => __( 'Layout', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'layout1' => [
+                        'title' => __( 'Home 1 Banner', 'ageland' ),
+                        'icon' => 'eicon-form-horizontal',
+                    ],
+                    'layout2' => [
+                        'title' => __( 'Choose Banner', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                ],
+                'default' => 'layout1',
+                'toggle' => true,
+            ]
+        );
+
+        $this->add_control(
+            'image',
+            [
+                'label' => __('Choose Image', 'ageland'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->add_control(
+            'subtitle',
+            [
+                'label' => __( 'Sub Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Why choose us', 'ageland' ),
+            ]
+        );
         $this->add_control(
             'title',
             [
                 'label' => __( 'Title', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'What Are The Reasons For Choosing Us?', 'ageland' ),
+                'default' => __( 'We are an Digital agency based on Bangladesh.', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -46,60 +85,59 @@ class ageland_chooseus extends Widget_Base {
             [
                 'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'ageland' ),
-            ]
-        );
-        $repeater = new \Elementor\Repeater();
-        $repeater->add_control(
-            'w_title',
-            [
-                'label' => __( 'Work Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Build with Time Balanceing', 'ageland' ),
-            ]
-        );
-        $repeater->add_control(
-            'icon',
-            [
-                'label' => __( 'Icon', 'ahope' ),
-                'type' => \Elementor\Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fas fa-user',
-                    'library' => 'solid',
-                ],
+                'default' => __( 'A full-cycle digital service agency. We do from design to end-to-end development to maintenance. We have been worked with more than 50+ brands.', 'ageland' ),
             ]
         );
         $this->add_control(
-            'work_list',
+            'button1',
             [
-                'label' => __( 'Work List', 'ageland' ),
+                'label' => __('Button 1', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Learn More', 'ageland'),
+            ]
+        );
+        $this->add_control(
+            'link1', [
+                'label' => __('Link 1', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+            ]
+        );
+
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'cItem_title',
+            [
+                'label' => __( 'Choose Item Title', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Worked with biggest brands.', 'ageland' ),
+            ]
+        );
+        $repeater->add_control(
+            'cItem_info',
+            [
+                'label' => __( 'Choose Item Info', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat.', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'cItem_list',
+            [
+                'label' => __( 'Choose Item List', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
+                        'w_title' => __( 'Worked with biggest brands.', 'ageland' ),
                     ],
                     [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
-                    ],
-                    [
-                        'w_title' => __( 'Build with Time Balanceing', 'ageland' ),
+                        'w_title' => __( 'Awards winning team.', 'ageland' ),
                     ],
                 ],
                 'title_field' => '{{{ w_title }}}',
@@ -203,36 +241,38 @@ class ageland_chooseus extends Widget_Base {
         
     protected function render(){
 
-        $settings = $this->get_settings();
-        echo ' <!-- service area start here  -->
-        <section class="service-area section" id="category">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center">
-                            <h2 class="title">'.$settings['title'].'</h2>
-                            <p class="sub-title">'.$settings['info'].'</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row m-b-30 ">';
+        $settings = $this->get_settings_for_display();
+        include dirname(__FILE__). '/' . $settings['layout']. '.php';
 
-        if ($settings['work_list']) {
-            foreach ($settings['work_list'] as $work) {
-                echo '<div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-service text-center">
-                            <div class="service-icon">
-                                <i class="'.$work['icon']['value'].'"></i>
-                            </div>
-                            <h4 class="service-title">'.$work['w_title'].'</h4>
-                        </div>
-                    </div>';
-            }
-        }
-                echo '</div>
-            </div>
-        </section>
-        <!-- service area end here  -->';
+//        echo ' <!-- service area start here  -->
+//        <section class="service-area section" id="category">
+//            <div class="container">
+//                <div class="row">
+//                    <div class="col-lg-12">
+//                        <div class="section-title text-center">
+//                            <h2 class="title">'.$settings['title'].'</h2>
+//                            <p class="sub-title">'.$settings['info'].'</p>
+//                        </div>
+//                    </div>
+//                </div>
+//                <div class="row m-b-30 ">';
+//
+//        if ($settings['work_list']) {
+//            foreach ($settings['work_list'] as $work) {
+//                echo '<div class="col-lg-3 col-md-6 col-sm-6">
+//                        <div class="single-service text-center">
+//                            <div class="service-icon">
+//                                <i class="'.$work['icon']['value'].'"></i>
+//                            </div>
+//                            <h4 class="service-title">'.$work['w_title'].'</h4>
+//                        </div>
+//                    </div>';
+//            }
+//        }
+//                echo '</div>
+//            </div>
+//        </section>
+//        <!-- service area end here  -->';
     }
 
 

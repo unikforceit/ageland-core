@@ -1,46 +1,50 @@
-<?php
-
-    echo '<!--faq section here-->
-        <section class="faq_section section_padding overflow-hidden">
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                        <div class="faq_section_img">
-                            '.get_that_image($settings['image'], 'faq_img').'
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="ag_faq_section_content_wrapper mt-5 mt-lg-0">
-                            <h2 class="title">'.$settings['title'].'</h2>
-                            <div class="dl_accordion_container">
-                                <div class="dl_accordion">';
-
-if ($settings['faq_list']) {
-    $index = 0;
-    foreach ($settings['faq_list'] as $faq) {
-        $index++;
-        if ($index == 1){
-            $show = 'is-active';
-            $collapsed = '';
-        } else {
-            $show = '';
-            $collapsed = 'ease-out';
-        }
-        echo '<div class="dl_accordion_item dl_accordion_style_01 '.$show.' '.$collapsed.'">
-                                        <div class="dl_accordion_item_title">
-                                            <h3 class="dl_accordion_title">'.$faq['f_title'].'</h3>
+<section class="main-content">
+    <div class="archive-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="faq">
+                        <div class="accordion" id="accordionExample">
+                            <?php if ($settings['faq_list']) {
+                                $loop = 0;
+                                foreach ($settings['faq_list'] as $faq) {
+                                    $loop++;
+                                    if ($loop == 1) {
+                                        $clps = '';
+                                        $show = 'show';
+                                        $exp = 'true';
+                                    } else {
+                                        $clps = 'collapsed';
+                                        $show = '';
+                                        $exp = 'false';
+                                    }
+                                    ?>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header <?php echo esc_attr($clps); ?>"
+                                            id="faq<?php echo esc_attr($faq['_id'] . $uniq_item); ?>"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse<?php echo esc_attr($faq['_id'] . $uniq_item); ?>"
+                                            aria-expanded="<?php echo esc_attr($exp); ?>"
+                                            aria-controls="collapse<?php echo esc_attr($faq['_id'] . $uniq_item); ?>">
+                                            <?php echo esc_html($faq['f_title']); ?>
+                                        </h2>
+                                        <div id="collapse<?php echo esc_attr($faq['_id'] . $uniq_item); ?>"
+                                             class="accordion-collapse collapse <?php echo esc_attr($show); ?>"
+                                             aria-labelledby="faq<?php echo esc_attr($faq['_id'] . $uniq_item); ?>"
+                                             data-bs-parent="#<?php echo esc_attr($uniq_id); ?>">
+                                            <div class="accordion-body">
+                                        <span>
+                                            <?php echo esc_html($faq['f_info']); ?>
+                                        </span>
+                                            </div>
                                         </div>
-                                        <div class="dl_accordion_panel">
-                                            <p class="dl_desc">'.$faq['f_info'].'</p>
-                                        </div>
-                                    </div>';
-    }
-}
-echo '</div>
-                            </div>
+                                    </div>
+                                <?php }
+                            } ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--faq section end-->';
+        </div>
+    </div>
+</section>

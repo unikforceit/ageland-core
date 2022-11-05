@@ -38,7 +38,7 @@
                                                 <ul class="feature-list">';
                                         ageland_list_control($monthly['rmfeatures'], '');
                                         echo '</ul>
-                                                <a ' . get_that_link($monthly['rmlink']) . ' class="btn btn-blue">' . $monthly['rmbutton'] . '</a>
+                                                <a ' . ageland_get_that_link($monthly['rmlink']) . ' class="btn btn-blue">' . $monthly['rmbutton'] . '</a>
                                             </div>
                                         </div>';}
                                     }
@@ -60,7 +60,7 @@
                                             <ul class="feature-list">';
                                         ageland_list_control($yearly['ryfeatures'], '');
                                         echo '</ul>
-                                                <a ' . get_that_link($yearly['rylink']) . ' class="btn btn-blue">' . $yearly['rybutton'] . '</a>
+                                                <a ' . ageland_get_that_link($yearly['rylink']) . ' class="btn btn-blue">' . $yearly['rybutton'] . '</a>
                                             </div>
                                         </div>';}
                                     }

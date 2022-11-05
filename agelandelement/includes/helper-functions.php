@@ -831,7 +831,7 @@ function client_ratings($count){
     return $out;
 }
 
-function get_that_link($link){
+function ageland_get_that_link($link){
 
     $url = $link['url'] ? 'href='.esc_url($link['url']). '' : '';
     $ext = $link['is_external'] ? 'target= _blank' : '';

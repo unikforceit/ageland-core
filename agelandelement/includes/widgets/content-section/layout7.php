@@ -15,7 +15,7 @@
                         <div class="ag_about_text_box">
                             <h2 class="title"> '.$settings['title'].'</h2>
                             <p class="description">'.$settings['info'].'</p>
-                            <a '.get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
+                            <a '.ageland_get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
                         </div>
                     </div>
                 </div>

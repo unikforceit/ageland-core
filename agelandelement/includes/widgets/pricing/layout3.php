@@ -13,7 +13,7 @@ echo '<!--pricing plane-->
                             <ul class="feature-list">';
                     ageland_list_control($monthly['rmfeatures'], '');
                     echo '</ul>
-                            <a ' . get_that_link($monthly['rmlink']) . ' class="ag_btn btn_2">' . $monthly['rmbutton'] . '</a>
+                            <a ' . ageland_get_that_link($monthly['rmlink']) . ' class="ag_btn btn_2">' . $monthly['rmbutton'] . '</a>
                         </div>
                 </div>';}
         }

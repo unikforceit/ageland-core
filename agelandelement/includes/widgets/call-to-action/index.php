@@ -33,12 +33,49 @@ class ageland_call_to_action extends Widget_Base {
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+
         $this->add_control(
-            'title',
+            'layout',
             [
-                'label' => __( 'Title', 'ageland' ),
+                'label' => __( 'Layout', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'layout1' => [
+                        'title' => __( 'Home 1', 'ageland' ),
+                        'icon' => 'eicon-form-horizontal',
+                    ],
+                    'layout2' => [
+                        'title' => __( 'Home 2', 'ageland' ),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                ],
+                'default' => 'layout1',
+                'toggle' => true,
+            ]
+        );
+
+        $this->add_control(
+            'info',
+            [
+                'label' => __( 'Info', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Chap fantastic skive <br /> chancer knees up starkers', 'ageland' ),
+                'default' => __( 'Want make your digital presence stronger than congratulations.', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'title1',
+            [
+                'label' => __( 'Title 1', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'We are', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'title2',
+            [
+                'label' => __( 'Title 2', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Hiring', 'ageland' ),
             ]
         );
         $this->add_control(
@@ -46,7 +83,7 @@ class ageland_call_to_action extends Widget_Base {
             [
                 'label' => __('Button 1', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Learn More', 'ageland'),
+                'default' => __('Apply & Join With Us', 'ageland'),
             ]
         );
         $this->add_control(
@@ -61,65 +98,7 @@ class ageland_call_to_action extends Widget_Base {
                 ],
             ]
         );
-        $this->add_control(
-            'button2',
-            [
-                'label' => __('Button 2', 'ageland'),
-                'type' => Controls_Manager::TEXT,
-                'default' => __('Learn More', 'ageland'),
-            ]
-        );
-        $this->add_control(
-            'link2', [
-                'label' => __('Link 2', 'ageland'),
-                'type' => Controls_Manager::URL,
-                'show_external' => true,
-                'default' => [
-                    'url' => '#',
-                    'is_external' => true,
-                    'nofollow' => true,
-                ],
-            ]
-        );
-        $this->add_control(
-            'image_left',
-            [
-                'label' => __( 'Choose Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $this->add_control(
-            'image_right',
-            [
-                'label' => __( 'Choose Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
-        $this->add_control(
-            'layout',
-            [
-                'label' => __( 'Layout', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
-                'options' => [
-                    'layout1' => [
-                        'title' => __( 'One', 'ageland' ),
-                        'icon' => 'eicon-form-horizontal',
-                    ],
-                    'layout2' => [
-                        'title' => __( 'Two', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                ],
-                'default' => 'layout1',
-                'toggle' => true,
-            ]
-        );
+
         $this->end_controls_section();
         
         $this->start_controls_section(

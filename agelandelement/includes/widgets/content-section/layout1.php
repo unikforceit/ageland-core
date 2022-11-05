@@ -8,7 +8,7 @@
                         <div class="about_content">
                             <h3>'.$settings['title'].'</h3>
                             <p>'.$settings['info'].'</p>
-                            <a '.get_that_link($settings['link']).' class="btn">'.$settings['button'].'</a>
+                            <a '.ageland_get_that_link($settings['link']).' class="btn">'.$settings['button'].'</a>
                         </div>
                         <!--/.about_content-->
                     </div>

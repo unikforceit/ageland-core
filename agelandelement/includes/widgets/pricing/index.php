@@ -40,30 +40,7 @@ class ageland_pricing_table extends Widget_Base
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        $this->add_control(
-            'stitle',
-            [
-                'label' => __( 'Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Pricing', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'ssubtitle',
-            [
-                'label' => __( 'Sub Title', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Not any hidden charge, Choose Your pricing plan', 'ageland' ),
-            ]
-        );
-        $this->add_control(
-            'sinfo',
-            [
-                'label' => __( 'Info', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, Lorem ipsum dolor sit amet, At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.', 'ageland' ),
-            ]
-        );
+
         $this->add_control(
             'layout',
             [
@@ -71,7 +48,7 @@ class ageland_pricing_table extends Widget_Base
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'layout1' => [
-                        'title' => __( 'One', 'ageland' ),
+                        'title' => __( 'Pricing Main', 'ageland' ),
                         'icon' => 'eicon-form-horizontal',
                     ],
                     'layout2' => [
@@ -91,66 +68,84 @@ class ageland_pricing_table extends Widget_Base
                 'default' => 'layout1',
                 'toggle' => true,
             ]
-        );
+        ); // layouts
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'mpma',
+            'pricing_plan',
             [
-                'label' => __('Monthly', 'ageland'),
+                'label' => __('Pricing Plan', 'ageland'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        $this->add_control(
-            'mlabel',
+        $repeater = new \Elementor\Repeater();
+        $repeater->add_control(
+            'plan_animation_duration',
             [
-                'label' => __('Label', 'ageland'),
+                'label' => __('Plan animation duration', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Monthly', 'ageland'),
+                'default' => __('2s', 'ageland'),
             ]
         );
-        $this->add_control(
-            'mtitle',
+        $repeater->add_control(
+            'active_status', [
+                'label' => __( 'Active Status', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __( 'ACTIVE', 'ageland' ),
+                'label_off' => __( 'INACTIVE', 'ageland' ),
+                'return_value' => 'active',
+            ]
+        );
+        $repeater->add_control(
+            'plan_title',
             [
-                'label' => __('Title', 'ageland'),
+                'label' => __('Plan Title', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Standard', 'ageland'),
+                'default' => __('Personal', 'ageland'),
             ]
         );
-        $this->add_control(
-            'mprice',
+        $repeater->add_control(
+            'plan_price',
             [
-                'label' => __('Price', 'ageland'),
+                'label' => __('Plan Price', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('$90.99', 'ageland'),
+                'default' => __('$20', 'ageland'),
             ]
         );
-        $this->add_control(
-            'msub',
+        $repeater->add_control(
+            'plan_price_label',
             [
-                'label' => __('Sub Title', 'ageland'),
+                'label' => __('Price Duration', 'ageland'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('per month', 'ageland'),
+                'default' => __('/month', 'ageland'),
             ]
         );
-        $this->add_control(
-            'mfeatures',
+        $repeater->add_control(
+            'plan_features',
             [
-                'label' => __('Features', 'ageland'),
-                'type' => AgelandElement_Elementor_Addons::LIST_CONTROL,
+                'label' => __('Plan Features', 'ageland'),
+                'type' => \AgelandElement_Elementor_Addons::LIST_CONTROL,
             ]
         );
-        $this->add_control(
-            'mbutton',
+        $repeater->add_control(
+            'plan_des',
             [
-                'label' => __('Button', 'ageland'),
+                'label' => __('Plan Description', 'ageland'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('The perfect plan for early stages start ups that want to launch quickly.', 'ageland'),
+            ]
+        );
+        $repeater->add_control(
+            'plan_btn',
+            [
+                'label' => __('Plan Button', 'ageland'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __('Purchase', 'ageland'),
+                'default' => __('Choose This Plan', 'ageland'),
             ]
         );
-        $this->add_control(
-            'mlink', [
-                'label' => __('Link', 'ageland'),
+        $repeater->add_control(
+            'plan_btn_link', [
+                'label' => __('Plan Button Link', 'ageland'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
                 'default' => [
@@ -160,6 +155,7 @@ class ageland_pricing_table extends Widget_Base
                 ],
             ]
         );
+
         $repeater1 = new \Elementor\Repeater();
         $repeater1->add_control(
             'rmtitle',
@@ -213,24 +209,24 @@ class ageland_pricing_table extends Widget_Base
             ]
         );
         $this->add_control(
-            'mlist',
+            'plan_list',
             [
                 'label' => __( 'Monthly list', 'ageland' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater1->get_controls(),
+                'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'rmtitle' => __( 'Professional', 'ageland' ),
+                        'plan_title' => __( 'Personal', 'ageland' ),
                     ],
                     [
-                        'rmtitle' => __( 'Professional', 'ageland' ),
+                        'plan_title' => __( 'Professional', 'ageland' ),
                     ],
                     [
-                        'rmtitle' => __( 'Professional', 'ageland' ),
+                        'plan_title' => __( 'Essential', 'ageland' ),
                     ],
 
                 ],
-                'title_field' => '{{{ rmtitle }}}',
+                'title_field' => '{{{ plan_title }}}',
             ]
         );
         $this->end_controls_section();

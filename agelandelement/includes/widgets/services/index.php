@@ -1,38 +1,76 @@
 <?php
+
 namespace Elementor;
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class ageland_services extends Widget_Base {
+class ageland_services extends Widget_Base
+{
 
-   public function get_name() {
-      return 'ageland-services';
-   }
+    public function get_name()
+    {
+        return 'ageland-services';
+    }
 
-   public function get_title() {
-      return __( 'Ageland Services', 'ageland' );
-   }
-    public function get_categories() {
-		return [ 'agelandelement-addons' ];
-	}
-   public function get_icon() { 
+    public function get_title()
+    {
+        return __('Ageland Services', 'ageland');
+    }
+
+    public function get_categories()
+    {
+        return ['agelandelement-addons'];
+    }
+
+    public function get_icon()
+    {
         return 'eicon-posts-group';
-   }
+    }
 
-    protected function register_controls() {
+    protected function register_controls()
+    {
 
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Services', 'ageland' ),
+                'label' => __('Services', 'ageland'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'layout',
+            [
+                'label' => __('Layout', 'ageland'),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'layout1' => [
+                        'title' => __('Home 1', 'ageland'),
+                        'icon' => 'eicon-form-horizontal',
+                    ],
+                    'layout2' => [
+                        'title' => __('Home 2', 'ageland'),
+                        'icon' => 'eicon-post-slider',
+                    ],
+                ],
+                'default' => 'layout1',
+                'toggle' => true,
+            ]
+        );
+
+        $this->add_control(
+            'subtitle',
+            [
+                'label' => __('Sub Title', 'ageland'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Service', 'ageland'),
             ]
         );
         $this->add_control(
             'title',
             [
-                'label' => __( 'Title', 'ageland' ),
+                'label' => __('Title', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Useful Features', 'ageland' ),
+                'default' => __('Our Services Area', 'ageland'),
             ]
         );
         $this->add_control(
@@ -40,11 +78,23 @@ class ageland_services extends Widget_Base {
             [
                 'label' => __('Info', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Amet, dui, lacus in non massa id tellus amet tincidunt. Lacus ut integer
-                 blandit diam nibh pulvinar. Ultrices phasellus', 'ageland'),
+                'default' => __('Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam.', 'ageland'),
             ]
         );
+        $this->add_control(
+            'image',
+            [
+                'label' => __('Shap Image', 'ageland'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'layout' => 'layout1',
+                ],
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
         $this->add_control(
             'query_type1',
             [
@@ -57,7 +107,6 @@ class ageland_services extends Widget_Base {
                 ],
             ]
         );
-
         $this->add_control(
             'cat_query1',
             [
@@ -71,7 +120,6 @@ class ageland_services extends Widget_Base {
                 ],
             ]
         );
-
         $this->add_control(
             'id_query1',
             [
@@ -93,32 +141,20 @@ class ageland_services extends Widget_Base {
                 'default' => 3,
             ]
         );
-        $this->add_control(
-            'image',
-            [
-                'label' => __( 'Shap Image', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'condition' => [
-                    'layout' => 'layout3',
-                ],
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-            ]
-        );
+
         $repeater = new \Elementor\Repeater();
         $repeater->add_control(
             'shape_title',
             [
-                'label' => __( 'Shape Title', 'ageland' ),
+                'label' => __('Shape Title', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __( 'Shape Icon', 'ageland' ),
+                'default' => __('Shape Icon', 'ageland'),
             ]
         );
         $this->add_control(
             'shape_list',
             [
-                'label' => __( 'Shape List', 'ageland' ),
+                'label' => __('Shape List', 'ageland'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'condition' => [
                     'layout' => ['layout3'],
@@ -126,13 +162,13 @@ class ageland_services extends Widget_Base {
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'shape_title' => __( 'Shape', 'ageland' ),
+                        'shape_title' => __('Shape', 'ageland'),
                     ],
                     [
-                        'shape_title' => __( 'Shape', 'ageland' ),
+                        'shape_title' => __('Shape', 'ageland'),
                     ],
                     [
-                        'shape_title' => __( 'Shape', 'ageland' ),
+                        'shape_title' => __('Shape', 'ageland'),
                     ],
 
                 ],
@@ -142,7 +178,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'button',
             [
-                'label' => __( 'Button Icon', 'ageland' ),
+                'label' => __('Button Icon', 'ageland'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => __('Explore', 'ageland'),
             ]
@@ -159,45 +195,11 @@ class ageland_services extends Widget_Base {
                 ],
             ]
         );
-        $this->add_control(
-            'layout',
-            [
-                'label' => __( 'Layout', 'ageland' ),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
-                'options' => [
-                    'layout1' => [
-                        'title' => __( 'One', 'ageland' ),
-                        'icon' => 'eicon-form-horizontal',
-                    ],
-                    'layout2' => [
-                        'title' => __( 'Two', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                    'layout3' => [
-                        'title' => __( 'Three', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                    'layout4' => [
-                        'title' => __( 'Four', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                    'layout5' => [
-                        'title' => __( 'Five', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                    'layout6' => [
-                        'title' => __( 'Six', 'ageland' ),
-                        'icon' => 'eicon-post-slider',
-                    ],
-                ],
-                'default' => 'layout1',
-                'toggle' => true,
-            ]
-        );
+
         $this->add_control(
             'shape22',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -207,7 +209,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'shape33',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -215,10 +217,72 @@ class ageland_services extends Widget_Base {
             ]
         );
         $this->end_controls_section();
+
+        //      Tab Loop
+        $this->start_controls_section(
+            'about_box_1_section',
+            [
+                'label' => esc_html__('Tab Section', 'ageland'),
+                'tab' => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $repeater = new Repeater();
+        $repeater->add_control(
+            'tab_title', [
+                'label' => esc_html__('Tab Title', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__("Visual Design", 'ageland'),
+                'description' => esc_html__('enter tab title', 'ageland')
+            ]
+        );
+        $repeater->add_control(
+            'tab_info', [
+                'label' => esc_html__('Tab Details Info', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__("Ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.", 'ageland'),
+                'description' => esc_html__('enter tab details info', 'ageland')
+            ]
+        );
+        $repeater->add_control(
+            'tab_details_title', [
+                'label' => esc_html__('Tab Details Title', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__("Delivering for Clients...", 'ageland'),
+                'description' => esc_html__('enter tab details title', 'ageland')
+            ]
+        );
+        $repeater->add_control(
+            'tab_details_info', [
+                'label' => esc_html__('Tab Details Info', 'ageland'),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__("Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam.", 'ageland'),
+                'description' => esc_html__('enter tab details info', 'ageland')
+            ]
+        );
+        $repeater->add_control(
+            'tab_thumb_image', [
+                'label' => esc_html__('Tab Thumb Image', 'ageland'),
+                'type' => Controls_Manager::MEDIA,
+                'show_label' => false,
+                'description' => esc_html__('upload tab thumb image', 'ageland'),
+                'default' => [
+                    'src' => Utils::get_placeholder_image_src()
+                ],
+            ]
+        );
+        $this->add_control('tab_list', [
+            'label' => esc_html__('Take 4 Tab Item', 'ageland'),
+            'type' => Controls_Manager::REPEATER,
+            'fields' => $repeater->get_controls(),
+        ]);
+
+        $this->end_controls_section();
+
         $this->start_controls_section(
             'content_section2',
             [
-                'label' => __( 'Services 2', 'ageland' ),
+                'label' => __('Services 2', 'ageland'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -235,7 +299,6 @@ class ageland_services extends Widget_Base {
                 ],
             ]
         );
-
         $this->add_control(
             'cat_query',
             [
@@ -249,7 +312,6 @@ class ageland_services extends Widget_Base {
                 ],
             ]
         );
-
         $this->add_control(
             'id_query',
             [
@@ -274,7 +336,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'shape2',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -284,7 +346,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'shape3',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -292,17 +354,18 @@ class ageland_services extends Widget_Base {
             ]
         );
         $this->end_controls_section();
+
         $this->start_controls_section(
             'content_sty',
             [
-                'label' => __( 'Style', 'ageland' ),
+                'label' => __('Style', 'ageland'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'mshape1',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -312,7 +375,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'mshape2',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -322,7 +385,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'mshape3',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -332,7 +395,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'mshape4',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -342,7 +405,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'mshape5',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -352,7 +415,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'mshape6',
             [
-                'label' => __( 'Choose Image', 'ageland' ),
+                'label' => __('Choose Image', 'ageland'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -363,7 +426,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'post_title_color',
             [
-                'label' => __( 'Title Color', 'ageland' ),
+                'label' => __('Title Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item h4' => 'color: {{VALUE}}',
@@ -373,7 +436,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'post_titleh_color',
             [
-                'label' => __( 'Title Hover Color', 'ageland' ),
+                'label' => __('Title Hover Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item h4:hover' => 'color: {{VALUE}}',
@@ -384,14 +447,14 @@ class ageland_services extends Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'ttih',
-                'label' => __( 'Title Typography', 'ageland' ),
+                'label' => __('Title Typography', 'ageland'),
                 'selector' => '{{WRAPPER}} .service .item h4',
             ]
         );
         $this->add_control(
             'post_in_color',
             [
-                'label' => __( 'Info Color', 'ageland' ),
+                'label' => __('Info Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item p' => 'color: {{VALUE}}',
@@ -402,14 +465,14 @@ class ageland_services extends Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'ttihii',
-                'label' => __( 'Info Typography', 'ageland' ),
+                'label' => __('Info Typography', 'ageland'),
                 'selector' => '{{WRAPPER}} .service .item p',
             ]
         );
         $this->add_control(
             'icon_c',
             [
-                'label' => __( 'Icon Color', 'ageland' ),
+                'label' => __('Icon Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .hexagon i' => 'color: {{VALUE}}',
@@ -419,7 +482,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'icon_cl',
             [
-                'label' => __( 'Icon Hover', 'ageland' ),
+                'label' => __('Icon Hover', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .hexagon i' => 'color: {{VALUE}}',
@@ -429,7 +492,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'icon_bg',
             [
-                'label' => __( 'Icon Hover Background', 'ageland' ),
+                'label' => __('Icon Hover Background', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .hexagon:before, 
@@ -441,14 +504,14 @@ class ageland_services extends Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'btnt',
-                'label' => __( 'Button Typography', 'ageland' ),
+                'label' => __('Button Typography', 'ageland'),
                 'selector' => '{{WRAPPER}} .service .item .thm-btn',
             ]
         );
         $this->add_control(
             'btn_c',
             [
-                'label' => __( 'Button Color', 'ageland' ),
+                'label' => __('Button Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .thm-btn' => 'color: {{VALUE}}',
@@ -458,7 +521,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'btn_bg',
             [
-                'label' => __( 'Button Background', 'ageland' ),
+                'label' => __('Button Background', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .thm-btn' => 'background: {{VALUE}}',
@@ -468,7 +531,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'btn_hc',
             [
-                'label' => __( 'Button Hover Color', 'ageland' ),
+                'label' => __('Button Hover Color', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .thm-btn' => 'color: {{VALUE}}',
@@ -478,7 +541,7 @@ class ageland_services extends Widget_Base {
         $this->add_control(
             'btn_bgh',
             [
-                'label' => __( 'Button Hover Background', 'ageland' ),
+                'label' => __('Button Hover Background', 'ageland'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .thm-btn' => 'background: {{VALUE}}',
@@ -488,9 +551,9 @@ class ageland_services extends Widget_Base {
         $this->add_responsive_control(
             'content_margin',
             [
-                'label' => __( 'Row Gap', 'ageland' ),
+                'label' => __('Row Gap', 'ageland'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'em' ],
+                'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .service .item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -500,7 +563,8 @@ class ageland_services extends Widget_Base {
 
     }
 
-    protected function render() {
+    protected function render()
+    {
 
         $settings = $this->get_settings_for_display();
 
@@ -517,7 +581,7 @@ class ageland_services extends Widget_Base {
         $id = $settings['id_query'];
 
 
-        if($settings['query_type'] == 'category'){
+        if ($settings['query_type'] == 'category') {
             $query_args = array(
                 'post_type' => 'services',
                 'posts_per_page' => $per_page,
@@ -526,16 +590,16 @@ class ageland_services extends Widget_Base {
                         'taxonomy' => 'service_category',
                         'field' => 'slug',
                         'terms' => $cat,
-                    ) ,
-                ) ,
+                    ),
+                ),
             );
         }
 
-        if($settings['query_type'] == 'individual'){
+        if ($settings['query_type'] == 'individual') {
             $query_args = array(
                 'post_type' => 'services',
                 'posts_per_page' => $per_page,
-                'post__in' =>$id,
+                'post__in' => $id,
                 'orderby' => 'post__in'
             );
         }
@@ -547,7 +611,7 @@ class ageland_services extends Widget_Base {
         $id1 = $settings['id_query1'];
 
 
-        if($settings['query_type1'] == 'category1'){
+        if ($settings['query_type1'] == 'category1') {
             $query_args1 = array(
                 'post_type' => 'services',
                 'posts_per_page' => $per_page1,
@@ -556,30 +620,35 @@ class ageland_services extends Widget_Base {
                         'taxonomy' => 'service_category',
                         'field' => 'slug',
                         'terms' => $cat1,
-                    ) ,
-                ) ,
+                    ),
+                ),
             );
         }
 
-        if($settings['query_type1'] == 'individual1'){
+        if ($settings['query_type1'] == 'individual1') {
             $query_args1 = array(
                 'post_type' => 'services',
                 'posts_per_page' => $per_page1,
-                'post__in' =>$id1,
+                'post__in' => $id1,
                 'orderby' => 'post__in'
             );
         }
 
         $wp_query1 = new \WP_Query($query_args1);
 
-        include dirname(__FILE__). '/' . $settings['layout']. '.php';
+        include dirname(__FILE__) . '/' . $settings['layout'] . '.php';
     }
 
 
-    protected function content_template() {}
+    protected function content_template()
+    {
+    }
 
-   public function render_plain_content( $instance = [] ) {}
+    public function render_plain_content($instance = [])
+    {
+    }
 
 }
-Plugin::instance()->widgets_manager->register( new ageland_services() );
+
+Plugin::instance()->widgets_manager->register(new ageland_services());
 ?>

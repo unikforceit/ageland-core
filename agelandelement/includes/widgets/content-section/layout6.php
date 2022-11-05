@@ -7,7 +7,7 @@
                         <div class="ag_cta_section_wrapper text-center">
                             <h2 class="title text-white">'.$settings['title'].'</h2>
                             <p class="description text-white">'.$settings['info'].'</p>
-                            <a '.get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
+                            <a '.ageland_get_that_link($settings['link']).' class="ag_btn btn_1">'.$settings['button'].'</a>
                         </div>
                     </div>
                 </div>

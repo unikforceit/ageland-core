@@ -5,7 +5,7 @@
                 <li class="single-post">
                     <div class="media ">
                         <div class="post-thumbnail mr-4">
-                            <a href="#">'.get_that_image($settings['image1']).'</a>
+                            <a href="#">'.ageland_get_that_image($settings['image1']).'</a>
                         </div>
                         <div class="media-body">
                           <h4 class="post-time"> <span class="date">15</span> Jan, 2020</h4>
@@ -16,7 +16,7 @@
                 <li class="single-post">
                     <div class="media ">
                         <div class="post-thumbnail mr-4">
-                            <a href="#">'.get_that_image($settings['image2']).'</a>
+                            <a href="#">'.ageland_get_that_image($settings['image2']).'</a>
                         </div>
                         <div class="media-body">
                           <h4 class="post-time"> <span class="date">15</span> Jan, 2020</h4>
@@ -27,7 +27,7 @@
                 <li class="single-post">
                     <div class="media ">
                         <div class="post-thumbnail mr-4">
-                            <a href="#">'.get_that_image($settings['image3']).'</a>
+                            <a href="#">'.ageland_get_that_image($settings['image3']).'</a>
                         </div>
                         <div class="media-body">
                           <h4 class="post-time"> <span class="date">15</span> Jan, 2020</h4>
@@ -38,7 +38,7 @@
                 <li class="single-post">
                     <div class="media ">
                         <div class="post-thumbnail mr-4">
-                            <a href="#">'.get_that_image($settings['image4']).'</a>
+                            <a href="#">'.ageland_get_that_image($settings['image4']).'</a>
                         </div>
                         <div class="media-body">
                           <h4 class="post-time"> <span class="date">15</span> Jan, 2020</h4>

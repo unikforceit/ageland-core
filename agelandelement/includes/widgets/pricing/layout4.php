@@ -67,7 +67,7 @@ if ($settings['shapelist']){
         }else{
             $class = 'shape_img_06 shape-four';
         }
-        echo get_that_image($shape['shapel'], $class);
+        echo ageland_get_that_image($shape['shapel'], $class);
     }
 }
 

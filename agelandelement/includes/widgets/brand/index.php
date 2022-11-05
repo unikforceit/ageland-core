@@ -218,7 +218,7 @@ class ageland_brand extends Widget_Base
 //        if ($settings['brand_list']) {
 //            foreach ($settings['brand_list'] as $brand) {
 //                echo '<div class="single-brand ">
-//                        <a ' . ageland_get_that_link($brand['link']) . '>' . get_that_image($brand['image']) . '</a>
+//                        <a ' . ageland_get_that_link($brand['link']) . '>' . ageland_get_that_image($brand['image']) . '</a>
 //                    </div>';
 //            }
 //        }

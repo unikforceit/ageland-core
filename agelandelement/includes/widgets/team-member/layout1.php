@@ -16,7 +16,7 @@ if ($settings['team_list']) {
     foreach ($settings['team_list'] as $team) {
         echo '<div class="col-md-3">
                         <div class="teams_single_in" data-aos="fade-up" data-aos-duration="500">
-                            '.get_that_image($team['image']).'
+                            '.ageland_get_that_image($team['image']).'
                             <ul class="social">
                                 <li><a '.ageland_get_that_link($team['link1']).'>';\Elementor\Icons_Manager::render_icon( $team['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
                                 <li><a '.ageland_get_that_link($team['link2']).'>';\Elementor\Icons_Manager::render_icon( $team['icon2'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
@@ -49,7 +49,7 @@ if ($settings['icon_list']) {
         }else{
             $cls='shape-five';
         }
-        echo ''.get_that_image($icon['image1'],''.$cls.'').'';
+        echo ''.ageland_get_that_image($icon['image1'],''.$cls.'').'';
     }
 }
 echo '</div>

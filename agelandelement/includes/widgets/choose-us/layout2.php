@@ -37,7 +37,7 @@
 //                    </div>
 //                    <div class="col-md-5">
 //                        <div class="banner_dashboard_right">
-//                            '.get_that_image($settings['image']).'
+//                            '.ageland_get_that_image($settings['image']).'
 //                        </div>
 //                        <!--/.banner_dashboard_right-->
 //                    </div>

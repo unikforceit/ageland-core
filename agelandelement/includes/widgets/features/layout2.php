@@ -24,7 +24,7 @@ if ($settings['feature_list']) {
         }
         echo '<div class="col-md-4">
                         <div class="business_single_in '.$cls.'" data-aos="fade-up" data-aos-duration="1000">
-                            '.get_that_image($feature['image']).'
+                            '.ageland_get_that_image($feature['image']).'
                             <h4>'.$feature['feature_title'].'</h4>
                             <p>'.$feature['feature_info'].'</p>
                         </div>

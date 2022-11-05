@@ -18,7 +18,7 @@ if ($settings['testi_list']) {
     foreach ($settings['testi_list'] as $testi) {
         echo '<div>
                                 <div class="single_testi_in2">
-                                    '.get_that_image($testi['thumb']).'
+                                    '.ageland_get_that_image($testi['thumb']).'
                                     <h4>'.$testi['t_title'].'</h4>
                                     <h5>'.$testi['t_subtitle'].'</h5>
                                     <h2><i class="fas fa-quote-left"></i></h2>
@@ -48,7 +48,7 @@ if ($settings['icon_list']) {
         }else{
             $cls='shape-six';
         }
-        echo ''.get_that_image($icon['ico'],''.$cls.'').'';
+        echo ''.ageland_get_that_image($icon['ico'],''.$cls.'').'';
     }
 }
 echo '</section>

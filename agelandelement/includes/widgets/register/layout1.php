@@ -6,12 +6,12 @@ echo '<!-- register-area start here  -->
                     <div class="col-lg-6 order-1 order-lg-0">
                         <div class="register-info">
                             <div class="brand-logo">
-                                '.get_that_image($settings['image']).'
+                                '.ageland_get_that_image($settings['image']).'
                             </div>
                             <h2>'.$settings['title'].'</h2>
                             <p>'.$settings['info'].'</p>
                             <div class="register-left-image">
-                                '.get_that_image($settings['image2']).'
+                                '.ageland_get_that_image($settings['image2']).'
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ echo '<!-- register-area start here  -->
                                        </div>
                                         <div class="tab-register text-center">
                                             <h4 class="otehr-option"><span>or</span></h4>
-                                            <a class="google-regiter" href="#">  '.get_that_image($settings['icon']).' Sign Up with Google</a>
+                                            <a class="google-regiter" href="#">  '.ageland_get_that_image($settings['icon']).' Sign Up with Google</a>
                                             <p>Already have account?  <a href="#">Sign In</a></p>
                                         </div>
                                    </div>
@@ -104,7 +104,7 @@ echo '<!-- register-area start here  -->
                                         </div>
                                          <div class="tab-register text-center">
                                             <h4 class="otehr-option"><span>or</span></h4>
-                                            <a class="google-regiter" href="#"> '.get_that_image($settings['icon2']).' Sign In with Google</a>
+                                            <a class="google-regiter" href="#"> '.ageland_get_that_image($settings['icon2']).' Sign In with Google</a>
                                             <p>New user?  <a href="#">Sign Up</a> for free</p>
                                          </div>
                                     </div>

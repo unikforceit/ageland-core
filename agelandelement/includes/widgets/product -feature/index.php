@@ -255,7 +255,7 @@ class ageland_product_feature extends Widget_Base {
                     </div>
                     <div class="col-lg-4 d-md-none d-lg-block">
                         <div class="spectiality-img text-center">
-                        '.get_that_image($settings['image']).'
+                        '.ageland_get_that_image($settings['image']).'
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">

@@ -35,8 +35,8 @@
 //        $meta = ageland_service_meta('service_icon');
 //        $met = isset($meta['id']) ? $meta['id'] : '';
 //        echo wp_get_attachment_image($met);
-//        echo '' . get_that_image($settings['shape22'], 'show') . '
-//                                        ' . get_that_image($settings['shape33'], 'hide') . '
+//        echo '' . ageland_get_that_image($settings['shape22'], 'show') . '
+//                                        ' . ageland_get_that_image($settings['shape33'], 'hide') . '
 //                                    </div>
 //                                    <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>
 //                                    <p>' . get_the_excerpt() . '</p>
@@ -62,8 +62,8 @@
 //        $meta = ageland_service_meta('service_icon');
 //        $met = isset($meta['id']) ? $meta['id'] : '';
 //        echo wp_get_attachment_image($met);
-//        echo '' . get_that_image($settings['shape2'], 'show') . '
-//                                        ' . get_that_image($settings['shape3'], 'hide') . '
+//        echo '' . ageland_get_that_image($settings['shape2'], 'show') . '
+//                                        ' . ageland_get_that_image($settings['shape3'], 'hide') . '
 //                                    </div>
 //                                    <h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>
 //                                    <p>' . get_the_excerpt() . '</p>
@@ -78,12 +78,12 @@
 //                </div>
 //            </div>
 //            <!--/.container-->
-//            ' . get_that_image($settings['mshape1'], 'shape-one') . '
-//            ' . get_that_image($settings['mshape2'], 'shape-two') . '
-//            ' . get_that_image($settings['mshape3'], 'shape-three') . '
-//            ' . get_that_image($settings['mshape4'], 'shape-four') . '
-//            ' . get_that_image($settings['mshape5'], 'shape-five') . '
-//            ' . get_that_image($settings['mshape6'], 'shape-six') . '
+//            ' . ageland_get_that_image($settings['mshape1'], 'shape-one') . '
+//            ' . ageland_get_that_image($settings['mshape2'], 'shape-two') . '
+//            ' . ageland_get_that_image($settings['mshape3'], 'shape-three') . '
+//            ' . ageland_get_that_image($settings['mshape4'], 'shape-four') . '
+//            ' . ageland_get_that_image($settings['mshape5'], 'shape-five') . '
+//            ' . ageland_get_that_image($settings['mshape6'], 'shape-six') . '
 //        </section>
 //        <!--service provide-->'; ?>
 
@@ -112,7 +112,7 @@
                                 <div class="section-header pb-48">
                                     <h3 class="title"><?php echo esc_html($tab['tab_details_title']); ?></h3>
                                     <p class="info"><?php echo esc_html($tab['tab_details_info']); ?></p>
-                                    <?php echo get_that_image($tab['tab_thumb_image'],'pt-47')?>
+                                    <?php echo ageland_get_that_image($tab['tab_thumb_image'],'pt-47')?>
                                 </div>
                             </div>
                         <?php }

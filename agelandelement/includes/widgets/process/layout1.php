@@ -16,16 +16,16 @@ echo '<!-- requirement-process area start here  -->
                         echo '<div class="col-lg-3 col-md-6 col-sm-6">';
                         if ($work['aro_image']['url']) {
                             echo '<div class="top-arrow">
-                                    '.get_that_image($work['aro_image']).'
+                                    '.ageland_get_that_image($work['aro_image']).'
                            </div>';
                         }
                         echo '<div class="single-requirement text-center">
-                            <div class="requirement-icon">'.get_that_image($work['w_image']).'</div>
+                            <div class="requirement-icon">'.ageland_get_that_image($work['w_image']).'</div>
                             <h3>'.$work['w_title'].'</h3>
                         </div>';
                         if ($work['aro_image2']['url']) {
                             echo '<div class="bottom-arrow">
-                                    '.get_that_image($work['aro_image2']).'
+                                    '.ageland_get_that_image($work['aro_image2']).'
                            </div>';
                         }
                         echo '

@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="plan_img">
-                            '.get_that_image($settings['image']).'
+                            '.ageland_get_that_image($settings['image']).'
                         </div>
                     </div>
                     <div class="col-md-6">

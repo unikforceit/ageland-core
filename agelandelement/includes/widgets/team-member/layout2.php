@@ -34,7 +34,7 @@ if ($settings['team_list']) {
         }
         echo ' <div class="team-single '.$cls.'">
                                 <div class="img-info">
-                                    '.get_that_image($team['image']).'
+                                    '.ageland_get_that_image($team['image']).'
                                     <ul class="social">
                                         <li><a '.ageland_get_that_link($team['link1']).'>';\Elementor\Icons_Manager::render_icon( $team['icon1'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
                                         <li><a '.ageland_get_that_link($team['link2']).'>';\Elementor\Icons_Manager::render_icon( $team['icon2'], [ 'aria-hidden' => 'true' ] );echo'</a></li>
@@ -71,7 +71,7 @@ if ($settings['icon_list']) {
         }else{
             $cls2='shape-six';
         }
-        echo ''.get_that_image($icon['image1'],''.$cls2.'').'';
+        echo ''.ageland_get_that_image($icon['image1'],''.$cls2.'').'';
     }
 }
 echo '</section>

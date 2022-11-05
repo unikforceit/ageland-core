@@ -18,7 +18,7 @@ if ($settings['testi_list']) {
         }
         echo '<div class="swiper-slide">
                                     <div class="client_slider_thumb">
-                                        '.get_that_image($testi['thumb']).'
+                                        '.ageland_get_that_image($testi['thumb']).'
                                     </div>
                                 </div>';
     }
@@ -34,7 +34,7 @@ if ($settings['testi_list']) {
     foreach ($settings['testi_list'] as $testi) {
         echo '<div class="swiper-slide">
                                     <div class="client_slider_content_wrapper testimonial_slide_style_02">
-                                        '.get_that_image($settings['quote'],'testimonial_quote_img').'
+                                        '.ageland_get_that_image($settings['quote'],'testimonial_quote_img').'
                                         <p class="client_speech">
                                             '.$testi['t_info'].'
                                         </p>
@@ -49,6 +49,6 @@ echo '</div>
                     </div>
                 </div>
             </div>
-            '.get_that_image($settings['map_thum'],'testimonial_shape img-fluid').'
+            '.ageland_get_that_image($settings['map_thum'],'testimonial_shape img-fluid').'
         </section>
         <!-- testimonial section end -->';

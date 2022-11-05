@@ -5,7 +5,7 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="ag_img_box image_animation_style_01 mouse_move_animation overflow-visiable">
-                            '.get_that_image($settings['image'], 'img-fluid').'
+                            '.ageland_get_that_image($settings['image'], 'img-fluid').'
                             <div class="profile_thumb_shape wow fadeIn" data-wow-delay=".6s">
                                 <div class="layer layer2" data-depth="0.20"><img src="'.($settings['image1']['url']).'" alt="#" ></div>
                             </div>
@@ -31,7 +31,7 @@ if ($settings['icon_list']) {
         }else{
             $cls='shape-three';
         }
-        echo ''.get_that_image($icon['iconnn'],'about_section_shape_0'.$loop.' '.$cls.'').'';
+        echo ''.ageland_get_that_image($icon['iconnn'],'about_section_shape_0'.$loop.' '.$cls.'').'';
     }
 }
 echo '</section>

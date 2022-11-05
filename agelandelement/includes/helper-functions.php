@@ -847,7 +847,7 @@ function ageland_list_control($settings, $icon, $tag="li"){
         }
     }
 }
-function get_that_image($source, $class = 'image'){
+function ageland_get_that_image($source, $class = 'image'){
     if ($source['url']){
         $image = '<img class="'.$class.'" src="'. esc_url( $source['url'] ).'" alt="'.get_bloginfo( 'name' ).'">';
     }

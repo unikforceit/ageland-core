@@ -13,7 +13,7 @@ echo'<!-- work area two start here  -->
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-5">
                         <div class="work-image">
-                            '.get_that_image($settings['image']).'
+                            '.ageland_get_that_image($settings['image']).'
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-7">

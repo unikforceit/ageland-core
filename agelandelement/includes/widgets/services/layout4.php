@@ -35,7 +35,7 @@
                                                 echo wp_get_attachment_image($met);
                                                 ?>
                                             </div>
-                                            <?php echo get_that_image($settings['mshape1'], 'services_icon_shape');?>
+                                            <?php echo ageland_get_that_image($settings['mshape1'], 'services_icon_shape');?>
                                         </div>
                                         <h4 class="nav_title"><?php the_title();?></h4>
                                     </a>

@@ -208,7 +208,7 @@ class ageland_woo_grid extends Widget_Base {
                             <div class="single-product-home3 text-center">
                                 <div class="product-thumbnail">
                                     <a href="'.get_the_permalink().'">
-                                    '.get_that_image($product['image']).'
+                                    '.ageland_get_that_image($product['image']).'
                                     </a>
                                 </div>
                                 <div class="product-info">

@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 order-1 order-md-2">
                         <div class="ag_img_box mt-md-0">
-                            '.get_that_image($settings['image'], 'img-fluid').'
+                            '.ageland_get_that_image($settings['image'], 'img-fluid').'
                         </div>
                     </div>
                 </div>

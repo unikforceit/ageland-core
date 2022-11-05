@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-lg-6 col-md-5">
                     <div class="about-img text-center">
-                    '.get_that_image($settings['image']).'
+                    '.ageland_get_that_image($settings['image']).'
                     </div>
                 </div>
             </div>

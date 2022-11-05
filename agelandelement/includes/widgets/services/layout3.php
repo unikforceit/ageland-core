@@ -23,7 +23,7 @@ if ($wp_query1->have_posts()) {
                                     $met = isset($meta['id']) ? $meta['id'] : '';
                                     echo wp_get_attachment_image($met);
                                 echo '</div>
-                                '.get_that_image($settings['image'],'services_icon_shape').'
+                                '.ageland_get_that_image($settings['image'],'services_icon_shape').'
                             </div>
                             <h4 class="title"><a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>
                             <p class="description">' . get_the_excerpt() . '</p>
@@ -52,7 +52,7 @@ if ($settings['shape_list']) {
             $cls='one';
         }
         echo '<div class="services_parallax_img_'.$loop.' wow slideInnew" data-wow-delay=".3s">
-                <div class="layer layer2 shape-'.$cls.'" data-depth="0.10">'.get_that_image($shape['shape_image']).'</div>
+                <div class="layer layer2 shape-'.$cls.'" data-depth="0.10">'.ageland_get_that_image($shape['shape_image']).'</div>
             </div>';
     }
 }

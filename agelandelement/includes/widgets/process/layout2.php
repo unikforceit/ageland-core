@@ -22,7 +22,7 @@ echo ' <!-- Business Strategy area start here  -->
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="strategy-img">
-                                            ' . get_that_image($work['w_image']) . '
+                                            ' . ageland_get_that_image($work['w_image']) . '
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -40,7 +40,7 @@ echo ' <!-- Business Strategy area start here  -->
                         if ($work['aro_image']['url']) {
                             echo '<div class="col-lg-4 col-md-2 d-none d-md-block">
                             <div class="big-arrow text-center">
-                                ' . get_that_image($work['aro_image']) . '
+                                ' . ageland_get_that_image($work['aro_image']) . '
                             </div>
                         </div>';
                         }
@@ -48,7 +48,7 @@ echo ' <!-- Business Strategy area start here  -->
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="strategy-img">
-                                            ' . get_that_image($work['w_image']) . '
+                                            ' . ageland_get_that_image($work['w_image']) . '
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -67,7 +67,7 @@ echo ' <!-- Business Strategy area start here  -->
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="strategy-img">
-                                            ' . get_that_image($work['w_image']) . '
+                                            ' . ageland_get_that_image($work['w_image']) . '
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -81,7 +81,7 @@ echo ' <!-- Business Strategy area start here  -->
                         if ($work['aro_image']['url']) {
                             echo '<div class="col-lg-4 col-md-2 d-none d-md-block">
                             <div class="big-arrow text-center">
-                                ' . get_that_image($work['aro_image']) . '
+                                ' . ageland_get_that_image($work['aro_image']) . '
                             </div>
                         </div>';
                         }
@@ -91,7 +91,7 @@ echo ' <!-- Business Strategy area start here  -->
                         if ($work['aro_image']['url']) {
                             echo '<div class="col-lg-4 col-md-2 d-none d-md-block">
                             <div class="big-arrow text-center">
-                                ' . get_that_image($work['aro_image']) . '
+                                ' . ageland_get_that_image($work['aro_image']) . '
                             </div>
                         </div>';
                         }
@@ -99,7 +99,7 @@ echo ' <!-- Business Strategy area start here  -->
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="strategy-img">
-                                            ' . get_that_image($work['w_image']) . '
+                                            ' . ageland_get_that_image($work['w_image']) . '
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">

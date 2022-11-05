@@ -6,7 +6,7 @@
             <div class="col-lg-6">
                 <div class="chooseUs-thumb">
                     <img src="assets/img/Banner/banner_2.png" alt="">
-                    ' . get_that_image($settings['image']) . '
+                    ' . ageland_get_that_image($settings['image']) . '
                 </div>
             </div>
             <div class="col-lg-6">

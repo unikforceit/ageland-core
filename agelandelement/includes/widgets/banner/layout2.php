@@ -1,40 +1,52 @@
-<?php
-    echo'<!--hero section-->
-        <section class="ag_banner_part banner_bg_img mouse_move_animation">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="ag_banner_content_inner">
-                            <h5 class="sub_title">'.$settings['sub_title'].'</h5>
-                            <h2 class="banner_title">'.$settings['title'].'</h2>
-                            <p class="description">'.$settings['info'].'</p>
-                            <div class="btn_list">
-                                <a '.ageland_get_that_link($settings['link1']).' class="ag_btn btn_1">'.$settings['button1'].'</a>
-                                <a '.ageland_get_that_link($settings['link2']).' class="video_popup_btn">
-                                    <span class="fa fa-play"></span> '.$settings['button2'].'
-                                </a>
+<!-- Start Banner -->
+<section class="banner-2">
+    <div class="container">
+        <div class="banner-2-wrap d-flex flex-column">
+            <div class="bannerItem">
+                <div class="row justify-content-center justify-content-lg-between">
+                    <div class="col-lg-5">
+                        <div class="bannerTwo-image">
+                            <?php echo ageland_get_that_image($settings['left_image'])?>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="bannerTwo-content">
+                            <h3 class="title">Solve <span class="bannerArrow"></span> Problems Build Your <span
+                                    class="bannerHighlight">Brands</span></h3>
+                            <div class="time-clients d-flex align-items-center">
+                                <div class="bTime">
+                                    <p>5m</p>
+                                </div>
+                                <div class="clients">
+                                    <ul class="customer d-flex align-items-center">
+                                        <li><img src="assets/img/customers/customer_1.png" alt=""></li>
+                                        <li><img src="assets/img/customers/customer_2.png" alt=""></li>
+                                        <li><img src="assets/img/customers/customer_3.png" alt=""></li>
+                                        <li><img src="assets/img/customers/customer_3.png" alt=""></li>
+                                    </ul>
+                                    <p>Our job is to find the simplest expression of your brand, and then amplify it with all the resources to us.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>';
-if ($settings['shape_list']) {
-    $loop=0;
-    foreach ($settings['shape_list'] as $shape) {
-        $loop++;
-        if ($loop==1){
-            $cls='one';
-        }elseif ($loop==2){
-            $cls='two';
-        }elseif ($loop==3){
-            $cls='three';
-        }else {
-            $cls='four';
-        }
-        echo '<div class="banner_parallax_img_'.$loop.' wow slideInnew" data-wow-delay=".3s">
-                <div class="layer layer2 shape-'.$cls.'" data-depth="-0.10">'.get_that_image($shape['shape_image']).'</div>
-            </div>';
-    }
-}
-echo '</section>
-        <!--hero section-->';
+            </div>
+            <div class="bannerItem">
+                <div class="row justify-content-center justify-content-lg-between">
+                    <div class="col-md-5">
+                        <div class="bannerTwo-content">
+                            <p class="info">We are a creative agency that will be work hard to understand your brands business and transform your ideas for into beautiful experiences.</p>
+                            <a <?php echo ageland_get_that_link($settings['learn_more_link']);?> class="get_started_btn"><?php echo esc_html($settings['learn_more']);?></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="bannerTwo-image bannerTwo-image-alt">
+                            <?php echo ageland_get_that_image($settings['right_image'])?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner -->

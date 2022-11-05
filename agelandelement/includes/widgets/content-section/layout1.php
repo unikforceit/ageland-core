@@ -16,8 +16,8 @@
             </div>
             <!--/.container-->
             <div class="right_bg_about">
-                '.get_that_image($settings['image'], 'one').'
-                '.get_that_image($settings['image1'], 'two').'
+                '.ageland_get_that_image($settings['image'], 'one').'
+                '.ageland_get_that_image($settings['image1'], 'two').'
             </div>
         </section>
         <!--about us-->';

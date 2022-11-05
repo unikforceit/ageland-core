@@ -12,7 +12,7 @@ echo '
 if ($settings['brand_list']) {
     foreach ($settings['brand_list'] as $brand) {
         echo '<div class="swiper-slide">
-                                    ' . get_that_image($brand['image']) . '
+                                    ' . ageland_get_that_image($brand['image']) . '
                                 </div>';
     }
 }
@@ -22,7 +22,7 @@ echo '</div>
                 </div>
                 <div class="col-lg-3">
                     <div class="badge">
-                        ' . get_that_image($settings['image']) . '
+                        ' . ageland_get_that_image($settings['image']) . '
                     </div>
                 </div>
             </div>

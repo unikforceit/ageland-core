@@ -214,7 +214,7 @@ class ageland_sslider extends Widget_Base {
         if ($settings['slider_list']) {
             foreach ($settings['slider_list'] as $slide) {
                 echo '<div class="single-screen">
-                                '.get_that_image($slide['image']).'
+                                '.ageland_get_that_image($slide['image']).'
                             </div>';
             }
         }

@@ -14,7 +14,7 @@ if ($settings['feature_list']) {
     foreach ($settings['feature_list'] as $feature) {
         echo '<div class="col-lg-4 col-sm-6">
                         <div class="ag_icon_box_inner icon_box_style_01">
-                            '.get_that_image($feature['image'],'services_icon').'
+                            '.ageland_get_that_image($feature['image'],'services_icon').'
                             <h4 class="title">'.$feature['feature_title'].'</h4>
                             <p class="description">'.$feature['feature_info'].'</p>
                         </div>

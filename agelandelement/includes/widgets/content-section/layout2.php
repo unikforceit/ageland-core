@@ -32,7 +32,7 @@ if ($settings['icon_list']) {
         }else{
             $cls='shape-six';
         }
-        echo ''.get_that_image($icon['iconnn'],''.$cls.'').'';
+        echo ''.ageland_get_that_image($icon['iconnn'],''.$cls.'').'';
     }
 }
 echo '</section>

@@ -28,7 +28,7 @@ if ($settings['testi_list']) {
             $cls='five';
         }
         echo '<li class="nav-item '.$cls.'">
-                                    <a class="nav-link '.$act.'" data-toggle="tab" href="#tabs-'.$loop.'" role="tab">'.get_that_image($testi['thumb'],'people').'</a>
+                                    <a class="nav-link '.$act.'" data-toggle="tab" href="#tabs-'.$loop.'" role="tab">'.ageland_get_that_image($testi['thumb'],'people').'</a>
                                 </li>';
     }
 }
@@ -53,7 +53,7 @@ if ($settings['testi_list']) {
         }
         echo '<div class="tab-pane '.$act2.'" id="tabs-'.$loop2.'" role="tabpanel">
                                             <div class="single_testi_inside">
-                                                '.get_that_image($settings['quote']).'
+                                                '.ageland_get_that_image($settings['quote']).'
                                                 <p>'.$testi['t_info'].'</p>
                                                 <h4>'.$testi['t_title'].'</h4>
                                                 <h5>'.$testi['t_subtitle'].'</h5>

@@ -43,7 +43,7 @@ echo '</div>
                     </div>
                     <div class="col-lg-5">
                         <div class="faq-img">
-                             '.get_that_image($settings['image']).'
+                             '.ageland_get_that_image($settings['image']).'
                         </div>
                     </div>
                 </div>

@@ -11,8 +11,10 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="bannerTwo-content">
-                            <h3 class="title">Solve <span class="bannerArrow"></span> Problems Build Your <span
-                                    class="bannerHighlight">Brands</span></h3>
+                            <h3 class="title"><?php echo esc_html($settings['title']);?><span class="bannerArrow">
+
+                                </span> <?php echo esc_html($settings['title_two']);?><span
+                                    class="bannerHighlight"><?php echo esc_html($settings['banner_Highlight_one']);?></span></h3>
                             <div class="time-clients d-flex align-items-center">
                                 <div class="bTime">
                                     <p>5m</p>
@@ -35,7 +37,7 @@
                 <div class="row justify-content-center justify-content-lg-between">
                     <div class="col-md-5">
                         <div class="bannerTwo-content">
-                            <p class="info">We are a creative agency that will be work hard to understand your brands business and transform your ideas for into beautiful experiences.</p>
+                            <p class="info"><?php echo esc_html($settings['desc']);?></p>
                             <a <?php echo ageland_get_that_link($settings['learn_more_link']);?> class="get_started_btn"><?php echo esc_html($settings['learn_more']);?></a>
                         </div>
                     </div>

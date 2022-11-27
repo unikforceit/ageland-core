@@ -37,6 +37,20 @@ class ageland_header_builder extends Widget_Base
             ]
         );
         $this->add_control(
+            'custom_logo_upload',
+            [
+                'label' => __( 'Choose Custom Logo', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+            ]
+        );
+        $this->add_control(
+            'custom_mobile_logo_upload',
+            [
+                'label' => __( 'Choose Mobile Custom Logo', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+            ]
+        );
+        $this->add_control(
             'main_nav',
             [
                 'label' => __('Main Menu', 'ageland'),
@@ -322,78 +336,114 @@ class ageland_header_builder extends Widget_Base
         $main_menu = $settings['main_nav'];
         $mobile_menu = $settings['main_m_nav'];
 
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+
+        if ( $settings['custom_logo_upload']['id'] ) {
+            $url = wp_get_attachment_image( $settings['custom_logo_upload']['id'], 'full' );
+        } else {
+            $url = wp_get_attachment_image( $custom_logo_id, 'full' );
+        }
+
+        $custom_mobile_logo_id = get_theme_mod( 'mobile_custom_logo' );
+
+        if ( $settings['custom_mobile_logo_upload']['id'] ) {
+            $url = wp_get_attachment_image( $settings['custom_mobile_logo_upload']['id'], 'full' );
+        } else {
+            $url = wp_get_attachment_image( $custom_mobile_logo_id, 'full' );
+        }
+
         ?>
-        <section class="ageland-builder-nav">
-            <!-- header part -->
-            <header class="header_part classic_header dark_color">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <nav class="navbar navbar-expand-xl justify-content-between align-items-center">
-                                <div class="pu_logo_area">
-                                    <?php ageland_logo(); ?>
-                                    <?php ageland_logo('navbar-brand sticky_logo'); ?>
-                                </div>
-                                <div class="main_nav_wrapper d-flex justify-content-end">
-                                    <div class="main_nav collapse navbar-collapse justify-content-end"
-                                         id="navbarNavDropdown">
-                                        <?php
-                                        echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
-                                            wp_nav_menu( array(
-                                                    'container' => false,
-                                                    'echo' => false,
-                                                    'menu' => $main_menu,
-                                                    'menu_id' => 'main-menu',
-                                                    'fallback_cb'=> 'ageland_no_main_nav',
-                                                    'items_wrap' => '<ul class="navbar-nav">%3$s</ul>',
-                                                )
-                                            ));
-                                        ?>
-                                    </div>
-                                    <div class="header_right_btn">
-                                        <a href="https://wppro.unikforce.com/ageland/contact/" class="ag_btn btn_1 d-none d-sm-block"><?php echo esc_html('Hire Us')?></a>
-                                        <div class="pu_collaps_menu_icon offcanvus_menu_trigger navbar-toggler collapsed mr-0">
-                                            <div class="burger_icon">
-                                                <span class="burger_icon_top"></span>
-                                                <span class="burger_icon_bottom"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- header part end -->
-            <div class="off_canvus_menu">
-                <div class="off_canvus_menu_iner">
-                    <div class="off_canvus_menu_iner_logo">
-                        <?php ageland_logo('off_canvus_logo'); ?>
-                        <div class="popup-close-button close_icon">
-                            <i class="fas fa-times"></i>
-                        </div>
-                    </div>
-                    <div class="off_canvus_menu_iner_content">
-                        <nav class="navbar">
-                            <?php
-                            echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
-                                wp_nav_menu( array(
-                                        'container' => false,
-                                        'echo' => false,
-                                        'menu' => $mobile_menu,
-                                        'menu_id' => 'm-main-menu',
-                                        'fallback_cb'=> 'ageland_no_main_nav',
-                                        'items_wrap' => '<ul class="navbar-nav">%3$s</ul>',
-                                    )
-                                ));
-                            ?>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="offcanvas_overlay"></div>
-        </section>
+
+          <section class="ageland-builder-nav">
+              <!-- Start Main Header -->
+              <header id="main-header" class="main-header">
+                  <div class="menu-header home-header-1">
+                      <div class="container">
+                          <div class="main-menu">
+                              <div class="row justify-content-between align-items-center">
+                                  <!-- logo -->
+                                  <div class="col-lg-2 col-md-4 col-sm-8 logo-col">
+                                      <div class="logo">
+                                          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'ageland' ); ?>" rel="home">
+                                              <?php
+                                              echo $url;
+                                              ?>
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <!-- Menu -->
+                                  <div class="col-lg-10 col-md-8 col-sm-4 menu-col">
+                                      <div class="main_menu_wrap d-flex justify-content-end align-items-center">
+                                          <!--Main Menu-->
+                                          <div class="main-menu-navigation">
+                                              <nav class="navigation-main-area ul-li">
+                                                  <?php
+                                                  echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
+                                                      wp_nav_menu( array(
+                                                              'container' => false,
+                                                              'echo' => false,
+                                                              'menu' => $main_menu,
+                                                              'menu_id' => 'main-menu',
+                                                              'fallback_cb'=> 'ageland_no_main_nav',
+                                                              'items_wrap' => '<ul>%3$s</ul>',
+                                                          )
+                                                      ));
+                                                  ?>
+                                              </nav>
+
+                                          </div>
+                                          <!-- Start Mobile Menu -->
+                                          <div class="mobile_menu position-relative">
+                                              <div class="mobile_menu_button open_mobile_menu">
+                                                  <i class="fas fa-bars"></i>
+                                              </div>
+                                              <div class="mobile_menu_wrap">
+                                                  <div class="mobile_menu_overlay open_mobile_menu"></div>
+                                                  <div class="mobile_menu_content">
+                                                      <div class="mobile_menu_close open_mobile_menu">
+                                                          <i class="fas fa-times"></i>
+                                                      </div>
+                                                      <div class="m-brand-logo">
+                                                          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'ageland' ); ?>" rel="home">
+                                                              <?php
+                                                              echo $url;
+                                                              ?>
+                                                          </a>
+                                                      </div>
+                                                      <nav class="mobile-main-navigation  clearfix ul-li">
+                                                          <?php
+                                                          echo str_replace(['menu-item-has-children', 'sub-menu'], ['dropdown', 'dropdown-menu'],
+                                                              wp_nav_menu( array(
+                                                                      'container' => false,
+                                                                      'echo' => false,
+                                                                      'menu' => $mobile_menu,
+                                                                      'menu_id' => 'm-main-menu',
+                                                                      'fallback_cb'=> 'ageland_no_main_nav',
+                                                                      'items_wrap' => '<ul class="navbar-nav text-capitalize clearfix">%3$s</ul>',
+                                                                  )
+                                                              ));
+                                                          ?>
+                                                      </nav>
+
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- Start Menu Button -->
+                                          <div class="menu_btn d-flex align-items-center flex-wrap">
+                                              <div class="header_btn">
+                                                  <a href="#">Sey, Hello!</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </header>
+              <!-- End Main Header -->
+          </section>
+
     <?php }
 
 }

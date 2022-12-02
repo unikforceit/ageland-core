@@ -212,6 +212,46 @@ class ageland_banner extends Widget_Base
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+
+        $this->add_control(
+            'customer-img-1',
+            [
+                'label' => __( 'customer Image 1', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+                'condition' => [
+                    'layout' => ['layout1']
+                ]
+            ]
+        );
+        $this->add_control(
+            'customer-img-2',
+            [
+                'label' => __( 'customer Image 2', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+                'condition' => [
+                    'layout' => ['layout1']
+                ]
+            ]
+        );
+        $this->add_control(
+            'customer-img-3',
+            [
+                'label' => __( 'customer Image 3', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+                'condition' => [
+                    'layout' => ['layout1']
+                ]
+            ]
+        );
         $this->add_control(
             'rating',
             [

@@ -21,9 +21,9 @@
     <div class="happy_coustomer d-flex justify-content-center align-items-center">
         <div class="happy_coustomer_wrap d-flex justify-content-center align-items-lg-center">
             <ul class="customer d-flex align-items-center">
-                <li><img src="assets/img/customers/customer_1.png" alt=""></li>
-                <li><img src="assets/img/customers/customer_2.png" alt=""></li>
-                <li><img src="assets/img/customers/customer_3.png" alt=""></li>
+                <li><?php echo ageland_get_that_image($settings['customer-img-1'])?></li>
+                <li><?php echo ageland_get_that_image($settings['customer-img-2'])?></li>
+                <li><?php echo ageland_get_that_image($settings['customer-img-3'])?></li>
             </ul>
             <div class="content">
                 <p><?php echo esc_html($settings['customers']);?></p>

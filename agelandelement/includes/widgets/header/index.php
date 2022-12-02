@@ -70,6 +70,26 @@ class ageland_header_builder extends Widget_Base
                 'label_block' => true,
             ]
         );
+        $this->add_control(
+            'learn_more',
+            [
+                'label' => __( 'Learn More', 'ageland' ),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __( 'Sey, Hello!', 'ageland' ),
+            ]
+        );
+        $this->add_control(
+            'learn_more_link', [
+                'label' => __('Learn More Link', 'ageland'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => [
+                    'url' => 'https://unikforce.com',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+            ]
+        );
         $this->add_responsive_control(
             'menu_align',
             [
@@ -431,7 +451,7 @@ class ageland_header_builder extends Widget_Base
                                           <!-- Start Menu Button -->
                                           <div class="menu_btn d-flex align-items-center flex-wrap">
                                               <div class="header_btn">
-                                                  <a href="#">Sey, Hello!</a>
+                                                  <a <?php echo ageland_get_that_link($settings['learn_more_link']);?>><?php echo esc_html($settings['learn_more']);?></a>
                                               </div>
                                           </div>
                                       </div>
